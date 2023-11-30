@@ -21,4 +21,5 @@
         </items>
     </ComboBox>
     <Button text="Sign Up" onAction="#handleSignUp"/>
+    <Button text="Back" onAction="#handleBack"></Button>
 </VBox>

@@ -28,5 +28,7 @@
         <Label text="Password" GridPane.rowIndex="2"/>
         <PasswordField fx:id="passwordField" promptText="Enter your password" GridPane.rowIndex="2"/>
         <Button text="Sign In" onAction="#handleSignIn" GridPane.rowIndex="3"/>
+        <Button text="Back" onAction="#handleBack" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
     </children>
+
 </GridPane>

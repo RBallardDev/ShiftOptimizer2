@@ -1,8 +1,15 @@
 package Controller.XMLControllers;
 
 import Controller.File.JacksonEditor;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class SignUpController {
 
@@ -25,5 +32,12 @@ public class SignUpController {
 
         // Implement the logic to add a new worker
         JacksonEditor.addWorker(username, password, status);
+    }
+
+    public void handleBack(ActionEvent event) throws IOException {
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/start-view.fxml"));
+        Stage stage = HelperMethods.getStageFromEvent(event);
+        stage.setScene(new Scene(signUpScreenRoot));
+        stage.show();
     }
 }

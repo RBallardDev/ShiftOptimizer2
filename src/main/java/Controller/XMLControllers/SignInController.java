@@ -1,11 +1,17 @@
 package Controller.XMLControllers;
-import Controller.UserAuth.SessionAuth;
 import Controller.UserAuth.SignInAuth;
 import Model.Token;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 public class SignInController {
     @FXML
     private TextField usernameField;
@@ -26,5 +32,12 @@ public class SignInController {
             HelperMethods.showAlert("Invalid Credentials", "The username or password that you entered was incorrect. Please try again.");
             //Sign-in failed
         }
+    }
+
+    public void handleBack(ActionEvent event) throws IOException {
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/start-view.fxml"));
+        Stage stage = HelperMethods.getStageFromEvent(event);
+        stage.setScene(new Scene(signUpScreenRoot));
+        stage.show();
     }
 }
