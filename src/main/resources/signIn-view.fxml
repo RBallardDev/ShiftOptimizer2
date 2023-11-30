@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="Controller.XMLControllers.SignInController"
@@ -25,10 +23,10 @@
                 <Font size="20.0"/>
             </font>
         </Label>
-        <Label text="Username"/>
-        <TextField fx:id="usernameField" promptText="Enter your username"/>
-        <Label text="Password"/>
-        <PasswordField fx:id="passwordField" promptText="Enter your password"/>
-        <Button text="Sign In" onAction="#handleSignIn"/>
+        <Label text="Username" GridPane.rowIndex="1"/>
+        <TextField fx:id="usernameField" promptText="Enter your username" GridPane.rowIndex="1"/>
+        <Label text="Password" GridPane.rowIndex="2"/>
+        <PasswordField fx:id="passwordField" promptText="Enter your password" GridPane.rowIndex="2"/>
+        <Button text="Sign In" onAction="#handleSignIn" GridPane.rowIndex="3"/>
     </children>
 </GridPane>

@@ -19,6 +19,8 @@ public class SignInController {
         if (token != null) {
             //Sign-in successful
             Session.setToken(token);
+            HelperMethods.showAlert("Login Successful", "This is a test. Don't display this really.");
+
             //Next page with all the options
         } else {
             HelperMethods.showAlert("Invalid Credentials", "The username or password that you entered was incorrect. Please try again.");

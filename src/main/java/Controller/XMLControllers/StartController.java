@@ -36,7 +36,11 @@ public class StartController {
     }
 
     @FXML
-    private void handleSignIn() throws IOException {
+    private void handleSignIn(ActionEvent event) throws IOException {
         Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/signIn-view.fxml"));
+        Stage stage = HelperMethods.getStageFromEvent(event);
+        stage.setScene(new Scene(signUpScreenRoot));
+        stage.show();
+
     }
 }
