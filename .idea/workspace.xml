@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/ManagerMainMenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/WorkerMainMenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/manager-main-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/worker-main-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/signIn-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/signIn-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/signUp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/signUp-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/start-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/start-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
