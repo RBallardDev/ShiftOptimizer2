@@ -11,7 +11,7 @@ import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
-public class StartScreenController {
+public class StartController {
 
     @FXML
     private Button signUpButton;
@@ -23,11 +23,10 @@ public class StartScreenController {
     private void handleSignUp(ActionEvent event) {
         try {
             // Load the sign-up screen FXML file
-            Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/signUpScreen-view.fxml"));
+            Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/signUp-view.fxml"));
 
             // Get the current stage using the button from the current scene
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
+            Stage stage = HelperMethods.getStageFromEvent(event);
             // Set the sign-up screen scene to the stage
             stage.setScene(new Scene(signUpScreenRoot));
             stage.show();
@@ -37,7 +36,7 @@ public class StartScreenController {
     }
 
     @FXML
-    private void handleSignIn() {
-        // Implement sign-in logic
+    private void handleSignIn() throws IOException {
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/signIn-view.fxml"));
     }
 }

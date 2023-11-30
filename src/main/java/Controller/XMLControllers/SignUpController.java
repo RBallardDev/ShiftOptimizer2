@@ -1,9 +1,10 @@
 package Controller.XMLControllers;
 
+import Controller.File.JacksonEditor;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class SignUpScreenController {
+public class SignUpController {
 
     @FXML
     private TextField usernameField;
@@ -20,7 +21,9 @@ public class SignUpScreenController {
         String password = passwordField.getText();
         String status = statusComboBox.getValue();
 
+
+
         // Implement the logic to add a new worker
-        // Use JacksonEditor.addWorker(username, password, status);
+        JacksonEditor.addWorker(username, password, status);
     }
 }

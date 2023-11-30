@@ -9,8 +9,7 @@ import java.io.File;
 public class Jackson {
 
     protected static File getJsonFile() {
-        File jsonFile = new File("src/main/resources/data.json");
-        return jsonFile;
+        File jsonFile = new File(System.getProperty("user.dir") + "/src/main/resources/data.json");        return jsonFile;
     }
 
     protected static JsonNode getRootNode() {
