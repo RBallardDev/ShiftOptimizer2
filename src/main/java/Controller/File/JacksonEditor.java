@@ -3,6 +3,7 @@ package Controller.File;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import static Controller.BouncyCastleEncrypter.hashPassword;
@@ -34,7 +35,7 @@ public class JacksonEditor extends Jackson {
                     .put("username", username)
                     .put("password", hashPassword(password))
                     .put("status", status);
-            ((com.fasterxml.jackson.databind.node.ArrayNode) workersNode).add(newWorker);
+            ((ArrayNode)workersNode).add(newWorker);
 
             try {
                 objectWriter.writeValue(getJsonFile(), rootNode);
