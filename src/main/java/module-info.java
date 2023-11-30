@@ -9,4 +9,6 @@ module com.example.shiftoptimizer2 {
 
     opens Controller to javafx.fxml;
     exports Controller;
+    exports Controller.XMLControllers;
+    opens Controller.XMLControllers to javafx.fxml;
 }
