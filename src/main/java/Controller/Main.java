@@ -1,5 +1,6 @@
 package Controller;
 
+import View.CLI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,6 +16,8 @@ public class Main extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+        CLI cli = new CLI();
+        cli.run();
     }
 
     public static void main(String[] args) {
