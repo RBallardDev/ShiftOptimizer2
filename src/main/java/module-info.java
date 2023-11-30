@@ -4,6 +4,8 @@ module com.example.shiftoptimizer2 {
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
+    requires org.bouncycastle.provider;
+    requires com.fasterxml.jackson.databind;
 
     opens Controller to javafx.fxml;
     exports Controller;

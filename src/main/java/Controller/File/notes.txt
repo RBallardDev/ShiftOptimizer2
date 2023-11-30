@@ -1,0 +1,4 @@
+File maker will have to be able to create
+a file from scratch with the correct structure if loadup file is not found
+
+A lot of the methods will have to be split into multiple files

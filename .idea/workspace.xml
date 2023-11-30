@@ -1,7 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="" />
+    <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/bcprov-jdk18on-177.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jackson-annotations-2.16.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jackson-core-2.16.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jackson-databind-2.16.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jjwt-0.12.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jjwt-api-0.12.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jjwt-impl-0.12.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jjwt-jackson-0.12.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/AssignHours.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/BouncyCastleEncrypter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/File/Jackson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonGetter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/File/notes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Optimizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/PasswordAuth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/SessionAuth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/SessionTokenBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/SignInAuth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/AvailableSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/MasterSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/OptimizedSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/Schedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/Shift.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ShiftConflictException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Staff/AdultWorker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Staff/Manager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Staff/StudentWorker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Staff/Worker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Time/Day.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Time/Hour.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Time/Week.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Time/WorkdayConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Token.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/CLI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/ShowSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/View/SignInScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +57,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2Ysv9CXp75ctLQGaRDAfwaFPRn8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -23,9 +70,31 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Jmsle/OneDrive/Oxy/COMP 181/ShiftOptimizer2/lib",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5091954"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\lib" />
+      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\java\View" />
+      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\java\Model" />
+      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\java\Controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Controller.Main" />
+      <module name="ShiftOptimizer2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
