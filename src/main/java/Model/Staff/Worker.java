@@ -5,12 +5,11 @@ import Model.Schedules.Schedule;
 import Model.Schedules.Shift;
 import Model.Schedules.ShiftConflictException;
 
-public class Worker
-{
+public class Worker {
     @JsonProperty("username")
-    private String userName;
+    private String username;
     @JsonProperty("password")
-    private String passWord;
+    private String password;
     @JsonProperty("status")
     private String status;
 
@@ -19,11 +18,14 @@ public class Worker
     //int workerID;
 
 
-
-
-    public Worker()
-    {
+    public Worker() {
         this.schedule = new Schedule();
+    }
+
+    public Worker(String username, String password, String status) {
+        this.username = username;
+        this.password = password;
+        this.status = status;
     }
 
     public void addShift(Shift shift) throws ShiftConflictException {
@@ -31,15 +33,15 @@ public class Worker
             schedule.addShift(shift);
             shift.setWorker(this);
         } else {
-            System.out.println("Shift conflict detected for worker: " + userName);
+            System.out.println("Shift conflict detected for worker: " + username);
         }
     }
 
     public void removeShift(Shift shift) {
         if (schedule.removeShift(shift)) {
-            System.out.println("Shift removed for worker: " + userName);
+            System.out.println("Shift removed for worker: " + username);
         } else {
-            System.out.println("Shift not found for worker: " + userName);
+            System.out.println("Shift not found for worker: " + username);
         }
 
     }
@@ -51,18 +53,22 @@ public class Worker
     @Override
     public String toString() {
         return "Worker{" +
-                "username='" + userName + '\'' +
-                ", password='" + passWord + '\'' +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", status='" + status + '\'' +
                 '}';
     }
 
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
-    public String getUserName(){
-        return userName;
+    public String getUserName() {
+        return username;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

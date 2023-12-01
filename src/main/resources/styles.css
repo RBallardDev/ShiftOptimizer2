@@ -1,0 +1,21 @@
+/* styles.css */
+
+/* Apply styles to the VBox */
+VBox {
+    -fx-background-color: #f0f0f0; /* Background color */
+}
+
+/* Apply styles to the buttons */
+.button {
+    -fx-font-size: 16px;
+    -fx-padding: 10px 20px; /* Padding around the text */
+    -fx-background-color: #4CAF50; /* Button background color */
+    -fx-text-fill: white; /* Button text color */
+    -fx-border-radius: 5px; /* Button border radius */
+}
+
+.button:hover {
+    -fx-background-color: #45a049; /* Button background color on hover */
+}
+
+/* Add more styles as needed */

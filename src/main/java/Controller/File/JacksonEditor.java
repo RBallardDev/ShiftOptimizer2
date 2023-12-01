@@ -10,7 +10,7 @@ import static Controller.BouncyCastleEncrypter.hashPassword;
 
 public class JacksonEditor extends Jackson {
 
-    public static void addWorker(String username, String password, String status) {
+    public static void addUser(String username, String password, String status) {
         //Have to check for duplicate usernames
 
         // I updated what you wrote here
@@ -20,21 +20,23 @@ public class JacksonEditor extends Jackson {
 
         // Check if username already exists
         boolean usernameExists = false;
-        JsonNode workersNode = rootNode.path("workers");
-        for (JsonNode workerNode : workersNode) {
-            if (workerNode.path("username").asText().equals(username)) {
+        JsonNode usersNode = rootNode.path("users");
+        for (JsonNode userNode : usersNode) {
+            if (usersNode.path("username").asText().equals(username)) {
                 usernameExists = true;
                 break;
             }
         }
 
+
+
         // Add new worker only if username is unique
         if (!usernameExists) {
-            JsonNode newWorker = objectMapper.createObjectNode()
+            JsonNode newUser = objectMapper.createObjectNode()
                     .put("username", username)
                     .put("password", hashPassword(password))
                     .put("status", status);
-            ((com.fasterxml.jackson.databind.node.ArrayNode) workersNode).add(newWorker);
+            ((com.fasterxml.jackson.databind.node.ArrayNode) usersNode).add(newUser);
 
             try {
                 objectWriter.writeValue(getJsonFile(), rootNode);
@@ -42,21 +44,20 @@ public class JacksonEditor extends Jackson {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Username already exists. Please choose a different username.");
+            throw new IllegalArgumentException("Could not add user");
         }
 
     }
 
-    public static void removeWorker(String username) {
+
+    public static void removeUser(String username) {
         JsonNode rootNode = getRootNode();
         ObjectMapper objectMapper = getObjectMapper();
         ObjectWriter objectWriter = getObjectWriter();
 
-        for (int i = 0; i < rootNode.get("workers").size(); i++) {
-            if (username.equals(rootNode.get("workers").get(i).get("username").asText())) {
-                System.out.println("Hello");
-                System.out.println(i);
-                ((com.fasterxml.jackson.databind.node.ArrayNode) rootNode.get("workers")).remove(i);
+        for (int i = 0; i < rootNode.get("users").size(); i++) {
+            if (username.equals(rootNode.get("users").get(i).get("username").asText())) {
+                ((com.fasterxml.jackson.databind.node.ArrayNode) rootNode.get("users")).remove(i);
                 try {
                     objectWriter.writeValue(getJsonFile(), rootNode);
                 } catch (Exception e) {
@@ -65,6 +66,7 @@ public class JacksonEditor extends Jackson {
             }
 
         }
+
     }
     public static void clearJsonFile() {
         ObjectMapper objectMapper = getObjectMapper();
@@ -72,7 +74,7 @@ public class JacksonEditor extends Jackson {
 
         // Create a new JSON object with an empty "workers" array
         ObjectNode rootNode = objectMapper.createObjectNode();
-        rootNode.putArray("workers");
+        rootNode.putArray("users");
 
         // Write the new empty structure back to the file
         try {

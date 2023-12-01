@@ -3,6 +3,7 @@ package View;
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
 import Controller.UserAuth.SignInAuth;
+import Model.Staff.User;
 import Model.Staff.Worker;
 import Model.Token;
 
@@ -34,15 +35,15 @@ public class CLI {
                     String password = scanner.next();
                     System.out.print("Enter status (ST/AD): ");
                     String status = scanner.next();
-                    JacksonEditor.addWorker(username, password, status);
+                    JacksonEditor.addUser(username, password, status);
 
                     //Jackson.addWorker("test1", "pass1", "ST");
                     //BouncyCastle.loginTest("test1", "pass1");
                     break;
                 case 2:
-                    List<Worker> workers = JacksonGetter.getAllWorkers();
-                    for (Worker worker : workers) {
-                        System.out.println(worker);
+                    List<User> users = JacksonGetter.getAllUsers();
+                    for (User user : users) {
+                        System.out.println(user);
                     }
                     break;
                 case 3:

@@ -30,8 +30,15 @@ public class SignUpController {
 
 
 
-        // Implement the logic to add a new worker
-        JacksonEditor.addWorker(username, password, status);
+        // Implement the logic to add a new user
+        try {
+            JacksonEditor.addUser(username, password, status);
+            HelperMethods.showAlert("Sign-Up Successful", "Your credentials have been saved. You can now login.");
+
+        }catch(Exception e){
+            HelperMethods.showAlert("Sign-Up failed", "Your credentials are invalid.");
+
+        }
     }
 
     public void handleBack(ActionEvent event) throws IOException {

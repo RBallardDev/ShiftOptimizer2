@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/ManagerMainMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/WorkerMainMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/manager-main-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/worker-main-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Staff/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonGetter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/HelperMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/HelperMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Staff/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Staff/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Token.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/CLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/signUp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/signUp-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/start-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/start-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,8 +1,8 @@
 package Model;
 
 public class Token {
-    String username;
-    String encryptedPassword;
+    private String username;
+    private String encryptedPassword;
 
     public Token(String username, String encryptedPassword){
         this.username = username;
