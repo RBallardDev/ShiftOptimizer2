@@ -28,23 +28,6 @@ public class Worker extends User {
         this.status = status;
     }
 
-    public void addShift(Shift shift) throws ShiftConflictException {
-        if (!schedule.hasConflict(shift)) {
-            schedule.addShift(shift);
-            shift.setWorker(this);
-        } else {
-            System.out.println("Shift conflict detected for worker: " + username);
-        }
-    }
-
-    public void removeShift(Shift shift) {
-        if (schedule.removeShift(shift)) {
-            System.out.println("Shift removed for worker: " + username);
-        } else {
-            System.out.println("Shift not found for worker: " + username);
-        }
-
-    }
 
     public String printSchedule() {
         return schedule.printSchedule();

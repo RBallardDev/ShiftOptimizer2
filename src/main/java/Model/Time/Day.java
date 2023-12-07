@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Day {
+    //IS PRETTY MUCH DAYSCHEDULE
     public DayNames name;
 
-    enum DayNames {
+    public enum DayNames {
         Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
     }
     public Hour[] hours = new Hour[24];
@@ -83,4 +84,24 @@ public class Day {
 
         shifts.remove(shift); // Remove the shift from the list of shifts*/
     }
+    public boolean hasConflict(Shift newShift) {
+        for (Shift existingShift : shifts) {
+            if (isSameDay(existingShift, newShift) && shiftsOverlap(existingShift, newShift)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //HELPER METHODS
+    private boolean shiftsOverlap(Shift shift1, Shift shift2) {
+        return !shift1.getEndTime().isBefore(shift2.getStartTime()) &&
+                !shift2.getEndTime().isBefore(shift1.getStartTime());
+    }
+
+    private boolean isSameDay(Shift shift1, Shift shift2) {
+        return shift1.getDay().equals(shift2.getDay());
+    }
+
+
 }

@@ -3,13 +3,17 @@ package View;
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
 import Controller.UserAuth.SignInAuth;
+import Model.Schedules.Shift;
+import Model.Schedules.ShiftConflictException;
 import Model.Staff.User;
 import Model.Staff.Worker;
+import Model.Time.Day;
 import Model.Token;
 
 import java.util.List;
 import java.util.Scanner;
 import Controller.XMLControllers.Session;
+import java.time.LocalTime;
 public class CLI {
 
 
@@ -114,32 +118,22 @@ switch(action) {
 
 
     private static void displaySchedule(String username) {
-        System.out.println(username);
-
-        JacksonGetter.getWorkerByUsername(username);
 
 
-       /* Worker worker =  (Worker) JacksonGetter.getWorkerByUsername( username );
 
-        if (worker == null) {
-            System.out.println("Worker not found");
-            return;
-        }
 
-        Day monday = new Day("Monday");
-        Day tuesday = new Day("Tuesday");
 
-        Shift shift1 = new Shift(LocalTime.of(9, 0), LocalTime.of(17, 0), worker, monday);
-        Shift shift2 = new Shift(LocalTime.of(10, 0), LocalTime.of(18, 0), worker, tuesday);
 
-        try {
-            worker.addShift(shift1);
-            worker.addShift(shift2);
-        } catch (ShiftConflictException e) {
-            System.out.println("Error adding shift: " + e.getMessage());
-        }
 
-        System.out.println("Schedule for " + worker.getUserName() + ":");
-        System.out.println(worker.printSchedule());*/
+
+        Shift shift1 = new Shift(LocalTime.of(9, 0), LocalTime.of(17, 0), JacksonGetter.getWorkerByUsername(username));
+        Shift shift2 = new Shift(LocalTime.of(10, 0), LocalTime.of(18, 0), JacksonGetter.getWorkerByUsername(username));
+
+
+        ((Worker)JacksonGetter.getWorkerByUsername(username)).getSchedule().getDay(Day.DayNames.Monday).addShift(shift1);
+        ((Worker)JacksonGetter.getWorkerByUsername(username)).getSchedule().getDay(Day.DayNames.Tuesday).addShift(shift2);
+
+        System.out.println("Schedule for " + username + ":");
+        System.out.println(((Worker) JacksonGetter.getWorkerByUsername(username)).getSchedule().printSchedule());
     }
 }
