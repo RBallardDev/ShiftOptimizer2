@@ -71,4 +71,8 @@ public class Worker extends User {
     public String getStatus() {
         return status;
     }
+
+    public Schedule getSchedule(){
+        return schedule;
+    }
 }

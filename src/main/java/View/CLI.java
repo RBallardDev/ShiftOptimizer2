@@ -77,15 +77,30 @@ public class CLI {
 
         //This should not be here in the real program
         Token loginToken = SignInAuth.signIn(username, password);
+        Session.setToken
         //The user gets a token
 
         if (loginToken != null) {
             System.out.println("Sign in successful!");
+
         } else {
             System.out.println("Sign in failed. Please check your credentials.");
         }
     }
 
+    private static void workerMain(){
+        Scanner scn = new Scanner(System.in);
+        System.out.print("See schedule (1) or input schedule(2)");
+        int action = scn.nextInt();
+switch(action) {
+    case 1:
+        //Display schedule
+
+    case 2:
+        //Input schedule
+    default:
+}
+    }
     private static <Shift> void displaySchedule()
     {
 
