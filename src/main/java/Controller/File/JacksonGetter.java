@@ -12,8 +12,8 @@ public class JacksonGetter extends Jackson{
     public static int getIndexFromUsername(String username) {
         JsonNode rootNode = getRootNode();
 
-        for (int i = 0; i < rootNode.get("users").size(); i++) {
-            if (username.equals(rootNode.get("users").get(i).get("username").asText())) {
+        for (int i = 0; i < rootNode.get("workers").size(); i++) {
+            if (username.equals(rootNode.get("workers").get(i).get("username").asText())) {
                 return i;
             }
         }
@@ -24,7 +24,7 @@ public class JacksonGetter extends Jackson{
     public static String getPasswordFromIndex(int i){
         JsonNode rootNode = getRootNode();
 
-        return rootNode.get("users").get(i).get("password").asText();
+        return rootNode.get("workers").get(i).get("password").asText();
 
     }
 
@@ -32,28 +32,28 @@ public class JacksonGetter extends Jackson{
 
             JsonNode rootNode = getRootNode();
             ObjectMapper objectMapper = getObjectMapper();
-            List<Worker> users = new ArrayList<>();
+            List<Worker> workers = new ArrayList<>();
 
             // Assuming the workers are stored in an array under the "workers" field
-            if (rootNode != null && rootNode.has("users")) {
-                JsonNode usersNode = rootNode.get("users");
-                if (usersNode.isArray()) {
-                    Iterator<JsonNode> iterator = usersNode.elements();
+            if (rootNode != null && rootNode.has("workers")) {
+                JsonNode workersNode = rootNode.get("workers");
+                if (workersNode.isArray()) {
+                    Iterator<JsonNode> iterator = workersNode.elements();
                     while (iterator.hasNext()) {
-                        JsonNode userNode = iterator.next();
+                        JsonNode workerNode = iterator.next();
 
-                        String username = userNode.get("username").asText();
-                        String password = userNode.get("password").asText();
-                        String status = userNode.get("status").asText();
+                        String username = workerNode.get("username").asText();
+                        String password = workerNode.get("password").asText();
+                        String status = workerNode.get("status").asText();
 
-                        Worker user = new Worker(username, password, status);
-                        users.add(user);
+                        Worker worker = new Worker(username, password, status);
+                        workers.add(worker);
                     }
 
 
                 }
             }
-        return users;
+        return workers;
     }
 
     public static Worker getWorkerByUsername(String username) {

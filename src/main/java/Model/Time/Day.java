@@ -35,8 +35,8 @@ public class Day {
 
 
     public void addShift(Shift shift) {
-        System.out.println(shifts.add(shift));
-        System.out.println(shifts.size());
+        shifts.add(shift);
+
     }
 
     // Method to get all shifts for the day

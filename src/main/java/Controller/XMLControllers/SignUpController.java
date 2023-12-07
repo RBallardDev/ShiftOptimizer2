@@ -32,7 +32,7 @@ public class SignUpController {
 
         // Implement the logic to add a new user
         try {
-            JacksonEditor.addUser(username, password, status);
+            JacksonEditor.addWorker(username, password, status);
             HelperMethods.showAlert("Sign-Up Successful", "Your credentials have been saved. You can now login.");
 
         }catch(Exception e){

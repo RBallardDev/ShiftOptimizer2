@@ -3,6 +3,7 @@ package Controller.File;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import static Controller.BouncyCastleEncrypter.hashPassword;
@@ -10,7 +11,7 @@ import static Controller.BouncyCastleEncrypter.hashPassword;
 
 public class JacksonEditor extends Jackson {
 
-    public static void addUser(String username, String password, String status) {
+    public static void addWorker(String username, String password, String status) {
         //Have to check for duplicate usernames
 
         // I updated what you wrote here
@@ -20,9 +21,9 @@ public class JacksonEditor extends Jackson {
 
         // Check if username already exists
         boolean usernameExists = false;
-        JsonNode usersNode = rootNode.path("users");
-        for (JsonNode userNode : usersNode) {
-            if (usersNode.path("username").asText().equals(username)) {
+        JsonNode workersNode = rootNode.path("workers");
+        for (JsonNode workerNode : workersNode) {
+            if (workerNode.path("username").asText().equals(username)) {
                 usernameExists = true;
                 break;
             }
@@ -32,11 +33,27 @@ public class JacksonEditor extends Jackson {
 
         // Add new worker only if username is unique
         if (!usernameExists) {
-            JsonNode newUser = objectMapper.createObjectNode()
+            String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+            ObjectNode newSchedule = objectMapper.createObjectNode();
+            ArrayNode daysArray = objectMapper.createArrayNode();
+
+            for(String day : daysOfWeek){
+//                ArrayNode shiftsArray = objectMapper.createArrayNode();
+                JsonNode newDaySchedule = objectMapper.createObjectNode().put("day-name", day);
+                daysArray.add(newDaySchedule);
+            }
+
+            newSchedule.set("day-schedules", daysArray);
+
+            JsonNode newWorker = objectMapper.createObjectNode()
                     .put("username", username)
                     .put("password", hashPassword(password))
                     .put("status", status);
-            ((com.fasterxml.jackson.databind.node.ArrayNode) usersNode).add(newUser);
+
+
+
+            ((com.fasterxml.jackson.databind.node.ArrayNode) workersNode).add(newWorker);
 
             try {
                 objectWriter.writeValue(getJsonFile(), rootNode);
@@ -44,20 +61,20 @@ public class JacksonEditor extends Jackson {
                 e.printStackTrace();
             }
         } else {
-            throw new IllegalArgumentException("Could not add user");
+            throw new IllegalArgumentException("Could not add worker");
         }
 
     }
 
 
-    public static void removeUser(String username) {
+    public static void removeWorker(String username) {
         JsonNode rootNode = getRootNode();
         ObjectMapper objectMapper = getObjectMapper();
         ObjectWriter objectWriter = getObjectWriter();
 
-        for (int i = 0; i < rootNode.get("users").size(); i++) {
-            if (username.equals(rootNode.get("users").get(i).get("username").asText())) {
-                ((com.fasterxml.jackson.databind.node.ArrayNode) rootNode.get("users")).remove(i);
+        for (int i = 0; i < rootNode.get("workers").size(); i++) {
+            if (username.equals(rootNode.get("workers").get(i).get("username").asText())) {
+                ((com.fasterxml.jackson.databind.node.ArrayNode) rootNode.get("workers")).remove(i);
                 try {
                     objectWriter.writeValue(getJsonFile(), rootNode);
                 } catch (Exception e) {
@@ -74,7 +91,7 @@ public class JacksonEditor extends Jackson {
 
         // Create a new JSON object with an empty "workers" array
         ObjectNode rootNode = objectMapper.createObjectNode();
-        rootNode.putArray("users");
+        rootNode.putArray("workers");
 
         // Write the new empty structure back to the file
         try {

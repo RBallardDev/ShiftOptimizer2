@@ -2,6 +2,7 @@ package View;
 
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
+import Controller.UserAuth.SessionAuth;
 import Controller.UserAuth.SignInAuth;
 import Model.Schedules.Shift;
 import Model.Staff.Worker;
@@ -39,7 +40,7 @@ public class CLI {
                     String password = scanner.next();
                     System.out.print("Enter status (ST/AD): ");
                     String status = scanner.next();
-                    JacksonEditor.addUser(username, password, status);
+                    JacksonEditor.addWorker(username, password, status);
 
                     //Jackson.addWorker("test1", "pass1", "ST");
                     //BouncyCastle.loginTest("test1", "pass1");
@@ -78,14 +79,15 @@ public class CLI {
 
         //This should not be here in the real program
         Token loginToken = SignInAuth.signIn(username, password);
+        System.out.println(loginToken);
 
         //The user gets a token
 
         if (loginToken != null) {
             System.out.println("Sign in successful!");
-
-            workerMain(username);
             Session.setToken(loginToken);
+            workerMain(username);
+
         } else {
             System.out.println("Sign in failed. Please check your credentials.");
         }
@@ -111,20 +113,20 @@ switch(action) {
 
     private static void inputSchedule()
     {
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Input start time for shift");
 
     }
 
 
     private static void displaySchedule(String username) {
 
-        Worker test = JacksonGetter.getWorkerByUsername(username);
+        Worker test = JacksonGetter.getWorkerByUsername(SessionAuth.authenticateToken(Session.getToken()));
         Shift shift1 = new Shift(LocalTime.of(9, 0), LocalTime.of(17, 0), test);
         Shift shift2 = new Shift(LocalTime.of(10, 0), LocalTime.of(18, 0), test);
 
         test.getSchedule().getDay(Day.DayNames.Monday).addShift(shift1);
         test.getSchedule().getDay(Day.DayNames.Tuesday).addShift(shift2);
-
-        System.out.println(test.getSchedule().getDay(Day.DayNames.Monday).getShifts().size());
 
         System.out.println("Schedule for " + username + ":");
         System.out.println(test.getSchedule().printSchedule());
