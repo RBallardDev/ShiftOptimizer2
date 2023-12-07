@@ -10,6 +10,7 @@ public class User {
     @JsonProperty("status")
     private String status;
 
+    public User(){}
     public User(String username, String password, String status) {
         this.username = username;
         this.password = password;
