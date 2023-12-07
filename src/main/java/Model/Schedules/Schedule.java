@@ -3,17 +3,18 @@ package Model.Schedules;
 import Model.Time.Day;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Schedule {
-    private List<Day> days;
+    private ArrayList<Day> days = new ArrayList<>();
 
     public Schedule() {
-        Day.DayNames[] dayNames = {Day.DayNames.Monday, Day.DayNames.Tuesday,
+        Day.DayNames[] dayNames = {Day.DayNames.Sunday, Day.DayNames.Monday, Day.DayNames.Tuesday,
                 Day.DayNames.Wednesday, Day.DayNames.Thursday, Day.DayNames.Friday,
-                Day.DayNames.Saturday, Day.DayNames.Sunday};
+                Day.DayNames.Saturday};
         for (int i = 0; i < 7; i++) {
-            Day day = new Day(dayNames[i]);
+            days.add(new Day(dayNames[i]));
         }
     }
 

@@ -15,7 +15,7 @@ public class Day {
     }
     public Hour[] hours = new Hour[24];
 
-    private List<Shift> shifts = new ArrayList<>();
+    private ArrayList<Shift> shifts = new ArrayList<Shift>();
 
     public Day(DayNames name) {
         this.name = name;
@@ -35,11 +35,12 @@ public class Day {
 
 
     public void addShift(Shift shift) {
-        shifts.add(shift);
+        System.out.println(shifts.add(shift));
+        System.out.println(shifts.size());
     }
 
     // Method to get all shifts for the day
-    public List<Shift> getShifts() {
+    public ArrayList<Shift> getShifts() {
         return shifts;
     }
 

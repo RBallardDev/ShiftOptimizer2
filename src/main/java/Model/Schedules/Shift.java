@@ -1,6 +1,5 @@
 package Model.Schedules;
 
-import Model.Staff.User;
 import Model.Staff.Worker;
 import Model.Time.Day;
 
@@ -12,11 +11,11 @@ public class Shift {
     //@JsonProperty("username")
     //private String userName; // or any identifier for the worker
 
-    private User worker;
+    private Worker worker;
 
     private Day day;
 
-    public Shift(LocalTime startTime, LocalTime endTime, User worker) {
+    public Shift(LocalTime startTime, LocalTime endTime, Worker worker) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.worker = worker;
@@ -56,7 +55,7 @@ public class Shift {
         this.day = day;
     }
 
-    public User getWorker() {
+    public Worker getWorker() {
         return worker;
     }
 

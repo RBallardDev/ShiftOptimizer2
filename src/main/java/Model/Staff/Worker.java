@@ -5,7 +5,9 @@ import Model.Schedules.Schedule;
 import Model.Schedules.Shift;
 import Model.Schedules.ShiftConflictException;
 
-public class Worker extends User {
+import java.nio.channels.ShutdownChannelGroupException;
+
+public class Worker {
     @JsonProperty("username")
     private String username;
     @JsonProperty("password")
@@ -26,6 +28,7 @@ public class Worker extends User {
         this.username = username;
         this.password = password;
         this.status = status;
+        this.schedule = new Schedule();
     }
 
 

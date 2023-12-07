@@ -1,9 +1,8 @@
 package Controller.File;
 
-import Model.Staff.User;
+import Model.Staff.Worker;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import Model.Staff.Worker;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -29,11 +28,11 @@ public class JacksonGetter extends Jackson{
 
     }
 
-    public static List<User> getAllUsers() {
+    public static List<Worker> getAllWorkers() {
 
             JsonNode rootNode = getRootNode();
             ObjectMapper objectMapper = getObjectMapper();
-            List<User> users = new ArrayList<>();
+            List<Worker> users = new ArrayList<>();
 
             // Assuming the workers are stored in an array under the "workers" field
             if (rootNode != null && rootNode.has("users")) {
@@ -47,7 +46,7 @@ public class JacksonGetter extends Jackson{
                         String password = userNode.get("password").asText();
                         String status = userNode.get("status").asText();
 
-                        User user = new User(username, password, status);
+                        Worker user = new Worker(username, password, status);
                         users.add(user);
                     }
 
@@ -57,21 +56,21 @@ public class JacksonGetter extends Jackson{
         return users;
     }
 
-    public static User getWorkerByUsername(String username) {
-        List<User> users = getAllUsers();
-        for (User user : users) {
-            if (user.getUserName().equals(username)) {
-                return user;
+    public static Worker getWorkerByUsername(String username) {
+        List<Worker> workers = getAllWorkers();
+        for (Worker worker : workers) {
+            if (worker.getUserName().equals(username)) {
+                return worker;
             }
         }
         return null; // or throw an exception if the worker is not found
     }
 
     public static String getStatusByUsername(String username){
-        List<User> users = getAllUsers();
-        for (User user : users) {
-            if (user.getUserName().equals(username)) {
-                return user.getStatus();
+        List<Worker> workers = getAllWorkers();
+        for (Worker worker : workers) {
+            if (worker.getUserName().equals(username)) {
+                return worker.getStatus();
             }
         }
         return null; // or throw an exception if the worker is not found

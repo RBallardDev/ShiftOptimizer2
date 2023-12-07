@@ -4,8 +4,6 @@ import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
 import Controller.UserAuth.SignInAuth;
 import Model.Schedules.Shift;
-import Model.Schedules.ShiftConflictException;
-import Model.Staff.User;
 import Model.Staff.Worker;
 import Model.Time.Day;
 import Model.Token;
@@ -47,9 +45,9 @@ public class CLI {
                     //BouncyCastle.loginTest("test1", "pass1");
                     break;
                 case 2:
-                    List<User> users = JacksonGetter.getAllUsers();
-                    for (User user : users) {
-                        System.out.println(user);
+                    List<Worker> workers = JacksonGetter.getAllWorkers();
+                    for (Worker worker : workers) {
+                        System.out.println(worker);
                     }
                     break;
                 case 3:
@@ -119,21 +117,16 @@ switch(action) {
 
     private static void displaySchedule(String username) {
 
+        Worker test = JacksonGetter.getWorkerByUsername(username);
+        Shift shift1 = new Shift(LocalTime.of(9, 0), LocalTime.of(17, 0), test);
+        Shift shift2 = new Shift(LocalTime.of(10, 0), LocalTime.of(18, 0), test);
 
+        test.getSchedule().getDay(Day.DayNames.Monday).addShift(shift1);
+        test.getSchedule().getDay(Day.DayNames.Tuesday).addShift(shift2);
 
-
-
-
-
-
-        Shift shift1 = new Shift(LocalTime.of(9, 0), LocalTime.of(17, 0), JacksonGetter.getWorkerByUsername(username));
-        Shift shift2 = new Shift(LocalTime.of(10, 0), LocalTime.of(18, 0), JacksonGetter.getWorkerByUsername(username));
-
-
-        ((Worker)JacksonGetter.getWorkerByUsername(username)).getSchedule().getDay(Day.DayNames.Monday).addShift(shift1);
-        ((Worker)JacksonGetter.getWorkerByUsername(username)).getSchedule().getDay(Day.DayNames.Tuesday).addShift(shift2);
+        System.out.println(test.getSchedule().getDay(Day.DayNames.Monday).getShifts().size());
 
         System.out.println("Schedule for " + username + ":");
-        System.out.println(((Worker) JacksonGetter.getWorkerByUsername(username)).getSchedule().printSchedule());
+        System.out.println(test.getSchedule().printSchedule());
     }
 }
