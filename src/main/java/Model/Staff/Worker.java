@@ -5,7 +5,7 @@ import Model.Schedules.Schedule;
 import Model.Schedules.Shift;
 import Model.Schedules.ShiftConflictException;
 
-public class Worker {
+public class Worker extends User {
     @JsonProperty("username")
     private String username;
     @JsonProperty("password")
