@@ -4,6 +4,9 @@ import java.time.LocalTime;
 
 public class Hour {
     public boolean[] halfHours = new boolean[2];
+
+    public int hourOfDay;
+
     public LocalTime[] halfHourStartTimes = new LocalTime[2];
 
     public Hour(int hourOfDay) {

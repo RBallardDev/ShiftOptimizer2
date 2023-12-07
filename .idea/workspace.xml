@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Staff/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Staff/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Time/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Time/Day.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Time/Hour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Time/Hour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Time/Week.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Time/Week.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/CLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

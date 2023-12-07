@@ -3,17 +3,16 @@ package View;
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
 import Controller.UserAuth.SignInAuth;
-import Model.Schedules.ShiftConflictException;
 import Model.Staff.User;
 import Model.Staff.Worker;
-import Model.Time.Day;
 import Model.Token;
 
-import java.time.LocalTime;
 import java.util.List;
 import java.util.Scanner;
-
+import Controller.XMLControllers.Session;
 public class CLI {
+
+
     public void run()
     {
         Scanner scanner = new Scanner(System.in);
@@ -77,65 +76,70 @@ public class CLI {
 
         //This should not be here in the real program
         Token loginToken = SignInAuth.signIn(username, password);
-        Session.setToken
+
         //The user gets a token
 
         if (loginToken != null) {
             System.out.println("Sign in successful!");
 
+            workerMain(username);
+            Session.setToken(loginToken);
         } else {
             System.out.println("Sign in failed. Please check your credentials.");
         }
     }
 
-    private static void workerMain(){
+    private static void workerMain(String username){
         Scanner scn = new Scanner(System.in);
         System.out.print("See schedule (1) or input schedule(2)");
         int action = scn.nextInt();
 switch(action) {
     case 1:
-        //Display schedule
+
+        displaySchedule(username);
 
     case 2:
-        //Input schedule
+        inputSchedule();
+
+    case 3:
+        //View all shifts
     default:
-}
+        }
     }
-    private static <Shift> void displaySchedule()
+
+    private static void inputSchedule()
     {
 
-        // Create a worker
-        //Tests if we hardcode a worker
-        //JacksonEditor.addWorker("test1", "pass1", "ST");
+    }
 
 
-        Worker worker = (Worker) JacksonGetter.getWorkerByUsername("test1");
+    private static void displaySchedule(String username) {
+        System.out.println(username);
 
-        //ArrayList<Worker> workers = (ArrayList<Worker>) JacksonGetter.getAllWorkers();
+        JacksonGetter.getWorkerByUsername(username);
+
+
+       /* Worker worker =  (Worker) JacksonGetter.getWorkerByUsername( username );
 
         if (worker == null) {
             System.out.println("Worker not found");
             return;
         }
 
-        // Create days (assuming you have a Day class)
         Day monday = new Day("Monday");
         Day tuesday = new Day("Tuesday");
 
-        // Create shifts
         Shift shift1 = new Shift(LocalTime.of(9, 0), LocalTime.of(17, 0), worker, monday);
         Shift shift2 = new Shift(LocalTime.of(10, 0), LocalTime.of(18, 0), worker, tuesday);
 
-        // Assign shifts to the worker
         try {
             worker.addShift(shift1);
             worker.addShift(shift2);
         } catch (ShiftConflictException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error adding shift: " + e.getMessage());
         }
 
-        // Print the worker's schedule
         System.out.println("Schedule for " + worker.getUserName() + ":");
-        System.out.println(worker.printSchedule());
+        System.out.println(worker.printSchedule());*/
     }
 }

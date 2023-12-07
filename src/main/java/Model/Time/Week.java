@@ -8,7 +8,9 @@ public class Week {
 
     public Week() {
         days = new ArrayList<>();
-        String[] dayNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+        Day.DayNames[] dayNames = {Day.DayNames.Monday, Day.DayNames.Tuesday,
+                Day.DayNames.Wednesday, Day.DayNames.Thursday, Day.DayNames.Friday,
+                Day.DayNames.Saturday, Day.DayNames.Sunday};
         // Set the number of days in the week here
         int totalDays = 7; // Change this to 14 for a two-week schedule
 

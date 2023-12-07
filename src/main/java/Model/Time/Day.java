@@ -7,17 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Day {
-    public String name;
+    public DayNames name;
+
+    enum DayNames {
+        Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+    }
     public Hour[] hours = new Hour[24];
 
     private List<Shift> shifts = new ArrayList<>();
 
-    public Day(String name) {
+    public Day(DayNames name) {
         this.name = name;
         for (int i = 0; i < hours.length; i++) {
             hours[i] = new Hour(i);
         }
     }
+
 
     public Hour getHour(int hourIndex) {
         if (hourIndex >= 0 && hourIndex < hours.length) {
@@ -26,6 +31,7 @@ public class Day {
             throw new IllegalArgumentException("Invalid hour index: " + hourIndex);
         }
     }
+
 
     public void addShift(Shift shift) {
         shifts.add(shift);
@@ -75,6 +81,6 @@ public class Day {
             }
         }
 
-        shifts.remove(shift); // Remove the shift from the list of shifts
+        shifts.remove(shift); // Remove the shift from the list of shifts*/
     }
 }
