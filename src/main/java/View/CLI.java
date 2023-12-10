@@ -1,5 +1,6 @@
 package View;
 
+import Controller.CSVController.CSVAvailabilityImporter;
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
 import Controller.UserAuth.SessionAuth;
@@ -7,6 +8,7 @@ import Controller.UserAuth.SignInAuth;
 import Model.Schedules.Shift;
 import Model.Staff.Worker;
 import Model.Time.Day;
+import Model.Time.TimeUnavailable;
 import Model.Token;
 
 import java.util.List;
@@ -95,7 +97,9 @@ public class CLI {
 
     private static void workerMain(String username){
         Scanner scn = new Scanner(System.in);
-        System.out.print("See schedule (1) or input schedule(2)");
+        System.out.println("1. See work schedule");
+        System.out.println("2. Input school schedule");
+        System.out.print("Choose an option: ");
         int action = scn.nextInt();
 switch(action) {
     case 1:
@@ -111,11 +115,33 @@ switch(action) {
         }
     }
 
-    private static void inputSchedule()
+    /*private static void inputSchedule()
     {
         Scanner scn = new Scanner(System.in);
         System.out.println("Input start time for shift");
 
+    }*/
+    public static void inputSchedule() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter worker's username: ");
+        String username = scanner.next();
+
+        System.out.print("Enter path to CSV file: ");
+        String filePath = scanner.next();
+
+        Worker worker = JacksonGetter.getWorkerByUsername(username);
+        if (worker != null) {
+            CSVAvailabilityImporter.importAvailability(filePath, worker);
+
+            System.out.println("Unavailable Times for " + worker.getUserName() + ":");
+            for (TimeUnavailable time : worker.getUnavailableTimes()) {
+                System.out.println(time.getDay() + ": " + time.getStartTime() + " to " + time.getEndTime());
+            }
+
+            // Save the updated worker data back to jackson or JSON or whatever
+        } else {
+            System.out.println("Worker not found.");
+        }
     }
 
 
