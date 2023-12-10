@@ -27,7 +27,7 @@ public class Main extends Application {
 //        stage.show();
         CLI cli = new CLI();
         cli.run();
-        /*String path = "/Users/reeceballard/Downloads/testSchedule4.csv";
+        /*String path = "/Users/reeceballard/Downloads/tableConvert.com_2tscfg.csv";
         String line = "";
         BufferedReader br = new BufferedReader(new FileReader(path));
         while ((line = br.readLine()) != null){
