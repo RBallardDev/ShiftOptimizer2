@@ -1,7 +1,29 @@
 {
-  "workers" : [ {
-    "username" : "test1",
-    "password" : "d74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1",
-    "status" : "ST"
-  }]
+  "workers" : [  {
+    "username" : "a",
+    "password" : "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
+    "status" : "a",
+    "schedules" : [ {
+      "day-name" : "Sunday",
+      "shifts" : [ [1,30,2,30]]
+    }, {
+      "day-name" : "Monday",
+      "shifts" : [[4,0,6,0] ]
+    }, {
+      "day-name" : "Tuesday",
+      "shifts" : [ ]
+    }, {
+      "day-name" : "Wednesday",
+      "shifts" : [ ]
+    }, {
+      "day-name" : "Thursday",
+      "shifts" : [ ]
+    }, {
+      "day-name" : "Friday",
+      "shifts" : [ ]
+    }, {
+      "day-name" : "Saturday",
+      "shifts" : [ ]
+    } ]
+  } ]
 }
