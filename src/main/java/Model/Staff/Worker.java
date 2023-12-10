@@ -3,6 +3,12 @@ package Model.Staff;
 import Model.Time.Day;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import Model.Schedules.Schedule;
+import Model.Time.TimeUnavailable;
+
+import java.time.DayOfWeek;
+import java.util.ArrayList;
+import java.util.List;
+import java.time.LocalTime;
 import Model.Schedules.Shift;
 import Model.Schedules.ShiftConflictException;
 
@@ -18,6 +24,8 @@ public class Worker {
     @JsonProperty("schedule")
     private Schedule schedule;
 
+    private List<TimeUnavailable> unavailableTimes;
+
     //int workerID;
 
 
@@ -29,7 +37,12 @@ public class Worker {
         this.username = username;
         this.password = password;
         this.status = status;
+
         this.schedule = schedule;
+
+        this.schedule = new Schedule();
+        this.unavailableTimes = new ArrayList<>();
+
     }
 
 
@@ -47,6 +60,15 @@ public class Worker {
     }
 
 
+
+
+    public void addUnavailableTime(DayOfWeek day, LocalTime start, LocalTime end) {
+        TimeUnavailable newTimeUnavailable = new TimeUnavailable(day, start, end);
+        unavailableTimes.add(newTimeUnavailable);
+    }
+
+
+
     public void setUserName(String userName) {
         this.username = userName;
     }
@@ -61,5 +83,9 @@ public class Worker {
 
     public Schedule getSchedule(){
         return schedule;
+    }
+
+    public List<TimeUnavailable> getUnavailableTimes() {
+        return unavailableTimes;
     }
 }
