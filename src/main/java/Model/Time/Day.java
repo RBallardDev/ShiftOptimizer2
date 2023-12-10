@@ -8,16 +8,14 @@ import java.util.List;
 
 public class Day {
     //IS PRETTY MUCH DAYSCHEDULE
-    public DayNames name;
+    public Week.DayNames name;
 
-    public enum DayNames {
-        Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-    }
+
     public Hour[] hours = new Hour[24];
 
     private ArrayList<Shift> shifts = new ArrayList<Shift>();
 
-    public Day(DayNames name) {
+    public Day(Week.DayNames name) {
         this.name = name;
         for (int i = 0; i < hours.length; i++) {
             hours[i] = new Hour(i);

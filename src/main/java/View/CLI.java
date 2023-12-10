@@ -8,7 +8,11 @@ import Controller.UserAuth.SignInAuth;
 import Model.Schedules.Shift;
 import Model.Staff.Worker;
 import Model.Time.Day;
+
+import Model.Time.Week;
+
 import Model.Time.TimeUnavailable;
+
 import Model.Token;
 
 import java.util.List;
@@ -24,6 +28,8 @@ public class CLI {
         boolean running = true;
 
         while (running) {
+            JacksonGetter.getAllWorkers();
+
             System.out.println("Welcome to Shift Optimizer CLI");
             System.out.println("1. Add Worker");
             System.out.println("2. View Workers");
@@ -148,11 +154,11 @@ switch(action) {
     private static void displaySchedule(String username) {
 
         Worker test = JacksonGetter.getWorkerByUsername(SessionAuth.authenticateToken(Session.getToken()));
-        Shift shift1 = new Shift(LocalTime.of(9, 0), LocalTime.of(17, 0), test);
-        Shift shift2 = new Shift(LocalTime.of(10, 0), LocalTime.of(18, 0), test);
+        Shift shift1 = new Shift(LocalTime.of(9, 0), LocalTime.of(17, 0));
+        Shift shift2 = new Shift(LocalTime.of(10, 0), LocalTime.of(18, 0));
 
-        test.getSchedule().getDay(Day.DayNames.Monday).addShift(shift1);
-        test.getSchedule().getDay(Day.DayNames.Tuesday).addShift(shift2);
+        test.getSchedule().getDay(Week.DayNames.Monday).addShift(shift1);
+        test.getSchedule().getDay(Week.DayNames.Tuesday).addShift(shift2);
 
         System.out.println("Schedule for " + username + ":");
         System.out.println(test.getSchedule().printSchedule());

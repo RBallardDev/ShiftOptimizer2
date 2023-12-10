@@ -15,10 +15,9 @@ public class Shift {
 
     private Day day;
 
-    public Shift(LocalTime startTime, LocalTime endTime, Worker worker) {
+    public Shift(LocalTime startTime, LocalTime endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
-        this.worker = worker;
 
     }
 

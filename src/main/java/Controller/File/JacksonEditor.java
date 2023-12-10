@@ -35,21 +35,21 @@ public class JacksonEditor extends Jackson {
         if (!usernameExists) {
             String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
-            ObjectNode newSchedule = objectMapper.createObjectNode();
-            ArrayNode daysArray = objectMapper.createArrayNode();
+            ArrayNode newSchedule = objectMapper.createArrayNode();
 
             for(String day : daysOfWeek){
-//                ArrayNode shiftsArray = objectMapper.createArrayNode();
-                JsonNode newDaySchedule = objectMapper.createObjectNode().put("day-name", day);
-                daysArray.add(newDaySchedule);
+                JsonNode newDaySchedule = objectMapper.createObjectNode().put("day-name", day)
+                        .set("shifts", objectMapper.createArrayNode());
+                newSchedule.add(newDaySchedule);
             }
 
-            newSchedule.set("day-schedules", daysArray);
+
 
             JsonNode newWorker = objectMapper.createObjectNode()
                     .put("username", username)
                     .put("password", hashPassword(password))
-                    .put("status", status);
+                    .put("status", status)
+                    .set("schedules", newSchedule);
 
 
 

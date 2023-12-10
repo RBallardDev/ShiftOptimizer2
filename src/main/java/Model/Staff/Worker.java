@@ -1,5 +1,6 @@
 package Model.Staff;
 
+import Model.Time.Day;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import Model.Schedules.Schedule;
 import Model.Time.TimeUnavailable;
@@ -20,7 +21,7 @@ public class Worker {
     private String password;
     @JsonProperty("status")
     private String status;
-
+    @JsonProperty("schedule")
     private Schedule schedule;
 
     private List<TimeUnavailable> unavailableTimes;
@@ -32,12 +33,16 @@ public class Worker {
         this.schedule = new Schedule();
     }
 
-    public Worker(String username, String password, String status) {
+    public Worker(String username, String password, String status, Schedule schedule) {
         this.username = username;
         this.password = password;
         this.status = status;
+
+        this.schedule = schedule;
+
         this.schedule = new Schedule();
         this.unavailableTimes = new ArrayList<>();
+
     }
 
 
