@@ -28,7 +28,7 @@ public class CLI {
         boolean running = true;
 
         while (running) {
-            JacksonGetter.getAllWorkers();
+            //JacksonGetter.getAllWorkers();
 
             System.out.println("Welcome to Shift Optimizer CLI");
             System.out.println("1. Add Worker");

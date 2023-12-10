@@ -84,7 +84,7 @@ public class JacksonGetter extends Jackson {
 
 
                     Worker worker = new Worker(username, password, status, newSchedule);
-                    System.out.println(newSchedule.printSchedule());
+                    //System.out.println(newSchedule.printSchedule());
                     workers.add(worker);
                 }
 
