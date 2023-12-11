@@ -7,7 +7,6 @@ import Controller.UserAuth.SessionAuth;
 import Controller.UserAuth.SignInAuth;
 import Model.Schedules.Shift;
 import Model.Staff.Worker;
-import Model.Time.Day;
 
 import Model.Time.Week;
 
@@ -17,13 +16,15 @@ import Model.Token;
 
 import java.util.List;
 import java.util.Scanner;
+
 import Controller.XMLControllers.Session;
+
 import java.time.LocalTime;
+
 public class CLI {
 
 
-    public void run()
-    {
+    public void run() {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
@@ -46,10 +47,13 @@ public class CLI {
                     String username = scanner.next();
                     System.out.print("Enter password: ");
                     String password = scanner.next();
-                    System.out.print("Enter status (ST/AD): ");
+                    System.out.print("Enter status (ST/AD/MN): ");
                     String status = scanner.next();
-                    JacksonEditor.addWorker(username, password, status);
-
+                    if (status.equals("MN")) {
+                        JacksonEditor.addManager(username, password);
+                    } else {
+                        JacksonEditor.addWorker(username, password, status);
+                    }
                     //Jackson.addWorker("test1", "pass1", "ST");
                     //BouncyCastle.loginTest("test1", "pass1");
                     break;
@@ -75,8 +79,8 @@ public class CLI {
         }
 
 
-
     }
+
     //Helper method
     private static void signIn(Scanner scanner) {
         System.out.print("Enter username: ");
@@ -101,23 +105,23 @@ public class CLI {
         }
     }
 
-    private static void workerMain(String username){
+    private static void workerMain(String username) {
         Scanner scn = new Scanner(System.in);
         System.out.println("1. See work schedule");
         System.out.println("2. Input school schedule");
         System.out.print("Choose an option: ");
         int action = scn.nextInt();
-switch(action) {
-    case 1:
+        switch (action) {
+            case 1:
 
-        displaySchedule(username);
+                displaySchedule(username);
 
-    case 2:
-        inputSchedule();
+            case 2:
+                inputSchedule();
 
-    case 3:
-        //View all shifts
-    default:
+            case 3:
+                //View all shifts
+            default:
         }
     }
 

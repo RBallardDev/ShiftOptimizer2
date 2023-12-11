@@ -3,7 +3,7 @@ package Controller.File;
 import Model.Schedules.Schedule;
 import Model.Schedules.Shift;
 import Model.Staff.Worker;
-import Model.Time.Day;
+import Model.Schedules.DaySchedule;
 import Model.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -64,7 +64,7 @@ public class JacksonGetter extends Jackson {
                         for (int i = 0; iteratorSchedule.hasNext(); i++) {
 
                             //Initialize a day to fill
-                            Day newDay = new Day(Week.DAY_NAMES[i]);
+                            DaySchedule newDaySchedule = new DaySchedule(Week.DAY_NAMES[i]);
 
                             JsonNode dayScheduleNode = iteratorSchedule.next();
 
@@ -76,9 +76,9 @@ public class JacksonGetter extends Jackson {
                                 JsonNode shiftNode = iteratorShifts.next();
                                 int[] shiftTimes = objectMapper.convertValue(shiftNode, int[].class);
                                 Shift shift = new Shift(LocalTime.of(shiftTimes[0], shiftTimes[1]), LocalTime.of(shiftTimes[2],shiftTimes[3]));
-                                newDay.addShiftToDay(shift);
+                                newDaySchedule.addShiftToDay(shift);
                             }
-                            newSchedule.setDay(newDay, i);
+                            newSchedule.setDay(newDaySchedule, i);
                         }
                     }
 

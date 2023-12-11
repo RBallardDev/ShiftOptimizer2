@@ -1,12 +1,12 @@
-package Model.Time;
+package Model.Schedules;
 
-import Model.Schedules.Shift;
+import Model.Time.Hour;
+import Model.Time.Week;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.List;
 
-public class Day {
+public class DaySchedule {
     //IS PRETTY MUCH DAYSCHEDULE
     public Week.DayNames name;
 
@@ -15,7 +15,7 @@ public class Day {
 
     private ArrayList<Shift> shifts = new ArrayList<Shift>();
 
-    public Day(Week.DayNames name) {
+    public DaySchedule(Week.DayNames name) {
         this.name = name;
         for (int i = 0; i < hours.length; i++) {
             hours[i] = new Hour(i);

@@ -1,7 +1,6 @@
 package Model.Schedules;
 
 import Model.Staff.Worker;
-import Model.Time.Day;
 
 import java.time.LocalTime;
 
@@ -13,7 +12,7 @@ public class Shift {
 
     private Worker worker;
 
-    private Day day;
+    private DaySchedule daySchedule;
 
     public Shift(LocalTime startTime, LocalTime endTime) {
         this.startTime = startTime;
@@ -46,12 +45,12 @@ public class Shift {
         this.userName = userName;
     }*/
 
-    public Day getDay() {
-        return day;
+    public DaySchedule getDay() {
+        return daySchedule;
     }
 
-    public void setDay(Day day) {
-        this.day = day;
+    public void setDay(DaySchedule daySchedule) {
+        this.daySchedule = daySchedule;
     }
 
     public Worker getWorker() {

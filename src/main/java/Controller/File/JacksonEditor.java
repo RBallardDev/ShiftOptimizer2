@@ -1,10 +1,15 @@
 package Controller.File;
 
+import Model.Schedules.DaySchedule;
+import Model.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import Model.Schedules.Shift;
+
+import java.util.Iterator;
 
 import static Controller.BouncyCastleEncrypter.hashPassword;
 
@@ -30,19 +35,17 @@ public class JacksonEditor extends Jackson {
         }
 
 
-
         // Add new worker only if username is unique
         if (!usernameExists) {
             String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
             ArrayNode newSchedule = objectMapper.createArrayNode();
 
-            for(String day : daysOfWeek){
+            for (String day : daysOfWeek) {
                 JsonNode newDaySchedule = objectMapper.createObjectNode().put("day-name", day)
                         .set("shifts", objectMapper.createArrayNode());
                 newSchedule.add(newDaySchedule);
             }
-
 
 
             JsonNode newWorker = objectMapper.createObjectNode()
@@ -50,7 +53,6 @@ public class JacksonEditor extends Jackson {
                     .put("password", hashPassword(password))
                     .put("status", status)
                     .set("schedules", newSchedule);
-
 
 
             ((com.fasterxml.jackson.databind.node.ArrayNode) workersNode).add(newWorker);
@@ -85,6 +87,7 @@ public class JacksonEditor extends Jackson {
         }
 
     }
+
     public static void clearJsonFile() {
         ObjectMapper objectMapper = getObjectMapper();
         ObjectWriter objectWriter = getObjectWriter();
@@ -99,6 +102,68 @@ public class JacksonEditor extends Jackson {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void addManager(String username, String password) {
+        JsonNode rootNode = getRootNode();
+        ObjectMapper objectMapper = getObjectMapper();
+        ObjectWriter objectWriter = getObjectWriter();
+
+        // Check if username already exists
+        boolean usernameExists = false;
+        JsonNode managersNode = rootNode.path("managers");
+        for (JsonNode workerNode : managersNode) {
+            if (workerNode.path("username").asText().equals(username)) {
+                usernameExists = true;
+                break;
+            }
+        }
+
+        if (!usernameExists) {
+            JsonNode newManager = objectMapper.createObjectNode()
+                    .put("username", username)
+                    .put("password", hashPassword(password));
+
+            ((com.fasterxml.jackson.databind.node.ArrayNode) managersNode).add(newManager);
+
+
+            try {
+                objectWriter.writeValue(getJsonFile(), rootNode);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            throw new IllegalArgumentException("Could not add manager");
+        }
+    }
+
+    public static void addShift(String username, Week.DayNames day, Shift shift) {
+        JsonNode rootNode = getRootNode();
+        ObjectMapper objectMapper = getObjectMapper();
+        ObjectWriter objectWriter = getObjectWriter();
+
+        JsonNode workersNode = rootNode.path("workers");
+
+            Iterator<JsonNode> workersNodeIterator = workersNode.elements();
+
+            while (workersNodeIterator.hasNext()) {
+                JsonNode workerNode = workersNodeIterator.next();
+                if (workerNode.get("username").equals(username)) {
+                    JsonNode schedules = workerNode.get("schedules");
+
+                    Iterator<JsonNode> schedulesIterator = schedules.elements();
+                    while(schedulesIterator.hasNext()){
+                        JsonNode scheduleNode = schedulesIterator.next();
+
+                        //PROBABLY WILL HAVE TO REWORK THIS PART
+                        if(scheduleNode.get("name").equals(day)){
+                        //ADD THE SHIFT TO THE DAY
+                        }
+                    }
+                }
+            }
+
+
     }
 
 }
