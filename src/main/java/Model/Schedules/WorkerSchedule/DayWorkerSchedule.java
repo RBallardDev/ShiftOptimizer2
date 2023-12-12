@@ -1,7 +1,7 @@
-package Model.Schedules;
+package Model.Schedules.WorkerSchedule;
 
+import Model.Schedules.ManagerSchedule.AvailableShift;
 import Model.Time.Hour;
-import Model.Time.TimeUnavailable;
 import Model.Time.Week;
 
 import java.time.LocalTime;
@@ -91,12 +91,12 @@ public class DayWorkerSchedule {
 //    }
 
     //HELPER METHODS
-    private boolean shiftsOverlap(Shift shift1, Shift shift2) {
+    private boolean shiftsOverlap(AvailableShift shift1, AvailableShift shift2) {
         return !shift1.getEndTime().isBefore(shift2.getStartTime()) &&
                 !shift2.getEndTime().isBefore(shift1.getStartTime());
     }
 
-    private boolean isSameDay(Shift shift1, Shift shift2) {
+    private boolean isSameDay(AvailableShift shift1, AvailableShift shift2) {
         return shift1.getDay().equals(shift2.getDay());
     }
 

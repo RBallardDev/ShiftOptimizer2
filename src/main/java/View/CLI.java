@@ -1,12 +1,11 @@
 package View;
 
 import Controller.CSVController.CSVAvailabilityImporter;
-import Controller.File.Jackson;
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
 import Controller.UserAuth.SessionAuth;
 import Controller.UserAuth.SignInAuth;
-import Model.Schedules.Shift;
+import Model.Schedules.ManagerSchedule.AvailableShift;
 import Model.Staff.Worker;
 
 import Model.Token;
@@ -180,8 +179,8 @@ public class CLI {
     private static void displaySchedule(String username) {
 
         Worker test = JacksonGetter.getWorkerByUsername(SessionAuth.authenticateToken(Session.getToken()));
-        Shift shift1 = new Shift(LocalTime.of(9, 0), LocalTime.of(17, 0));
-        Shift shift2 = new Shift(LocalTime.of(10, 0), LocalTime.of(18, 0));
+        AvailableShift shift1 = new AvailableShift(LocalTime.of(9, 0), LocalTime.of(17, 0));
+        AvailableShift shift2 = new AvailableShift(LocalTime.of(10, 0), LocalTime.of(18, 0));
 
 
         System.out.println("Schedule for " + username + ":");

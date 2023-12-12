@@ -1,8 +1,7 @@
 package Controller.CSVController;
 
 import Controller.File.JacksonEditor;
-import Model.Staff.Worker;
-import Model.Time.TimeUnavailable;
+import Model.Schedules.WorkerSchedule.TimeUnavailable;
 import Model.Time.Week;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -14,14 +13,12 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import java.io.Reader;
 import java.nio.file.Paths;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
-import java.time.temporal.ChronoField;
 
 
 import java.util.HashMap;

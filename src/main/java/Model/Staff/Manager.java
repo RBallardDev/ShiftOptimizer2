@@ -1,6 +1,6 @@
 package Model.Staff;
 
-import Model.Schedules.AvailableSchedule;
+import Model.Schedules.ManagerSchedule.AvailableSchedule;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Manager

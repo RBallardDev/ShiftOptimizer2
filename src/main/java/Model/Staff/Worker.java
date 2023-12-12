@@ -1,7 +1,7 @@
 package Model.Staff;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import Model.Schedules.WorkerSchedule;
+import Model.Schedules.WorkerSchedule.WorkerSchedule;
 
 public class Worker {
     @JsonProperty("username")

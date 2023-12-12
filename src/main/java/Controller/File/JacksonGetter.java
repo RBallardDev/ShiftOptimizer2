@@ -1,9 +1,9 @@
 package Controller.File;
 
-import Model.Schedules.WorkerSchedule;
+import Model.Schedules.WorkerSchedule.WorkerSchedule;
 import Model.Staff.Worker;
-import Model.Schedules.DayWorkerSchedule;
-import Model.Time.TimeUnavailable;
+import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
+import Model.Schedules.WorkerSchedule.TimeUnavailable;
 import Model.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

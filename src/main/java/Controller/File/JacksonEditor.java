@@ -1,6 +1,6 @@
 package Controller.File;
 
-import Model.Time.TimeUnavailable;
+import Model.Schedules.WorkerSchedule.TimeUnavailable;
 import Model.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

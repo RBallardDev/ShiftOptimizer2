@@ -1,13 +1,14 @@
-package Model.Schedules;
+package Model.Schedules.ManagerSchedule;
 
 import Controller.File.Jackson;
+import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
 import Model.Staff.Worker;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import java.time.LocalTime;
 
-public class Shift {
+public class AvailableShift {
     private LocalTime startTime;
     private LocalTime endTime;
     //@JsonProperty("username")
@@ -17,7 +18,7 @@ public class Shift {
 
     private DayWorkerSchedule dayWorkerSchedule;
 
-    public Shift(LocalTime startTime, LocalTime endTime) {
+    public AvailableShift(LocalTime startTime, LocalTime endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
 
