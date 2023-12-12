@@ -3,12 +3,11 @@ package Model.Schedules;
 import Model.Time.Hour;
 import Model.Time.TimeUnavailable;
 import Model.Time.Week;
-import org.bouncycastle.asn1.x509.Time;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class DaySchedule {
+public class DayWorkerSchedule {
     //IS PRETTY MUCH DAYSCHEDULE
     public Week.DayNames name;
 
@@ -17,7 +16,7 @@ public class DaySchedule {
 
     private ArrayList<TimeUnavailable> timesUnavailable = new ArrayList<TimeUnavailable>();
 
-    public DaySchedule(Week.DayNames name) {
+    public DayWorkerSchedule(Week.DayNames name) {
         this.name = name;
         for (int i = 0; i < hours.length; i++) {
             hours[i] = new Hour(i);

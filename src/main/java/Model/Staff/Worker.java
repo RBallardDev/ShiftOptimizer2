@@ -1,13 +1,7 @@
 package Model.Staff;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import Model.Schedules.Schedule;
-import Model.Time.TimeUnavailable;
-
-import java.time.DayOfWeek;
-import java.util.ArrayList;
-import java.util.List;
-import java.time.LocalTime;
+import Model.Schedules.WorkerSchedule;
 
 public class Worker {
     @JsonProperty("username")
@@ -17,31 +11,31 @@ public class Worker {
     @JsonProperty("status")
     private String status;
     @JsonProperty("schedule")
-    private Schedule schedule;
+    private WorkerSchedule workerSchedule;
 
 
     //int workerID;
 
 
     public Worker() {
-        this.schedule = new Schedule();
+        this.workerSchedule = new WorkerSchedule();
     }
 
-    public Worker(String username, String password, String status, Schedule schedule) {
+    public Worker(String username, String password, String status, WorkerSchedule workerSchedule) {
         this.username = username;
         this.password = password;
         this.status = status;
 
-        this.schedule = schedule;
+        this.workerSchedule = workerSchedule;
 
-        this.schedule = schedule;
+        this.workerSchedule = workerSchedule;
 
 
     }
 
 
     public String printSchedule() {
-        return schedule.printSchedule();
+        return workerSchedule.buildUnavailableTimesScheduleString();
     }
 
     @Override
@@ -66,8 +60,8 @@ public class Worker {
         return status;
     }
 
-    public Schedule getSchedule() {
-        return schedule;
+    public WorkerSchedule getSchedule() {
+        return workerSchedule;
     }
 
 

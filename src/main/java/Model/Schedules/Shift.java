@@ -15,7 +15,7 @@ public class Shift {
 
     private Worker worker;
 
-    private DaySchedule daySchedule;
+    private DayWorkerSchedule dayWorkerSchedule;
 
     public Shift(LocalTime startTime, LocalTime endTime) {
         this.startTime = startTime;
@@ -57,12 +57,12 @@ public class Shift {
         this.userName = userName;
     }*/
 
-    public DaySchedule getDay() {
-        return daySchedule;
+    public DayWorkerSchedule getDay() {
+        return dayWorkerSchedule;
     }
 
-    public void setDay(DaySchedule daySchedule) {
-        this.daySchedule = daySchedule;
+    public void setDay(DayWorkerSchedule dayWorkerSchedule) {
+        this.dayWorkerSchedule = dayWorkerSchedule;
     }
 
     public Worker getWorker() {

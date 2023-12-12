@@ -1,16 +1,13 @@
 package View;
 
 import Controller.CSVController.CSVAvailabilityImporter;
+import Controller.File.Jackson;
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
 import Controller.UserAuth.SessionAuth;
 import Controller.UserAuth.SignInAuth;
 import Model.Schedules.Shift;
 import Model.Staff.Worker;
-
-import Model.Time.Week;
-
-import Model.Time.TimeUnavailable;
 
 import Model.Token;
 
@@ -97,7 +94,11 @@ public class CLI {
         if (loginToken != null) {
             System.out.println("Sign in successful!");
             Session.setToken(loginToken);
-            workerMain(username);
+            if (JacksonGetter.getStatusByUsername(SessionAuth.authenticateToken(Session.getToken())).equals("MN")) {
+                managerMain(username);
+            } else {
+                workerMain(username);
+            }
 
         } else {
             System.out.println("Sign in failed. Please check your credentials.");
@@ -108,6 +109,27 @@ public class CLI {
         Scanner scn = new Scanner(System.in);
         System.out.println("1. See work schedule");
         System.out.println("2. Input school schedule");
+        System.out.print("Choose an option: ");
+        int action = scn.nextInt();
+        switch (action) {
+            case 1:
+
+                displaySchedule(username);
+
+            case 2:
+                inputSchedule();
+
+            case 3:
+                //View all shifts
+            default:
+        }
+    }
+
+    private static void managerMain(String username) {
+
+        Scanner scn = new Scanner(System.in);
+        System.out.println("1. See available schedule");
+        System.out.println("2. Input available schedule");
         System.out.print("Choose an option: ");
         int action = scn.nextInt();
         switch (action) {
@@ -146,7 +168,7 @@ public class CLI {
 //            for (TimeUnavailable time : worker.getUnavailableTimes()) {
 //                System.out.println(time.getDay() + ": " + time.getStartTime() + " to " + time.getEndTime());
 //            }
-            worker.printSchedule();
+            System.out.println(worker.printSchedule());
 
             // Save the updated worker data back to jackson or JSON or whatever
         } else {
@@ -163,6 +185,6 @@ public class CLI {
 
 
         System.out.println("Schedule for " + username + ":");
-        System.out.println(test.getSchedule().printSchedule());
+        System.out.println(test.getSchedule().buildUnavailableTimesScheduleString());
     }
 }

@@ -1,9 +1,8 @@
 package Controller.File;
 
-import Model.Schedules.Schedule;
-import Model.Schedules.Shift;
+import Model.Schedules.WorkerSchedule;
 import Model.Staff.Worker;
-import Model.Schedules.DaySchedule;
+import Model.Schedules.DayWorkerSchedule;
 import Model.Time.TimeUnavailable;
 import Model.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -56,7 +55,7 @@ public class JacksonGetter extends Jackson {
 
                     //Initialize the schedule object to fill
 
-                    Schedule newSchedule = new Schedule();
+                    WorkerSchedule newWorkerSchedule = new WorkerSchedule();
 
                     //Iterate through all the schedule days
                     if (schedulesNode.isArray()) {
@@ -65,7 +64,7 @@ public class JacksonGetter extends Jackson {
                         for (int i = 0; iteratorSchedule.hasNext(); i++) {
 
                             //Initialize a day to fill
-                            DaySchedule newDaySchedule = new DaySchedule(Week.DAY_NAMES[i]);
+                            DayWorkerSchedule newDayWorkerSchedule = new DayWorkerSchedule(Week.DAY_NAMES[i]);
 
                             JsonNode dayScheduleNode = iteratorSchedule.next();
 
@@ -77,15 +76,15 @@ public class JacksonGetter extends Jackson {
                                 JsonNode shiftNode = iteratorShifts.next();
                                 int[] timeUnavailableArray = objectMapper.convertValue(shiftNode, int[].class);
                                 TimeUnavailable timeUnavailable = new TimeUnavailable(Week.DAY_NAMES[i], LocalTime.of(timeUnavailableArray[0], timeUnavailableArray[1]), LocalTime.of(timeUnavailableArray[2],timeUnavailableArray[3]));
-                                newDaySchedule.addTimeUnavailableToDay(timeUnavailable);
+                                newDayWorkerSchedule.addTimeUnavailableToDay(timeUnavailable);
 
                             }
-                            newSchedule.setDay(newDaySchedule, i);
+                            newWorkerSchedule.setDay(newDayWorkerSchedule, i);
                         }
                     }
 
 
-                    Worker worker = new Worker(username, password, status, newSchedule);
+                    Worker worker = new Worker(username, password, status, newWorkerSchedule);
                     workers.add(worker);
                 }
 
