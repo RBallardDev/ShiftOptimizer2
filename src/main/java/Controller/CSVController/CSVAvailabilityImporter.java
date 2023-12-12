@@ -1,6 +1,9 @@
 package Controller.CSVController;
 
+import Controller.File.JacksonEditor;
 import Model.Staff.Worker;
+import Model.Time.TimeUnavailable;
+import Model.Time.Week;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -37,7 +40,7 @@ public class CSVAvailabilityImporter {
         dayMap.put("Saturday", DayOfWeek.SATURDAY);
     }
 
-    public static void importAvailability(String filePath, Worker worker) {
+    public static void importAvailability(String filePath, String username) {
         DateTimeFormatter timeFormatter = new DateTimeFormatterBuilder()
                 .appendPattern("H:mm")
                 .optionalStart()
@@ -57,11 +60,12 @@ public class CSVAvailabilityImporter {
 
                 try (CSVParser csvParser = new CSVParser(br, CSVFormat.DEFAULT.withFirstRecordAsHeader())) {
                     for (CSVRecord csvRecord : csvParser) {
-                        DayOfWeek day = dayMap.get(csvRecord.get("Day"));
+                        Week.DayNames day = Week.DayNames.valueOf(csvRecord.get("Day"));
                         LocalTime start = LocalTime.parse(csvRecord.get("Start"), timeFormatter);
                         LocalTime end = LocalTime.parse(csvRecord.get("End"), timeFormatter);
+                        TimeUnavailable timeUnavailable = new TimeUnavailable(day, start, end);
+                        JacksonEditor.addTimeUnavailable(username, day, timeUnavailable);
 
-                        worker.addUnavailableTime(day, start, end);
                     }
                 }
             }

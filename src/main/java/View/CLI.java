@@ -91,7 +91,6 @@ public class CLI {
 
         //This should not be here in the real program
         Token loginToken = SignInAuth.signIn(username, password);
-        System.out.println(loginToken);
 
         //The user gets a token
 
@@ -133,20 +132,21 @@ public class CLI {
     }*/
     public static void inputSchedule() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter worker's username: ");
-        String username = scanner.next();
+        String username = SessionAuth.authenticateToken(Session.getToken());
 
         System.out.print("Enter path to CSV file: ");
         String filePath = scanner.next();
 
         Worker worker = JacksonGetter.getWorkerByUsername(username);
         if (worker != null) {
-            CSVAvailabilityImporter.importAvailability(filePath, worker);
+            CSVAvailabilityImporter.importAvailability(filePath, username);
 
             System.out.println("Unavailable Times for " + worker.getUserName() + ":");
-            for (TimeUnavailable time : worker.getUnavailableTimes()) {
-                System.out.println(time.getDay() + ": " + time.getStartTime() + " to " + time.getEndTime());
-            }
+            //I'll fix that
+//            for (TimeUnavailable time : worker.getUnavailableTimes()) {
+//                System.out.println(time.getDay() + ": " + time.getStartTime() + " to " + time.getEndTime());
+//            }
+            worker.printSchedule();
 
             // Save the updated worker data back to jackson or JSON or whatever
         } else {
@@ -161,8 +161,6 @@ public class CLI {
         Shift shift1 = new Shift(LocalTime.of(9, 0), LocalTime.of(17, 0));
         Shift shift2 = new Shift(LocalTime.of(10, 0), LocalTime.of(18, 0));
 
-        test.getSchedule().getDay(Week.DayNames.Monday).addShift(shift1);
-        test.getSchedule().getDay(Week.DayNames.Tuesday).addShift(shift2);
 
         System.out.println("Schedule for " + username + ":");
         System.out.println(test.getSchedule().printSchedule());

@@ -1,6 +1,9 @@
 package Model.Schedules;
 
+import Controller.File.Jackson;
 import Model.Staff.Worker;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import java.time.LocalTime;
 
@@ -25,6 +28,15 @@ public class Shift {
         return startTime;
     }
 
+    public ArrayNode getTimesArrayAsJsonNode(){
+        ObjectMapper objectMapper = Jackson.getObjectMapper();
+        ArrayNode timesArray = objectMapper.createArrayNode();
+        timesArray.add(startTime.getHour());
+        timesArray.add(startTime.getMinute());
+        timesArray.add(endTime.getHour());
+        timesArray.add(endTime.getMinute());
+        return timesArray;
+    }
     public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }

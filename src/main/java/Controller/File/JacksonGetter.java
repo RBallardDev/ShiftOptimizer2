@@ -4,6 +4,7 @@ import Model.Schedules.Schedule;
 import Model.Schedules.Shift;
 import Model.Staff.Worker;
 import Model.Schedules.DaySchedule;
+import Model.Time.TimeUnavailable;
 import Model.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -69,14 +70,15 @@ public class JacksonGetter extends Jackson {
                             JsonNode dayScheduleNode = iteratorSchedule.next();
 
 
-                            Iterator<JsonNode> iteratorShifts = dayScheduleNode.path("shifts").elements();
+                            Iterator<JsonNode> iteratorShifts = dayScheduleNode.path("times-unavailable").elements();
 
-                            //Iterate through all the shifts
+                            //Iterate through all the times unavailable
                             while (iteratorShifts.hasNext()) {
                                 JsonNode shiftNode = iteratorShifts.next();
-                                int[] shiftTimes = objectMapper.convertValue(shiftNode, int[].class);
-                                Shift shift = new Shift(LocalTime.of(shiftTimes[0], shiftTimes[1]), LocalTime.of(shiftTimes[2],shiftTimes[3]));
-                                newDaySchedule.addShiftToDay(shift);
+                                int[] timeUnavailableArray = objectMapper.convertValue(shiftNode, int[].class);
+                                TimeUnavailable timeUnavailable = new TimeUnavailable(Week.DAY_NAMES[i], LocalTime.of(timeUnavailableArray[0], timeUnavailableArray[1]), LocalTime.of(timeUnavailableArray[2],timeUnavailableArray[3]));
+                                newDaySchedule.addTimeUnavailableToDay(timeUnavailable);
+
                             }
                             newSchedule.setDay(newDaySchedule, i);
                         }
@@ -84,7 +86,6 @@ public class JacksonGetter extends Jackson {
 
 
                     Worker worker = new Worker(username, password, status, newSchedule);
-                    //System.out.println(newSchedule.printSchedule());
                     workers.add(worker);
                 }
 

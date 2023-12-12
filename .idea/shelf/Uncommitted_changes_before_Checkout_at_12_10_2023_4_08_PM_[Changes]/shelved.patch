@@ -1,0 +1,22 @@
+Index: src/main/java/Model/Staff/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Model.Staff;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonProperty;\r\n\r\npublic class User {\r\n    @JsonProperty(\"username\")\r\n    private String username;\r\n    @JsonProperty(\"password\")\r\n    private String password;\r\n    @JsonProperty(\"status\")\r\n    private String status;\r\n\r\n    public User(){}\r\n    public User(String username, String password, String status) {\r\n        this.username = username;\r\n        this.password = password;\r\n        this.status = status;\r\n    }\r\n\r\n    public String toString() {\r\n        return \"User{\" + \"username='\" + username + '\\'' + \", password='\" + password + '\\'' + \", status='\" + status + '\\'' + '}';\r\n    }\r\n\r\n    public void setUserName(String userName) {\r\n\r\n        this.username = userName;\r\n    }\r\n\r\n    public String getUserName() {\r\n        return username;\r\n    }\r\n\r\n    public String getStatus() {\r\n        return status;\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/Model/Staff/User.java b/src/main/java/Model/Staff/User.java
+--- a/src/main/java/Model/Staff/User.java	
++++ b/src/main/java/Model/Staff/User.java	
+@@ -1,13 +1,8 @@
+ package Model.Staff;
+ 
+-import com.fasterxml.jackson.annotation.JsonProperty;
+-
+ public class User {
+-    @JsonProperty("username")
+     private String username;
+-    @JsonProperty("password")
+     private String password;
+-    @JsonProperty("status")
+     private String status;
+ 
+     public User(){}

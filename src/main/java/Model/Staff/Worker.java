@@ -19,7 +19,6 @@ public class Worker {
     @JsonProperty("schedule")
     private Schedule schedule;
 
-    private List<TimeUnavailable> unavailableTimes;
 
     //int workerID;
 
@@ -35,8 +34,8 @@ public class Worker {
 
         this.schedule = schedule;
 
-        this.schedule = new Schedule();
-        this.unavailableTimes = new ArrayList<>();
+        this.schedule = schedule;
+
 
     }
 
@@ -55,15 +54,6 @@ public class Worker {
     }
 
 
-
-
-    public void addUnavailableTime(DayOfWeek day, LocalTime start, LocalTime end) {
-        TimeUnavailable newTimeUnavailable = new TimeUnavailable(day, start, end);
-        unavailableTimes.add(newTimeUnavailable);
-    }
-
-
-
     public void setUserName(String userName) {
         this.username = userName;
     }
@@ -76,11 +66,9 @@ public class Worker {
         return status;
     }
 
-    public Schedule getSchedule(){
+    public Schedule getSchedule() {
         return schedule;
     }
 
-    public List<TimeUnavailable> getUnavailableTimes() {
-        return unavailableTimes;
-    }
+
 }

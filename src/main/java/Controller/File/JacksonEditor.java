@@ -1,6 +1,7 @@
 package Controller.File;
 
 import Model.Schedules.DaySchedule;
+import Model.Time.TimeUnavailable;
 import Model.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -43,7 +44,7 @@ public class JacksonEditor extends Jackson {
 
             for (String day : daysOfWeek) {
                 JsonNode newDaySchedule = objectMapper.createObjectNode().put("day-name", day)
-                        .set("shifts", objectMapper.createArrayNode());
+                        .set("times-unavailable", objectMapper.createArrayNode());
                 newSchedule.add(newDaySchedule);
             }
 
@@ -137,31 +138,46 @@ public class JacksonEditor extends Jackson {
         }
     }
 
-    public static void addShift(String username, Week.DayNames day, Shift shift) {
+    public static void addTimeUnavailable(String username, Week.DayNames day, TimeUnavailable timeUnavailable) {
         JsonNode rootNode = getRootNode();
         ObjectMapper objectMapper = getObjectMapper();
         ObjectWriter objectWriter = getObjectWriter();
 
-        JsonNode workersNode = rootNode.path("workers");
+        JsonNode workersNode = rootNode.get("workers");
 
-            Iterator<JsonNode> workersNodeIterator = workersNode.elements();
+        //Iterate through all the workers
+        Iterator<JsonNode> workersNodeIterator = workersNode.elements();
 
-            while (workersNodeIterator.hasNext()) {
-                JsonNode workerNode = workersNodeIterator.next();
-                if (workerNode.get("username").equals(username)) {
-                    JsonNode schedules = workerNode.get("schedules");
+        while (workersNodeIterator.hasNext()) {
+            JsonNode workerNode = workersNodeIterator.next();
 
-                    Iterator<JsonNode> schedulesIterator = schedules.elements();
-                    while(schedulesIterator.hasNext()){
-                        JsonNode scheduleNode = schedulesIterator.next();
 
-                        //PROBABLY WILL HAVE TO REWORK THIS PART
-                        if(scheduleNode.get("name").equals(day)){
-                        //ADD THE SHIFT TO THE DAY
+            //Found the worker
+            if (workerNode.get("username").asText().equals(username)) {
+                JsonNode schedules = workerNode.get("schedules");
+
+
+                //Iterate through all the days
+                Iterator<JsonNode> schedulesIterator = schedules.elements();
+                for (int i = 0; schedulesIterator.hasNext(); i++) {
+                    JsonNode scheduleNode = schedulesIterator.next();
+
+                    //Convert the day to enum and find the day
+                    Week.DayNames dayFromJson = Week.DayNames.valueOf(scheduleNode.get("day-name").asText());
+                    if (dayFromJson.equals(day)) {
+
+                        //get the shifts array and add an array of 4 times
+                            ArrayNode shiftsArray = (ArrayNode) scheduleNode.get("times-unavailable");
+                            shiftsArray.add(timeUnavailable.getTimesArrayAsJsonNode());
+                        try {
+                            objectWriter.writeValue(getJsonFile(), rootNode);
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 }
             }
+        }
 
 
     }

@@ -14,7 +14,7 @@ public class Jackson {
         return jsonFile;
     }
 
-    protected static JsonNode getRootNode() {
+    public static JsonNode getRootNode() {
 
         //Getting and returning the root node
         try {
@@ -29,7 +29,7 @@ public class Jackson {
 
     }
 
-    protected static ObjectMapper getObjectMapper() {
+    public static ObjectMapper getObjectMapper() {
 
 //        Creating and returning the objectmapper
         ObjectMapper objectMapper = new ObjectMapper();

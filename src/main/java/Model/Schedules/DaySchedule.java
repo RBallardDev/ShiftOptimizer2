@@ -1,7 +1,9 @@
 package Model.Schedules;
 
 import Model.Time.Hour;
+import Model.Time.TimeUnavailable;
 import Model.Time.Week;
+import org.bouncycastle.asn1.x509.Time;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ public class DaySchedule {
 
     public Hour[] hours = new Hour[24];
 
-    private ArrayList<Shift> shifts = new ArrayList<Shift>();
+    private ArrayList<TimeUnavailable> timesUnavailable = new ArrayList<TimeUnavailable>();
 
     public DaySchedule(Week.DayNames name) {
         this.name = name;
@@ -32,20 +34,17 @@ public class DaySchedule {
     }
 
 
-    public void addShift(Shift shift) {
-        shifts.add(shift);
 
-    }
 
     // Method to get all shifts for the day
-    public ArrayList<Shift> getShifts() {
-        return shifts;
+    public ArrayList<TimeUnavailable> getTimesUnavailable() {
+        return timesUnavailable;
     }
 
 
-    public void addShiftToDay(Shift shift) {
-        LocalTime startTime = shift.getStartTime();
-        LocalTime endTime = shift.getEndTime();
+    public void addTimeUnavailableToDay(TimeUnavailable timeUnavailable) {
+        LocalTime startTime = timeUnavailable.getStartTime();
+        LocalTime endTime = timeUnavailable.getEndTime();
 
         // Iterate over each hour and half-hour segment within the shift duration
         for (int hour = startTime.getHour(); hour <= endTime.getHour(); hour++) {
@@ -60,13 +59,13 @@ public class DaySchedule {
             }
         }
 
-        shifts.add(shift);
+        timesUnavailable.add(timeUnavailable);
 
     }
 
-    public void removeShiftFromDay(Shift shift) {
-        LocalTime startTime = shift.getStartTime();
-        LocalTime endTime = shift.getEndTime();
+    public void removeTimeUnavailableFromDay(TimeUnavailable timeUnavailable) {
+        LocalTime startTime = timeUnavailable.getStartTime();
+        LocalTime endTime = timeUnavailable.getEndTime();
 
         // Iterate over each hour and half-hour segment within the shift duration
         for (int hour = startTime.getHour(); hour <= endTime.getHour(); hour++) {
@@ -81,16 +80,16 @@ public class DaySchedule {
             }
         }
 
-        shifts.remove(shift); // Remove the shift from the list of shifts*/
+        timesUnavailable.remove(timeUnavailable); // Remove the shift from the list of shifts*/
     }
-    public boolean hasConflict(Shift newShift) {
-        for (Shift existingShift : shifts) {
-            if (isSameDay(existingShift, newShift) && shiftsOverlap(existingShift, newShift)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public boolean hasConflict(Shift newShift) {
+//        for (Shift existingShift : shifts) {
+//            if (isSameDay(existingShift, newShift) && shiftsOverlap(existingShift, newShift)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
     //HELPER METHODS
     private boolean shiftsOverlap(Shift shift1, Shift shift2) {
