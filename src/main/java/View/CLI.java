@@ -93,7 +93,7 @@ public class CLI {
         if (loginToken != null) {
             System.out.println("Sign in successful!");
             Session.setToken(loginToken);
-            if (JacksonGetter.getStatusByUsername(SessionAuth.authenticateToken(Session.getToken())).equals("MN")) {
+            if (JacksonGetter.getStatusByUsername(SessionAuth.authenticateToken(Session.getToken())) == null ) {
                 managerMain(username);
             } else {
                 workerMain(username);
@@ -189,6 +189,22 @@ public class CLI {
     }
 
     private static void inputAvailableSchedule(String username){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter path to CSV file: ");
+        String filePath = scanner.next();
+
+
+            CSVAvailabilityImporter.importAvailability(filePath, username);
+
+            //I'll fix that
+//            for (TimeUnavailable time : worker.getUnavailableTimes()) {
+//                System.out.println(time.getDay() + ": " + time.getStartTime() + " to " + time.getEndTime());
+//            }
+
+
+            // Save the updated worker data back to jackson or JSON or whatever
+
 
     }
 }

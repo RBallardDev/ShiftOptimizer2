@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class JacksonGetter extends Jackson {
-    public static int getIndexFromUsername(String username) {
+    public static int getWorkerIndexFromUsername(String username) {
         JsonNode rootNode = getRootNode();
 
         for (int i = 0; i < rootNode.get("workers").size(); i++) {
@@ -30,10 +30,28 @@ public class JacksonGetter extends Jackson {
         return -1;
     }
 
-    public static String getPasswordFromIndex(int i) {
+    public static int getManagerIndexFromUsername(String username){
+        JsonNode rootNode = getRootNode();
+
+        for(int i = 0; i < rootNode.get("managers").size();i++){
+            if(username.equals(rootNode.get("managers").get(i).get("username").asText())){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static String getWorkerPasswordFromIndex(int i) {
         JsonNode rootNode = getRootNode();
 
         return rootNode.get("workers").get(i).get("password").asText();
+
+    }
+
+    public static String getManagerPasswordFromIndex(int i){
+        JsonNode rootNode = getRootNode();
+
+        return rootNode.get("managers").get(i).get("password").asText();
 
     }
 

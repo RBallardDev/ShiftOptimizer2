@@ -181,7 +181,7 @@ public class JacksonEditor extends Jackson {
 
 
     }
-    public static void addAvailableShift(String username, Week.DayNames day, AvailableShift availableShift){
+    public static void addAvailableShift(Week.DayNames day, AvailableShift availableShift){
         JsonNode rootNode = getRootNode();
         ObjectMapper objectMapper = getObjectMapper();
         ObjectWriter objectWriter = getObjectWriter();
@@ -197,8 +197,8 @@ public class JacksonEditor extends Jackson {
             if (dayFromJson.equals(day)) {
 
                 //get the shifts array and add an array of 4 times
-                ArrayNode shiftsArray = (ArrayNode) scheduleNode.get("times-unavailable");
-                shiftsArray.add(timeUnavailable.getTimesArrayAsJsonNode());
+                ArrayNode shiftsArray = (ArrayNode) scheduleNode.get("shifts");
+                shiftsArray.add(availableShift.getTimesArrayAsJsonNode());
                 try {
                     objectWriter.writeValue(getJsonFile(), rootNode);
                 } catch (Exception e) {
