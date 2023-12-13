@@ -91,13 +91,13 @@ public class DayWorkerSchedule {
 //    }
 
     //HELPER METHODS
-    private boolean shiftsOverlap(AvailableShift shift1, AvailableShift shift2) {
-        return !shift1.getEndTime().isBefore(shift2.getStartTime()) &&
-                !shift2.getEndTime().isBefore(shift1.getStartTime());
+    private boolean shiftsOverlap(TimeUnavailable time1, TimeUnavailable time2) {
+        return !time1.getEndTime().isBefore(time2.getStartTime()) &&
+                !time2.getEndTime().isBefore(time1.getStartTime());
     }
 
-    private boolean isSameDay(AvailableShift shift1, AvailableShift shift2) {
-        return shift1.getDay().equals(shift2.getDay());
+    private boolean isSameDay(TimeUnavailable time1, TimeUnavailable time2) {
+        return time1.getDay().equals(time2.getDay());
     }
 
 

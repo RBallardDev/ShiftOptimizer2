@@ -133,11 +133,10 @@ public class CLI {
         int action = scn.nextInt();
         switch (action) {
             case 1:
-
-                displaySchedule(username);
+                displayAvailableSchedule(username);
 
             case 2:
-                inputSchedule();
+                inputAvailableSchedule(username);
 
             case 3:
                 //View all shifts
@@ -179,11 +178,17 @@ public class CLI {
     private static void displaySchedule(String username) {
 
         Worker test = JacksonGetter.getWorkerByUsername(SessionAuth.authenticateToken(Session.getToken()));
-        AvailableShift shift1 = new AvailableShift(LocalTime.of(9, 0), LocalTime.of(17, 0));
-        AvailableShift shift2 = new AvailableShift(LocalTime.of(10, 0), LocalTime.of(18, 0));
 
 
         System.out.println("Schedule for " + username + ":");
         System.out.println(test.getSchedule().buildUnavailableTimesScheduleString());
+    }
+
+    private static void displayAvailableSchedule(String username){
+
+    }
+
+    private static void inputAvailableSchedule(String username){
+
     }
 }

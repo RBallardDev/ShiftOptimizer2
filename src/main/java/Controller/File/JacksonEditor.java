@@ -1,5 +1,6 @@
 package Controller.File;
 
+import Model.Schedules.ManagerSchedule.AvailableShift;
 import Model.Schedules.WorkerSchedule.TimeUnavailable;
 import Model.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -178,6 +179,33 @@ public class JacksonEditor extends Jackson {
         }
 
 
+
+    }
+    public static void addAvailableShift(String username, Week.DayNames day, AvailableShift availableShift){
+        JsonNode rootNode = getRootNode();
+        ObjectMapper objectMapper = getObjectMapper();
+        ObjectWriter objectWriter = getObjectWriter();
+
+        JsonNode availableShiftsNode = rootNode.get("available-schedule");
+
+        Iterator<JsonNode> availableScheduleIterator = availableShiftsNode.elements();
+        for (int i = 0; availableScheduleIterator.hasNext(); i++) {
+            JsonNode scheduleNode = availableScheduleIterator.next();
+
+            //Convert the day to enum and find the day
+            Week.DayNames dayFromJson = Week.DayNames.valueOf(scheduleNode.get("day-name").asText());
+            if (dayFromJson.equals(day)) {
+
+                //get the shifts array and add an array of 4 times
+                ArrayNode shiftsArray = (ArrayNode) scheduleNode.get("times-unavailable");
+                shiftsArray.add(timeUnavailable.getTimesArrayAsJsonNode());
+                try {
+                    objectWriter.writeValue(getJsonFile(), rootNode);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 }

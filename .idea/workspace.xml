@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableDaySchedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableSchedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ShiftDaySchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CSVController/CSVAvailabilityImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CSVController/CSVAvailabilityImporter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/AvailableSchedule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/DayWorkerSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/DayWorkerSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableShift.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/WorkerSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Staff/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Staff/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Staff/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Staff/Worker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Time/TimeUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/TimeUnavailable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableDaySchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableDaySchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableShift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableShift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/DayWorkerSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/DayWorkerSchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/CLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

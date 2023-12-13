@@ -4,5 +4,9 @@ import java.util.ArrayList;
 
 public class AvailableSchedule
 {
-ArrayList<AvailableDaySchedule> availableDaySchedules;
+AvailableDaySchedule[] availableDaySchedules = new AvailableDaySchedule[7];
+
+    public void setDay(AvailableDaySchedule newAvailableDaySchedule, int i) {
+        availableDaySchedules[i] = newAvailableDaySchedule;
+    }
 }

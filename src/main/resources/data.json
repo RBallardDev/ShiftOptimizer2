@@ -30,5 +30,26 @@
     "username" : "testman",
     "password" : "d74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1"
   } ],
-  "available-schedule" : [ ]
+  "available-schedule" : [{
+    "day-name" : "Sunday",
+    "shifts" : [ ]
+  },{
+    "day-name" : "Monday",
+    "shifts" : [ ]
+  },{
+    "day-name" : "Tuesday",
+    "shifts" : [ ]
+  },{
+    "day-name" : "Wednesday",
+    "shifts" : [ ]
+  },{
+    "day-name" : "Thursday",
+    "shifts" : [ ]
+  },{
+    "day-name" : "Friday",
+    "shifts" : [ ]
+  },{
+    "day-name" : "Saturday",
+    "shifts" : [ ]
+  } ]
 }

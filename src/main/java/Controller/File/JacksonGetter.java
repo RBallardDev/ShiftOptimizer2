@@ -1,6 +1,10 @@
 package Controller.File;
 
+import Model.Schedules.ManagerSchedule.AvailableDaySchedule;
+import Model.Schedules.ManagerSchedule.AvailableSchedule;
+import Model.Schedules.ManagerSchedule.AvailableShift;
 import Model.Schedules.WorkerSchedule.WorkerSchedule;
+import Model.Staff.Manager;
 import Model.Staff.Worker;
 import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
 import Model.Schedules.WorkerSchedule.TimeUnavailable;
@@ -94,6 +98,64 @@ public class JacksonGetter extends Jackson {
         return workers;
     }
 
+
+    public static List<Manager> getAllManagers(){
+        JsonNode rootNode = getRootNode();
+        ObjectMapper objectMapper = getObjectMapper();
+        List<Manager> managers = new ArrayList<>();
+
+        if (rootNode != null && rootNode.has("managers")) {
+            JsonNode managersNode = rootNode.get("managers");
+            if (managersNode.isArray()) {
+                Iterator<JsonNode> iterator = managersNode.elements();
+                while (iterator.hasNext()) {
+                    JsonNode managerNode = iterator.next();
+
+                    String username = managerNode.get("username").asText();
+                    String password = managerNode.get("password").asText();
+
+                    Manager manager = new Manager(username, password);
+                    managers.add(manager);
+                }
+            }
+        }
+
+        return managers;
+    }
+
+    public static AvailableSchedule getAvailableSchedule() {
+        JsonNode availableScheduleNode = getRootNode().get("available-schedule");
+        AvailableSchedule newAvailableSchedule = new AvailableSchedule();
+        ObjectMapper objectMapper = Jackson.getObjectMapper();
+
+        //Iterate through all the schedule days
+        if (availableScheduleNode.isArray()) {
+            Iterator<JsonNode> iteratorSchedule = availableScheduleNode.elements();
+
+            for (int i = 0; iteratorSchedule.hasNext(); i++) {
+
+                //Initialize a day to fill
+                AvailableDaySchedule newAvailableDaySchedule = new AvailableDaySchedule(Week.DAY_NAMES[i]);
+
+                JsonNode availableDayScheduleNode = iteratorSchedule.next();
+
+
+                Iterator<JsonNode> iteratorShifts = availableDayScheduleNode.path("shifts").elements();
+
+                //Iterate through all the times unavailable
+                while (iteratorShifts.hasNext()) {
+                    JsonNode shiftNode = iteratorShifts.next();
+                    int[] shfitArray = objectMapper.convertValue(shiftNode, int[].class);
+                    AvailableShift availableShift = new AvailableShift(Week.DAY_NAMES[i], LocalTime.of(shfitArray[0], shfitArray[1]), LocalTime.of(shfitArray[2],shfitArray[3]));
+                    newAvailableDaySchedule.addShiftToDay(availableShift);
+
+                }
+                newAvailableSchedule.setDay(newAvailableDaySchedule, i);
+            }
+        }
+
+        return newAvailableSchedule;
+    }
     public static Worker getWorkerByUsername(String username) {
         List<Worker> workers = getAllWorkers();
         for (Worker worker : workers) {

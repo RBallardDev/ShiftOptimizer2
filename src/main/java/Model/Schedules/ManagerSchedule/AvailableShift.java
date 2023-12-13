@@ -3,6 +3,7 @@ package Model.Schedules.ManagerSchedule;
 import Controller.File.Jackson;
 import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
 import Model.Staff.Worker;
+import Model.Time.Week;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
@@ -11,14 +12,12 @@ import java.time.LocalTime;
 public class AvailableShift {
     private LocalTime startTime;
     private LocalTime endTime;
+
+    private Week.DayNames day;
     //@JsonProperty("username")
     //private String userName; // or any identifier for the worker
 
-    private Worker worker;
-
-    private DayWorkerSchedule dayWorkerSchedule;
-
-    public AvailableShift(LocalTime startTime, LocalTime endTime) {
+    public AvailableShift(Week.DayNames day, LocalTime startTime, LocalTime endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
 
@@ -58,21 +57,7 @@ public class AvailableShift {
         this.userName = userName;
     }*/
 
-    public DayWorkerSchedule getDay() {
-        return dayWorkerSchedule;
-    }
 
-    public void setDay(DayWorkerSchedule dayWorkerSchedule) {
-        this.dayWorkerSchedule = dayWorkerSchedule;
-    }
-
-    public Worker getWorker() {
-        return worker;
-    }
-
-    public void setWorker(Worker worker) {
-        this.worker = worker;
-    }
 
     // Additional methods as needed, like checking if a shift overlaps with another, etc.
 }
