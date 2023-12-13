@@ -12,4 +12,6 @@ module com.example.shiftoptimizer2 {
     exports Controller;
     exports Controller.XMLControllers;
     opens Controller.XMLControllers to javafx.fxml;
+    exports Controller.ShiftAssigning;
+    opens Controller.ShiftAssigning to javafx.fxml;
 }
