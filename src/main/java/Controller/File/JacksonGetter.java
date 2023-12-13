@@ -1,20 +1,28 @@
 package Controller.File;
 
-import Model.Staff.User;
+import Model.Schedules.ManagerSchedule.AvailableDaySchedule;
+import Model.Schedules.ManagerSchedule.AvailableSchedule;
+import Model.Schedules.ManagerSchedule.AvailableShift;
+import Model.Schedules.WorkerSchedule.WorkerSchedule;
+import Model.Staff.Manager;
+import Model.Staff.Worker;
+import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
+import Model.Schedules.WorkerSchedule.TimeUnavailable;
+import Model.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import Model.Staff.Worker;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class JacksonGetter extends Jackson{
-    public static int getIndexFromUsername(String username) {
+public class JacksonGetter extends Jackson {
+    public static int getWorkerIndexFromUsername(String username) {
         JsonNode rootNode = getRootNode();
 
-        for (int i = 0; i < rootNode.get("users").size(); i++) {
-            if (username.equals(rootNode.get("users").get(i).get("username").asText())) {
+        for (int i = 0; i < rootNode.get("workers").size(); i++) {
+            if (username.equals(rootNode.get("workers").get(i).get("username").asText())) {
                 return i;
             }
         }
@@ -22,56 +30,165 @@ public class JacksonGetter extends Jackson{
         return -1;
     }
 
-    public static String getPasswordFromIndex(int i){
+    public static int getManagerIndexFromUsername(String username){
         JsonNode rootNode = getRootNode();
 
-        return rootNode.get("users").get(i).get("password").asText();
+        for(int i = 0; i < rootNode.get("managers").size();i++){
+            if(username.equals(rootNode.get("managers").get(i).get("username").asText())){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static String getWorkerPasswordFromIndex(int i) {
+        JsonNode rootNode = getRootNode();
+
+        return rootNode.get("workers").get(i).get("password").asText();
 
     }
 
-    public static List<User> getAllUsers() {
+    public static String getManagerPasswordFromIndex(int i){
+        JsonNode rootNode = getRootNode();
 
-            JsonNode rootNode = getRootNode();
-            ObjectMapper objectMapper = getObjectMapper();
-            List<User> users = new ArrayList<>();
+        return rootNode.get("managers").get(i).get("password").asText();
 
-            // Assuming the workers are stored in an array under the "workers" field
-            if (rootNode != null && rootNode.has("users")) {
-                JsonNode usersNode = rootNode.get("users");
-                if (usersNode.isArray()) {
-                    Iterator<JsonNode> iterator = usersNode.elements();
-                    while (iterator.hasNext()) {
-                        JsonNode userNode = iterator.next();
+    }
 
-                        String username = userNode.get("username").asText();
-                        String password = userNode.get("password").asText();
-                        String status = userNode.get("status").asText();
+    public static List<Worker> getAllWorkers() {
 
-                        User user = new User(username, password, status);
-                        users.add(user);
+        JsonNode rootNode = getRootNode();
+        ObjectMapper objectMapper = getObjectMapper();
+        List<Worker> workers = new ArrayList<>();
+
+        // Assuming the workers are stored in an array under the "workers" field
+        if (rootNode != null && rootNode.has("workers")) {
+            JsonNode workersNode = rootNode.get("workers");
+            if (workersNode.isArray()) {
+                //Iterate through all the workers
+                Iterator<JsonNode> iterator = workersNode.elements();
+                while (iterator.hasNext()) {
+                    JsonNode workerNode = iterator.next();
+
+                    String username = workerNode.get("username").asText();
+                    String password = workerNode.get("password").asText();
+                    String status = workerNode.get("status").asText();
+                    JsonNode schedulesNode = workerNode.path("schedules");
+
+                    //Initialize the schedule object to fill
+
+                    WorkerSchedule newWorkerSchedule = new WorkerSchedule();
+
+                    //Iterate through all the schedule days
+                    if (schedulesNode.isArray()) {
+                        Iterator<JsonNode> iteratorSchedule = schedulesNode.elements();
+
+                        for (int i = 0; iteratorSchedule.hasNext(); i++) {
+
+                            //Initialize a day to fill
+                            DayWorkerSchedule newDayWorkerSchedule = new DayWorkerSchedule(Week.DAY_NAMES[i]);
+
+                            JsonNode dayScheduleNode = iteratorSchedule.next();
+
+
+                            Iterator<JsonNode> iteratorShifts = dayScheduleNode.path("times-unavailable").elements();
+
+                            //Iterate through all the times unavailable
+                            while (iteratorShifts.hasNext()) {
+                                JsonNode shiftNode = iteratorShifts.next();
+                                int[] timeUnavailableArray = objectMapper.convertValue(shiftNode, int[].class);
+                                TimeUnavailable timeUnavailable = new TimeUnavailable(Week.DAY_NAMES[i], LocalTime.of(timeUnavailableArray[0], timeUnavailableArray[1]), LocalTime.of(timeUnavailableArray[2],timeUnavailableArray[3]));
+                                newDayWorkerSchedule.addTimeUnavailableToDay(timeUnavailable);
+
+                            }
+                            newWorkerSchedule.setDay(newDayWorkerSchedule, i);
+                        }
                     }
 
 
+                    Worker worker = new Worker(username, password, status, newWorkerSchedule);
+                    workers.add(worker);
                 }
+
+
             }
-        return users;
+        }
+        return workers;
     }
 
-    public static User getWorkerByUsername(String username) {
-        List<User> users = getAllUsers();
-        for (User user : users) {
-            if (user.getUserName().equals(username)) {
-                return user;
+
+    public static List<Manager> getAllManagers(){
+        JsonNode rootNode = getRootNode();
+        ObjectMapper objectMapper = getObjectMapper();
+        List<Manager> managers = new ArrayList<>();
+
+        if (rootNode != null && rootNode.has("managers")) {
+            JsonNode managersNode = rootNode.get("managers");
+            if (managersNode.isArray()) {
+                Iterator<JsonNode> iterator = managersNode.elements();
+                while (iterator.hasNext()) {
+                    JsonNode managerNode = iterator.next();
+
+                    String username = managerNode.get("username").asText();
+                    String password = managerNode.get("password").asText();
+
+                    Manager manager = new Manager(username, password);
+                    managers.add(manager);
+                }
+            }
+        }
+
+        return managers;
+    }
+
+    public static AvailableSchedule getAvailableSchedule() {
+        JsonNode availableScheduleNode = getRootNode().get("available-schedule");
+        AvailableSchedule newAvailableSchedule = new AvailableSchedule();
+        ObjectMapper objectMapper = Jackson.getObjectMapper();
+
+        //Iterate through all the schedule days
+        if (availableScheduleNode.isArray()) {
+            Iterator<JsonNode> iteratorSchedule = availableScheduleNode.elements();
+
+            for (int i = 0; iteratorSchedule.hasNext(); i++) {
+
+                //Initialize a day to fill
+                AvailableDaySchedule newAvailableDaySchedule = new AvailableDaySchedule(Week.DAY_NAMES[i]);
+
+                JsonNode availableDayScheduleNode = iteratorSchedule.next();
+
+
+                Iterator<JsonNode> iteratorShifts = availableDayScheduleNode.path("shifts").elements();
+
+                //Iterate through all the times unavailable
+                while (iteratorShifts.hasNext()) {
+                    JsonNode shiftNode = iteratorShifts.next();
+                    int[] shfitArray = objectMapper.convertValue(shiftNode, int[].class);
+                    AvailableShift availableShift = new AvailableShift(Week.DAY_NAMES[i], LocalTime.of(shfitArray[0], shfitArray[1]), LocalTime.of(shfitArray[2],shfitArray[3]));
+                    newAvailableDaySchedule.addShiftToDay(availableShift);
+
+                }
+                newAvailableSchedule.setDay(newAvailableDaySchedule, i);
+            }
+        }
+
+        return newAvailableSchedule;
+    }
+    public static Worker getWorkerByUsername(String username) {
+        List<Worker> workers = getAllWorkers();
+        for (Worker worker : workers) {
+            if (worker.getUserName().equals(username)) {
+                return worker;
             }
         }
         return null; // or throw an exception if the worker is not found
     }
 
-    public static String getStatusByUsername(String username){
-        List<User> users = getAllUsers();
-        for (User user : users) {
-            if (user.getUserName().equals(username)) {
-                return user.getStatus();
+    public static String getStatusByUsername(String username) {
+        List<Worker> workers = getAllWorkers();
+        for (Worker worker : workers) {
+            if (worker.getUserName().equals(username)) {
+                return worker.getStatus();
             }
         }
         return null; // or throw an exception if the worker is not found

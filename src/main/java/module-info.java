@@ -1,6 +1,7 @@
 module com.example.shiftoptimizer2 {
     requires javafx.controls;
     requires javafx.fxml;
+    requires commons.csv;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;

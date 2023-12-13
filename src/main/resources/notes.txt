@@ -1,0 +1,3 @@
+A master schedule that holds usernames
+A way to pull up all the workers for a certain segment
+an optimizer that goes through all the half hours

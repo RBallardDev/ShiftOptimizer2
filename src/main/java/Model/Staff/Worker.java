@@ -1,36 +1,41 @@
 package Model.Staff;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import Model.Schedules.Schedule;
-import Model.Schedules.Shift;
-import Model.Schedules.ShiftConflictException;
+import Model.Schedules.WorkerSchedule.WorkerSchedule;
 
-public class Worker extends User {
+public class Worker {
     @JsonProperty("username")
     private String username;
     @JsonProperty("password")
     private String password;
     @JsonProperty("status")
     private String status;
+    @JsonProperty("schedule")
+    private WorkerSchedule workerSchedule;
 
-    private Schedule schedule;
 
     //int workerID;
 
 
     public Worker() {
-        this.schedule = new Schedule();
+        this.workerSchedule = new WorkerSchedule();
     }
 
-    public Worker(String username, String password, String status) {
+    public Worker(String username, String password, String status, WorkerSchedule workerSchedule) {
         this.username = username;
         this.password = password;
         this.status = status;
+
+        this.workerSchedule = workerSchedule;
+
+        this.workerSchedule = workerSchedule;
+
+
     }
 
 
     public String printSchedule() {
-        return schedule.printSchedule();
+        return workerSchedule.buildUnavailableTimesScheduleString();
     }
 
     @Override
@@ -55,7 +60,9 @@ public class Worker extends User {
         return status;
     }
 
-    public Schedule getSchedule(){
-        return schedule;
+    public WorkerSchedule getSchedule() {
+        return workerSchedule;
     }
+
+
 }

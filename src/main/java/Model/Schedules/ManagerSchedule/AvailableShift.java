@@ -1,25 +1,25 @@
-package Model.Schedules;
+package Model.Schedules.ManagerSchedule;
 
-import Model.Staff.User;
+import Controller.File.Jackson;
+import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
 import Model.Staff.Worker;
-import Model.Time.Day;
+import Model.Time.Week;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import java.time.LocalTime;
 
-public class Shift {
+public class AvailableShift {
     private LocalTime startTime;
     private LocalTime endTime;
+
+    private Week.DayNames day;
     //@JsonProperty("username")
     //private String userName; // or any identifier for the worker
 
-    private User worker;
-
-    private Day day;
-
-    public Shift(LocalTime startTime, LocalTime endTime, User worker) {
+    public AvailableShift(Week.DayNames day, LocalTime startTime, LocalTime endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
-        this.worker = worker;
 
     }
 
@@ -28,6 +28,15 @@ public class Shift {
         return startTime;
     }
 
+    public ArrayNode getTimesArrayAsJsonNode(){
+        ObjectMapper objectMapper = Jackson.getObjectMapper();
+        ArrayNode timesArray = objectMapper.createArrayNode();
+        timesArray.add(startTime.getHour());
+        timesArray.add(startTime.getMinute());
+        timesArray.add(endTime.getHour());
+        timesArray.add(endTime.getMinute());
+        return timesArray;
+    }
     public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
@@ -48,21 +57,7 @@ public class Shift {
         this.userName = userName;
     }*/
 
-    public Day getDay() {
-        return day;
-    }
 
-    public void setDay(Day day) {
-        this.day = day;
-    }
-
-    public User getWorker() {
-        return worker;
-    }
-
-    public void setWorker(Worker worker) {
-        this.worker = worker;
-    }
 
     // Additional methods as needed, like checking if a shift overlaps with another, etc.
 }
