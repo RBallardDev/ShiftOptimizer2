@@ -5,14 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/notes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssigning/MinuteCounter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/OptimizedSchedule/Hour.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/OptimizedSchedule/OptimizedDaySchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/OptimizedSchedule/OptimizedSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test/testManagerSchedule.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_3_52_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_3_52_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_3_57_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_3_57_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_4_08_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_4_08_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_4_08_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_10_2023_4_08_PM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CSVController/CSVAvailabilityImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CSVController/CSVAvailabilityImporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/SignInAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/SignInAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssigning/ShiftAssigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssigning/ShiftAssigner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssigning/WorkerAvailabilityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssigning/WorkerAvailabilityManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableShift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableShift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/ShiftConflictException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/ShiftDaySchedule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/DayWorkerSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/DayWorkerSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/WorkerSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/WorkerSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Time/Hour.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Time/Week.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Time/Week.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/View/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/CLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/notes.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,18 +57,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;delete-user&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jmsle/OneDrive/Oxy/COMP 181/ShiftOptimizer2/lib&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5091954&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "test-algorithm1",
+    "last_opened_file_path": "C:/Users/Jmsle/OneDrive/Oxy/COMP 181/ShiftOptimizer2/lib",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5091954",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\lib" />

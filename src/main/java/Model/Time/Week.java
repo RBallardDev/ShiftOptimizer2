@@ -2,7 +2,7 @@ package Model.Time;
 
 public class Week {
 
-    public static final  Week.DayNames[] DAY_NAMES = {Week.DayNames.Monday, Week.DayNames.Tuesday,
+    public static final Week.DayNames[] DAY_NAMES = {Week.DayNames.Monday, Week.DayNames.Tuesday,
             Week.DayNames.Wednesday, Week.DayNames.Thursday, Week.DayNames.Friday,
             Week.DayNames.Saturday, Week.DayNames.Sunday};
 
@@ -10,6 +10,15 @@ public class Week {
         Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
     }
 
+    public static int getIndexFromDay(Week.DayNames inputDay) {
+        for (int i = 0; i < DAY_NAMES.length; i++) {
+            DayNames day = DAY_NAMES[i];
+            if (inputDay.equals(day)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 //    public List<Day> days;
 
 //    public Week() {

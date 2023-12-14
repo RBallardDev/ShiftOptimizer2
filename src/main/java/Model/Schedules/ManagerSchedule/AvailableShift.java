@@ -14,8 +14,6 @@ public class AvailableShift {
     private LocalTime endTime;
 
     private Week.DayNames day;
-    //@JsonProperty("username")
-    //private String userName; // or any identifier for the worker
 
     public AvailableShift(Week.DayNames day, LocalTime startTime, LocalTime endTime) {
         this.startTime = startTime;
@@ -37,27 +35,13 @@ public class AvailableShift {
         timesArray.add(endTime.getMinute());
         return timesArray;
     }
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
-    }
+
 
     public LocalTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalTime endTime) {
-        this.endTime = endTime;
-    }
-
-    /*public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }*/
 
 
 
-    // Additional methods as needed, like checking if a shift overlaps with another, etc.
 }
