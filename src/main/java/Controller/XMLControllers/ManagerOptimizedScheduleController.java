@@ -32,10 +32,13 @@ public class ManagerOptimizedScheduleController {
 
     @FXML
     private ListView<String> saturdayListView;
+
+
     @FXML
     private void initialize() {
         ShiftAssigner.optimizeWeek();
         System.out.println(OptimizedSchedule.buildOptimizedScheduleString());
+
         for (int i = 0; i < 7; i++) {
             OptimizedDaySchedule optimizedDaySchedule = OptimizedSchedule.optimizedDaySchedules[i];
 
@@ -43,94 +46,44 @@ public class ManagerOptimizedScheduleController {
             LocalTime endTime = null;
             String username = null;
 
-            for(Hour hour :optimizedDaySchedule.getHours()){
+            for (Hour hour : optimizedDaySchedule.getHours()) {
+                for (int halfHour = 0; halfHour < 2; halfHour++) {
+                    String currentUsername = hour.halfHours[halfHour];
+                    LocalTime currentTime = LocalTime.of(hour.hourOfDay, halfHour * 30);
 
-                //Check for the first half of the hour -------------------------------------------
-                if(username != null){
-
-                    //username not null means that the last time segment was the same person
-                    if(hour.halfHours[0] == null){
-                        //current time segment means that shift ends here
-                        endTime = LocalTime.of(hour.hourOfDay, 0);
-
-
-                        //Put the result to the list
-                        ObservableList<String> items = getDayListView(optimizedDaySchedule.name).getItems();
-                        items.add(username + ": " + startTime + " - " + endTime);
-                        //set the username to null
-
-                        username = null;
-
-                    }else if(hour.halfHours[0].equals(username)){
-                        //shift continues further than this
-                    }else if(!hour.halfHours[0].equals(username)){
-                        //If another person continues a shift right after then set the end time
-                        endTime = LocalTime.of(hour.hourOfDay, 0);
-
-                        //Put the result to the list
+                    if (username == null && currentUsername != null) {
+                        // Start of a new shift
+                        startTime = currentTime;
+                        username = currentUsername;
+                    } else if (username != null && (currentUsername == null || !currentUsername.equals(username))) {
+                        // End of the current shift and start of a new one or no shift
+                        endTime = currentTime;
                         ObservableList<String> items = getDayListView(optimizedDaySchedule.name).getItems();
                         items.add(username + ": " + startTime + " - " + endTime);
 
-                        username = hour.halfHours[0];
-
-                        items = getDayListView(optimizedDaySchedule.name).getItems();
-                        items.add(username + ": " + startTime + " - " + endTime);
-                        startTime = LocalTime.of(hour.hourOfDay, 0);
-                        username = hour.halfHours[0];
-
-
+                        if (currentUsername != null) {
+                            // Start of a new shift
+                            startTime = currentTime;
+                            username = currentUsername;
+                        } else {
+                            // No shift
+                            username = null;
+                        }
                     }
                 }
-                //If the username is null, this is beginning a new shift
-                if(hour.halfHours[0] != null){
+            }
 
-                    startTime = LocalTime.of(hour.hourOfDay, 30);
-                    username = hour.halfHours[0];
-                }
-
-                //Check for the second half of the hour -----------------------------------------------------
-                if(username != null){
-                    //username not null means that the last time segment was the same person
-                    if(hour.halfHours[1] == null){
-                        //current time segment means that shift ends here
-                        endTime = LocalTime.of(hour.hourOfDay, 30);
-
-                        //Put the result to the list
-                        ObservableList<String> items = getDayListView(optimizedDaySchedule.name).getItems();
-                        items.add(username + ": " + startTime + " - " + endTime);
-                        //set the username to null
-
-                        username = null;
-                    }else if(hour.halfHours[1].equals(username)){
-                        //shift continues further than this
-                    }else if(!hour.halfHours[1].equals(username)){
-                        //If another person continues a shift right after then set the end time
-                        endTime = LocalTime.of(hour.hourOfDay, 30);
-
-                        //Put the result to the list
-                        ObservableList<String> items = getDayListView(optimizedDaySchedule.name).getItems();
-                        items.add(username + ": " + startTime + " - " + endTime);
-
-                        username = hour.halfHours[1];
-
-                        items = getDayListView(optimizedDaySchedule.name).getItems();
-                        items.add(username + ": " + startTime + " - " + endTime);
-                        startTime = LocalTime.of(hour.hourOfDay, 30);
-                        username = hour.halfHours[1];
-
-                    }
-                }
-                //If the username is null, this is beginning a new shift
-                if(hour.halfHours[1] != null){
-                    System.out.println("HI");
-
-                    startTime = LocalTime.of(hour.hourOfDay, 30);
-                    username = hour.halfHours[1];
-                }
-
+            // Add the last shift if it hasn't been added
+            if (username != null) {
+                endTime = LocalTime.of(23, 59); // Assuming the last possible time for a shift
+                ObservableList<String> items = getDayListView(optimizedDaySchedule.name).getItems();
+                items.add(username + ": " + startTime + " - " + endTime);
             }
         }
     }
+
+
+
     private ListView<String> getDayListView(Week.DayNames dayName) {
         switch (dayName) {
             case Sunday:
@@ -151,6 +104,5 @@ public class ManagerOptimizedScheduleController {
                 return null;
         }
     }
-
 
 }
