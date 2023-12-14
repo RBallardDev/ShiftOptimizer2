@@ -2,7 +2,7 @@
   "workers" : [ {
     "username" : "a",
     "password" : "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-    "status" : "a",
+    "status" : "ST",
     "schedules" : [ {
       "day-name" : "Sunday",
       "times-unavailable" : [ ]
@@ -47,6 +47,32 @@
     }, {
       "day-name" : "Friday",
       "times-unavailable" : [ [ 8, 30, 14, 30 ], [ 15, 30, 16, 30 ] ]
+    }, {
+      "day-name" : "Saturday",
+      "times-unavailable" : [ ]
+    } ]
+  }, {
+    "username" : "d",
+    "password" : "18ac3e7343f016890c510e93f935261169d9e3f565436429830faf0934f4f8e4",
+    "status" : "ST",
+    "schedules" : [ {
+      "day-name" : "Sunday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Monday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Tuesday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Wednesday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Thursday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Friday",
+      "times-unavailable" : [ ]
     }, {
       "day-name" : "Saturday",
       "times-unavailable" : [ ]

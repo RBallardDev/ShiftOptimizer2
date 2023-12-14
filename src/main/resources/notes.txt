@@ -3,3 +3,4 @@ A way to pull up all the workers for a certain segment
 an optimizer that goes through all the half hours
 Put somewhere to edit the worktime config
 Workday config of individual days
+Prevent users from spamming the same shifts
