@@ -45,7 +45,6 @@
                     <Integer  fx:value="21"/>
                     <Integer  fx:value="22"/>
                     <Integer  fx:value="23"/>
-                    <Integer  fx:value="24"/>
 
 
                     <!-- Add other hours as needed -->
@@ -94,7 +93,6 @@
                     <Integer  fx:value="21"/>
                     <Integer  fx:value="22"/>
                     <Integer  fx:value="23"/>
-                    <Integer  fx:value="24"/>
 
 
                     <!-- Add other hours as needed -->
