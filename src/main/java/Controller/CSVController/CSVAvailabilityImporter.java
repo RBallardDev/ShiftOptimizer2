@@ -62,7 +62,7 @@ public class CSVAvailabilityImporter {
                         Week.DayNames day = Week.DayNames.valueOf(csvRecord.get("Day"));
                         LocalTime start = LocalTime.parse(csvRecord.get("Start"), timeFormatter);
                         LocalTime end = LocalTime.parse(csvRecord.get("End"), timeFormatter);
-                        if(JacksonGetter.getStatusByUsername(username).equals("MN")){
+                        if(JacksonGetter.getStatusByUsername(username) == null){
                             AvailableShift availableShift = new AvailableShift(day, start, end);
                             JacksonEditor.addAvailableShift(day, availableShift);
 
