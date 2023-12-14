@@ -168,7 +168,7 @@ public class JacksonGetter extends Jackson {
                     newAvailableDaySchedule.addShiftToDay(availableShift);
 
                 }
-                newAvailableSchedule.setDay(newAvailableDaySchedule, i);
+                AvailableSchedule.setDay(newAvailableDaySchedule, i);
             }
         }
 
