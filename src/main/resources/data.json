@@ -25,6 +25,32 @@
       "day-name" : "Saturday",
       "times-unavailable" : [ ]
     } ]
+  }, {
+    "username" : "c",
+    "password" : "2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6",
+    "status" : "ST",
+    "schedules" : [ {
+      "day-name" : "Sunday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Monday",
+      "times-unavailable" : [ [ 8, 0, 9, 30 ], [ 10, 0, 12, 30 ], [ 14, 0, 16, 0 ] ]
+    }, {
+      "day-name" : "Tuesday",
+      "times-unavailable" : [ [ 11, 30, 14, 0 ] ]
+    }, {
+      "day-name" : "Wednesday",
+      "times-unavailable" : [ [ 8, 0, 10, 0 ], [ 14, 30, 17, 30 ], [ 18, 0, 19, 0 ] ]
+    }, {
+      "day-name" : "Thursday",
+      "times-unavailable" : [ [ 10, 0, 11, 30 ], [ 12, 30, 17, 0 ] ]
+    }, {
+      "day-name" : "Friday",
+      "times-unavailable" : [ [ 8, 30, 14, 30 ], [ 15, 30, 16, 30 ] ]
+    }, {
+      "day-name" : "Saturday",
+      "times-unavailable" : [ ]
+    } ]
   } ],
   "managers" : [ {
     "username" : "testman",
@@ -38,19 +64,19 @@
     "shifts" : [ ]
   }, {
     "day-name" : "Monday",
-    "shifts" : [ [ 9, 30, 10, 30 ], [ 11, 30, 12, 30 ], [ 16, 0, 17, 0 ] ]
+    "shifts" : [ ]
   }, {
     "day-name" : "Tuesday",
-    "shifts" : [ [ 13, 30, 15, 0 ] ]
+    "shifts" : [ ]
   }, {
     "day-name" : "Wednesday",
-    "shifts" : [ [ 9, 30, 10, 30 ], [ 11, 30, 12, 30 ], [ 16, 0, 17, 0 ] ]
+    "shifts" : [ ]
   }, {
     "day-name" : "Thursday",
-    "shifts" : [ [ 10, 0, 11, 30 ], [ 13, 30, 15, 0 ] ]
+    "shifts" : [ ]
   }, {
     "day-name" : "Friday",
-    "shifts" : [ [ 9, 30, 10, 30 ], [ 11, 30, 12, 30 ], [ 16, 0, 17, 0 ] ]
+    "shifts" : [ ]
   }, {
     "day-name" : "Saturday",
     "shifts" : [ ]

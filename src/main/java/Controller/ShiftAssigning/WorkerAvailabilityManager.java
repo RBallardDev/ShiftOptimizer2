@@ -35,11 +35,19 @@ public class WorkerAvailabilityManager {
 
         //Going through all the unavailabletimes and checking if they overlap
         for (TimeUnavailable timeUnavailable : timesUnavailable) {
-            if(endTime.isAfter(timeUnavailable.getStartTime())||startTime.isBefore(timeUnavailable.getEndTime())){
+            if(timesOverlap(timeUnavailable,startTime,endTime)){
                 return false;
             }
         }
         return true;
+    }
+
+    public static boolean timesOverlap(TimeUnavailable timeUnavailable, LocalTime startTime, LocalTime endTime){
+
+        boolean touching = timeUnavailable.getStartTime().equals(startTime)||timeUnavailable.getEndTime().equals(endTime);
+        boolean inside = timeUnavailable.getStartTime().isBefore(startTime)&&timeUnavailable.getEndTime().isAfter(endTime);
+
+        return touching||inside;
     }
 }
 

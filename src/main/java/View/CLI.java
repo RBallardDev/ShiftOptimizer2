@@ -163,7 +163,6 @@ public class CLI {
         Worker worker = JacksonGetter.getWorkerByUsername(username);
         if (worker != null) {
             CSVAvailabilityImporter.importAvailability(filePath, username);
-
             System.out.println("Unavailable Times for " + worker.getUserName() + ":");
             //I'll fix that
 //            for (TimeUnavailable time : worker.getUnavailableTimes()) {

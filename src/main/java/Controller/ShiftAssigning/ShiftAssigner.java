@@ -16,6 +16,10 @@ public class ShiftAssigner {
     }
 
     public static void optimizeWeek() {
+
+        MinuteCounter.initialize();
+        OptimizedSchedule.initialize();
+
         for (Week.DayNames day : Week.DAY_NAMES) {
             optimizeDay(day);
         }
@@ -23,8 +27,6 @@ public class ShiftAssigner {
 
     public static void optimizeDay(Week.DayNames day) {
 
-        MinuteCounter.initialize();
-        OptimizedSchedule.initialize();
 
         //Getting start of day
         LocalTime workdayStart = WorkdayConfig.getWorkdayStart();
@@ -44,13 +46,15 @@ public class ShiftAssigner {
         for (int i = startHour; i < endHour; i++) {
 
             //For the first runthrough if there is a half hour segment
-            if (i == startHour || startMinutes != 0) {
+            if (i == startHour && startMinutes != 0) {
 
                 //Get the list of available workers for that time
                 Worker minWorker = findWorkerToShift(currentWorkTimeSegment, day);
 
                 //From the list, have a way to organize who gets the shift
                 setWorkerToShift(minWorker, day, currentWorkTimeSegment);
+                currentWorkTimeSegment = currentWorkTimeSegment.plusMinutes(30);
+
 
             } else {
 
@@ -63,6 +67,7 @@ public class ShiftAssigner {
 
                 //Give the shift to the lowest hour and add the minutes to the counter
                 setWorkerToShift(minWorker, day, currentWorkTimeSegment);
+                currentWorkTimeSegment = currentWorkTimeSegment.plusMinutes(30);
 
 
                 //FOR THE SECOND HALF OF THE HOUR
@@ -70,12 +75,29 @@ public class ShiftAssigner {
 
                 if (minWorker != null && WorkerAvailabilityManager.workerAvailable(minWorker, LocalTime.of(i, 30), day)) {
                     setWorkerToShift(minWorker, day, currentWorkTimeSegment);
+                    currentWorkTimeSegment = currentWorkTimeSegment.plusMinutes(30);
+
 
                 } else {
 
                     minWorker = findWorkerToShift(currentWorkTimeSegment, day);
 
                     setWorkerToShift(minWorker, day, currentWorkTimeSegment);
+                    currentWorkTimeSegment = currentWorkTimeSegment.plusMinutes(30);
+
+                }
+
+                //Go once more for that last half hour
+                if (i == endHour - 1 && currentWorkTimeSegment.getMinute() == 30 && endMinutes != 0) {
+
+                    //Get the list of available workers for that time
+                    minWorker = findWorkerToShift(currentWorkTimeSegment, day);
+
+                    //From the list, have a way to organize who gets the shift
+                    setWorkerToShift(minWorker, day, currentWorkTimeSegment);
+                    currentWorkTimeSegment = currentWorkTimeSegment.plusMinutes(30);
+
+
                 }
                 //Check for both half hour segments
             }
@@ -105,13 +127,12 @@ public class ShiftAssigner {
     }
 
     public static void setWorkerToShift(Worker minWorker, Week.DayNames day, LocalTime currentWorkTimeSegment) {
-       if(minWorker != null) {
+        if (minWorker != null) {
 
 
-           OptimizedSchedule.setNameToShift(minWorker.getUserName(), day, currentWorkTimeSegment);
-           MinuteCounter.addMinutes(minWorker.getUserName(), 30);
-       }
-        currentWorkTimeSegment.plusMinutes(30);
+            OptimizedSchedule.setNameToShift(minWorker.getUserName(), day, currentWorkTimeSegment);
+            MinuteCounter.addMinutes(minWorker.getUserName(), 30);
+        }
     }
 
 

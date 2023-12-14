@@ -21,7 +21,6 @@ public class OptimizedSchedule {
             halfHourSegment = 0;
         }
         optimizedDaySchedules[Week.getIndexFromDay(day)].hours[time.getHour()].halfHours[halfHourSegment] = username;
-        System.out.println(optimizedDaySchedules[Week.getIndexFromDay(day)].hours[time.getHour()].halfHours[halfHourSegment]);
     }
 
     public static String buildOptimizedScheduleString(){
