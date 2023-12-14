@@ -13,17 +13,15 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class ShiftAssigner {
-    private WorkerAvailabilityManager availabilityManager;
 
-    public ShiftAssigner(WorkerAvailabilityManager availabilityManager) {
-        this.availabilityManager = availabilityManager;
+    public ShiftAssigner() {
     }
 
     public static void optimizeWeek() {
 
         MinuteCounter.initialize();
         OptimizedSchedule.initialize();
-        AvailableSchedule availableSchedule = JacksonGetter.getAvailableSchedule();
+        JacksonGetter.loadAvailableSchedule();
 
         for (Week.DayNames day : Week.DAY_NAMES) {
             optimizeDay(day);

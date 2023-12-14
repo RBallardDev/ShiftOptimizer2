@@ -16,4 +16,8 @@ private static AvailableDaySchedule[] availableDaySchedules = new AvailableDaySc
     public static AvailableDaySchedule getAvailableDaySchedule(Week.DayNames day){
         return availableDaySchedules[Week.getIndexFromDay(day)];
     }
+
+    public static AvailableDaySchedule[] getAvailableDaySchedules(){
+        return availableDaySchedules;
+    }
 }

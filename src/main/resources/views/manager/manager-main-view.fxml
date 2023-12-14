@@ -20,5 +20,7 @@
         <Button text="See All Worker Schedules" onAction="#handleSeeWorkerSchedules" GridPane.rowIndex="0"/>
         <Button text="Input and Manage Available Shifts" onAction="#handleManageAvailableShifts" GridPane.rowIndex="1"/>
         <Button text="View Assigned Shifts" onAction="#handleViewAssignedShifts" GridPane.rowIndex="2"/>
+        <Button text="Set Workday Length" onAction="#handleWorkDayConfig" GridPane.rowIndex="3"/>
+
     </children>
 </GridPane>

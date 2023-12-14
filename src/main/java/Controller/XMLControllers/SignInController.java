@@ -29,17 +29,16 @@ public class SignInController {
             Session.setToken(token);
             HelperMethods.showAlert("Login Successful", "This is a test. Don't display this really.");
             String status = JacksonGetter.getStatusByUsername(SessionAuth.authenticateToken(Session.getToken()));
-            System.out.println(status);
 
             //Next page with all the options
             if(status == null){
-                Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/manager-main-view.fxml"));
+                Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/manager/manager-main-view.fxml"));
                 Stage stage = HelperMethods.getStageFromEvent(actionEvent);
                 stage.setScene(new Scene(signUpScreenRoot));
                 stage.show();
             } else if(status.equals("ST")||status.equals("AD")){
 
-                Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/worker-main-view.fxml"));
+                Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/worker/worker-main-view.fxml"));
                 Stage stage = HelperMethods.getStageFromEvent(actionEvent);
                 stage.setScene(new Scene(signUpScreenRoot));
                 stage.show();

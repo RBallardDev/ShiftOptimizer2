@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="Controller.XMLControllers.ManagerOptimizedScheduleController">
+
+    <Label text="Optimized Schedule">
+        <VBox.margin>
+            <Insets top="10" />
+        </VBox.margin>
+    </Label>
+
+    <TabPane fx:id="dayTabPane" tabClosingPolicy="UNAVAILABLE">
+        <!-- Tab for Sunday -->
+        <Tab text="Sunday">
+            <content>
+                <!-- Add a ListView or other components to display assigned time shifts for Sunday -->
+                <ListView fx:id="sundayListView"/>
+            </content>
+        </Tab>
+
+        <!-- Add tabs for other days (Monday through Saturday) similarly -->
+
+        <Tab text="Monday">
+            <content>
+                <ListView fx:id="mondayListView"/>
+            </content>
+        </Tab>
+
+        <Tab text="Tuesday">
+            <content>
+                <ListView fx:id="tuesdayListView"/>
+            </content>
+        </Tab>
+
+        <Tab text="Wednesday">
+            <content>
+                <ListView fx:id="wednesdayListView"/>
+            </content>
+        </Tab>
+
+        <Tab text="Thursday">
+            <content>
+                <ListView fx:id="thursdayListView"/>
+            </content>
+        </Tab>
+
+        <Tab text="Friday">
+            <content>
+                <ListView fx:id="fridayListView"/>
+            </content>
+        </Tab>
+
+        <Tab text="Saturday">
+            <content>
+                <ListView fx:id="saturdayListView"/>
+            </content>
+        </Tab>
+    </TabPane>
+
+</VBox>

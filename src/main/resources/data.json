@@ -87,10 +87,10 @@
   } ],
   "available-schedule" : [ {
     "day-name" : "Sunday",
-    "shifts" : [ ]
+    "shifts" : [ [ 1, 30, 3, 30 ] ]
   }, {
     "day-name" : "Monday",
-    "shifts" : [ [ 8, 0, 18, 0 ], [ 8, 0, 18, 0 ] ]
+    "shifts" : [ [ 8, 0, 18, 0 ] ]
   }, {
     "day-name" : "Tuesday",
     "shifts" : [ [ 12, 0, 14, 0 ] ]
@@ -106,5 +106,11 @@
   }, {
     "day-name" : "Saturday",
     "shifts" : [ ]
-  } ]
+  } ],
+  "workday-config": {
+    "workday-start-hour": 8,
+    "workday-start-minute": 0,
+    "workday-end-hour": 23,
+    "workday-end-minute": 0
+  }
 }

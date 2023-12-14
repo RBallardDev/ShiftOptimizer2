@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.Integer?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="Controller.XMLControllers.WorkdayConfigController">
+
+    <Label text="Change Workday Length">
+        <VBox.margin>
+            <Insets top="10" />
+        </VBox.margin>
+    </Label>
+
+    <HBox spacing="10">
+        <Label text="Start Hour:" />
+        <ComboBox fx:id="startHourComboBox" promptText="Select hour">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <Integer fx:value="00"/>
+                    <Integer  fx:value="01"/>
+                    <Integer  fx:value="02"/>
+                    <Integer  fx:value="03"/>
+                    <Integer  fx:value="04"/>
+                    <Integer  fx:value="05"/>
+                    <Integer  fx:value="06"/>
+                    <Integer  fx:value="07"/>
+                    <Integer  fx:value="08"/>
+                    <Integer  fx:value="09"/>
+                    <Integer  fx:value="10"/>
+                    <Integer  fx:value="11"/>
+                    <Integer  fx:value="12"/>
+                    <Integer  fx:value="13"/>
+                    <Integer  fx:value="14"/>
+                    <Integer  fx:value="15"/>
+                    <Integer  fx:value="16"/>
+                    <Integer  fx:value="17"/>
+                    <Integer  fx:value="18"/>
+                    <Integer  fx:value="19"/>
+                    <Integer  fx:value="20"/>
+                    <Integer  fx:value="21"/>
+                    <Integer  fx:value="22"/>
+                    <Integer  fx:value="23"/>
+                    <Integer  fx:value="24"/>
+
+
+                    <!-- Add other hours as needed -->
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <Label text="Start Minutes:" />
+        <ComboBox fx:id="startMinuteComboBox" promptText="Select minutes">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <Integer fx:value="00"/>
+                    <Integer fx:value="30"/>
+                    <!-- Add other minutes as needed -->
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="End Hour:" />
+        <ComboBox fx:id="endHourComboBox" promptText="Select hour">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <Integer fx:value="00"/>
+                    <Integer  fx:value="01"/>
+                    <Integer  fx:value="02"/>
+                    <Integer  fx:value="03"/>
+                    <Integer  fx:value="04"/>
+                    <Integer  fx:value="05"/>
+                    <Integer  fx:value="06"/>
+                    <Integer  fx:value="07"/>
+                    <Integer  fx:value="08"/>
+                    <Integer  fx:value="09"/>
+                    <Integer  fx:value="10"/>
+                    <Integer  fx:value="11"/>
+                    <Integer  fx:value="12"/>
+                    <Integer  fx:value="13"/>
+                    <Integer  fx:value="14"/>
+                    <Integer  fx:value="15"/>
+                    <Integer  fx:value="16"/>
+                    <Integer  fx:value="17"/>
+                    <Integer  fx:value="18"/>
+                    <Integer  fx:value="19"/>
+                    <Integer  fx:value="20"/>
+                    <Integer  fx:value="21"/>
+                    <Integer  fx:value="22"/>
+                    <Integer  fx:value="23"/>
+                    <Integer  fx:value="24"/>
+
+
+                    <!-- Add other hours as needed -->
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <Label text="End Minutes:" />
+        <ComboBox fx:id="endMinuteComboBox" promptText="Select minutes">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <Integer fx:value="00"/>
+                    <Integer fx:value="30"/>
+                    <!-- Add other minutes as needed -->
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
+
+    <Button text="Submit" onAction="#submitChanges">
+        <VBox.margin>
+            <Insets top="10" />
+        </VBox.margin>
+    </Button>
+
+</VBox>

@@ -3,6 +3,9 @@ package Controller.XMLControllers;
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
 import Controller.UserAuth.SessionAuth;
+import Model.Schedules.ManagerSchedule.AvailableDaySchedule;
+import Model.Schedules.ManagerSchedule.AvailableSchedule;
+import Model.Schedules.ManagerSchedule.AvailableShift;
 import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
 import Model.Schedules.WorkerSchedule.TimeUnavailable;
 import Model.Schedules.WorkerSchedule.WorkerSchedule;
@@ -122,7 +125,10 @@ public class WorkerInputTimesController {
         } else if(invalidInput()){
             HelperMethods.showAlert("Invalid Input", "End of shift must be in the future of the start of shift");
 
-        }else {
+        }else if((timesOverlap())){
+            HelperMethods.showAlert("Invalid Input", "Unavailable times cannot overlap");
+
+        }else{
             TimeUnavailable timeUnavailable = new TimeUnavailable(Week.DayNames.valueOf(dayComboBox.getValue()),
                     LocalTime.of(startHourComboBox.getValue(), startMinuteComboBox.getValue()),
                     LocalTime.of(endHourComboBox.getValue(), endMinuteComboBox.getValue()));
@@ -177,5 +183,31 @@ public class WorkerInputTimesController {
                 JacksonEditor.removeTimeAvailable(SessionAuth.authenticateToken(Session.getToken()),selectedDay, new TimeUnavailable(selectedDay, startTime,endTime));
             }        }
 
+    }
+
+    private boolean timesOverlap() {
+        Worker worker = JacksonGetter.getWorkerByUsername(SessionAuth.authenticateToken(Session.getToken()));
+        WorkerSchedule workerSchedule = worker.getSchedule();
+        DayWorkerSchedule dayWorkerSchedule = workerSchedule.getDaySchedule(Week.DayNames.valueOf(dayComboBox.getValue()));
+        int startHour = startHourComboBox.getValue();
+        int startMinute = startMinuteComboBox.getValue();
+        int endHour = endHourComboBox.getValue();
+        int endMinute = endMinuteComboBox.getValue();
+
+        LocalTime startTime = LocalTime.of(startHour, startMinute);
+        LocalTime endTime = LocalTime.of(endHour, endMinute);
+
+        for (TimeUnavailable timeUnavailable: dayWorkerSchedule.getTimesUnavailable()) {
+
+            boolean timeFirst = startTime.isAfter(timeUnavailable.getStartTime()) && startTime.isBefore(timeUnavailable.getEndTime());
+            boolean addedTimeFirst = timeUnavailable.getStartTime().isBefore(endTime) && timeUnavailable.getStartTime().isAfter(startTime);
+            boolean timeInAddedTime = timeUnavailable.getStartTime().isAfter(startTime) && timeUnavailable.getEndTime().isBefore(endTime);
+            boolean addedTimeInTime = startTime.isAfter(timeUnavailable.getStartTime()) && endTime.isBefore(timeUnavailable.getEndTime());
+
+            if (timeFirst || addedTimeFirst || timeInAddedTime || addedTimeInTime) {
+                return true;
+            }
+        }
+        return false;
     }
 }

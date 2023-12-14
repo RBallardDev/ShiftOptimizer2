@@ -141,9 +141,8 @@ public class JacksonGetter extends Jackson {
         return managers;
     }
 
-    public static AvailableSchedule getAvailableSchedule() {
+    public static void loadAvailableSchedule() {
         JsonNode availableScheduleNode = getRootNode().get("available-schedule");
-        AvailableSchedule newAvailableSchedule = new AvailableSchedule();
         ObjectMapper objectMapper = Jackson.getObjectMapper();
 
         //Iterate through all the schedule days
@@ -172,7 +171,6 @@ public class JacksonGetter extends Jackson {
             }
         }
 
-        return newAvailableSchedule;
     }
     public static Worker getWorkerByUsername(String username) {
         List<Worker> workers = getAllWorkers();

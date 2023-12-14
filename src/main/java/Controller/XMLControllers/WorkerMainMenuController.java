@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class WorkerMainMenuController {
     public void handleInputTimes(ActionEvent event) throws IOException {
-        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/worker-input-times-view.fxml"));
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/worker/worker-input-times-view.fxml"));
         Stage stage = HelperMethods.getStageFromEvent(event);
         stage.setScene(new Scene(signUpScreenRoot));
         stage.show();
