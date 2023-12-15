@@ -3,8 +3,13 @@ package View.XMLControllers;
 import Controller.Time.WorkdayConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalTime;
 
 public class WorkdayConfigController {
@@ -56,4 +61,10 @@ public class WorkdayConfigController {
         return startHour || startMinute || endHour || endMinute;
     }
 
+    public void handleBack(ActionEvent event) throws IOException {
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/manager/manager-main-view.fxml"));
+        Stage stage = HelperMethods.getStageFromEvent(event);
+        stage.setScene(new Scene(signUpScreenRoot));
+        stage.show();
+    }
 }

@@ -117,12 +117,13 @@
                 </ComboBox>
 
                 <Button text="Submit" onAction="#submit"/>
+                <Button text="Back" onAction="#handleBack" />
+
             </HBox>
         </VBox>
 
     </top>
     <center>
-
 
         <TabPane fx:id="dayTabPane" tabClosingPolicy="UNAVAILABLE">
 
@@ -181,5 +182,7 @@
     <bottom>
         <Button text="Remove Selected" onAction="#removeSelected"/>
 
+
     </bottom>
+
 </BorderPane>

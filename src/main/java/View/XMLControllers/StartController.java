@@ -22,7 +22,7 @@ public class StartController {
     private void handleSignUp(ActionEvent event) {
         try {
             // Load the sign-up screen FXML file
-            Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/signUp-view.fxml"));
+            Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/start/signUp-view.fxml"));
 
             // Get the current stage using the button from the current scene
             Stage stage = HelperMethods.getStageFromEvent(event);
@@ -36,7 +36,7 @@ public class StartController {
 
     @FXML
     private void handleSignIn(ActionEvent event) throws IOException {
-        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/signIn-view.fxml"));
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/start/signIn-view.fxml"));
         Stage stage = HelperMethods.getStageFromEvent(event);
         stage.setScene(new Scene(signUpScreenRoot));
         stage.show();

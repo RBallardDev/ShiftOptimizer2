@@ -8,9 +8,14 @@ import Model.Schedules.ManagerSchedule.AvailableShift;
 import Controller.Time.Week;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalTime;
 
 
@@ -164,5 +169,12 @@ public class ManagerInputTimesController {
             }
         }
         return false;
+    }
+
+    public void handleBack(ActionEvent event) throws IOException {
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/manager/manager-main-view.fxml"));
+        Stage stage = HelperMethods.getStageFromEvent(event);
+        stage.setScene(new Scene(signUpScreenRoot));
+        stage.show();
     }
 }

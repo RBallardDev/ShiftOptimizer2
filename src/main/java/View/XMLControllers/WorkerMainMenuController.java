@@ -1,5 +1,6 @@
 package View.XMLControllers;
 
+import Controller.UserAuth.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,5 +18,13 @@ public class WorkerMainMenuController {
     }
 
     public void handleViewShifts(ActionEvent event) {
+    }
+
+    public void handleLogOut(ActionEvent event) throws IOException {
+        Session.setToken(null);
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/start/start-view.fxml"));
+        Stage stage = HelperMethods.getStageFromEvent(event);
+        stage.setScene(new Scene(signUpScreenRoot));
+        stage.show();
     }
 }

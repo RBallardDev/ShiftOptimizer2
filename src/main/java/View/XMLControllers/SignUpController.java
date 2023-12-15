@@ -42,7 +42,7 @@ public class SignUpController {
     }
 
     public void handleBack(ActionEvent event) throws IOException {
-        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/start-view.fxml"));
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/start/start-view.fxml"));
         Stage stage = HelperMethods.getStageFromEvent(event);
         stage.setScene(new Scene(signUpScreenRoot));
         stage.show();

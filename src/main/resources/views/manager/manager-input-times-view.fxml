@@ -117,6 +117,8 @@
                 </ComboBox>
 
                 <Button text="Submit" onAction="#submit"/>
+                <Button text="Back" onAction="#handleBack" />
+
             </HBox>
         </VBox>
 

@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -28,7 +29,11 @@ public class SignInController {
         if (token != null) {
             //Sign-in successful
             Session.setToken(token);
-            HelperMethods.showAlert("Login Successful", "This is a test. Don't display this really.");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle(" Successful");
+            alert.setHeaderText(null);
+            alert.setContentText("You are now logged in");
+            alert.showAndWait();
             String status = JacksonGetter.getStatusByUsername(SessionAuth.authenticateToken(Session.getToken()));
 
             //Next page with all the options
@@ -51,7 +56,7 @@ public class SignInController {
     }
 
     public void handleBack(ActionEvent event) throws IOException {
-        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/signIn-view.fxml"));
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/start/start-view.fxml"));
         Stage stage = HelperMethods.getStageFromEvent(event);
         stage.setScene(new Scene(signUpScreenRoot));
         stage.show();

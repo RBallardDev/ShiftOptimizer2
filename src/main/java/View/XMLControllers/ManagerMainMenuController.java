@@ -1,5 +1,6 @@
 package View.XMLControllers;
 
+import Controller.UserAuth.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,6 +29,14 @@ public class ManagerMainMenuController {
 
     public void handleWorkDayConfig(ActionEvent event) throws IOException {
         Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/manager/workday-config-view.fxml"));
+        Stage stage = HelperMethods.getStageFromEvent(event);
+        stage.setScene(new Scene(signUpScreenRoot));
+        stage.show();
+    }
+
+    public void handleLogOut(ActionEvent event) throws IOException {
+        Session.setToken(null);
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/start-view.fxml"));
         Stage stage = HelperMethods.getStageFromEvent(event);
         stage.setScene(new Scene(signUpScreenRoot));
         stage.show();

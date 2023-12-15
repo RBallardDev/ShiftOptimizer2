@@ -6,8 +6,15 @@ import Model.Schedules.OptimizedSchedule.OptimizedDaySchedule;
 import Model.Schedules.OptimizedSchedule.OptimizedSchedule;
 import Controller.Time.Week;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.time.LocalTime;
 
 public class ManagerOptimizedScheduleController {
@@ -36,7 +43,7 @@ public class ManagerOptimizedScheduleController {
     @FXML
     private void initialize() {
         ShiftAssigner.optimizeWeek();
-        System.out.println(OptimizedSchedule.buildOptimizedScheduleString());
+
 
         for (int i = 0; i < 7; i++) {
             OptimizedDaySchedule optimizedDaySchedule = OptimizedSchedule.optimizedDaySchedules[i];
@@ -104,4 +111,10 @@ public class ManagerOptimizedScheduleController {
         }
     }
 
+    public void handleBack(ActionEvent event) throws IOException {
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/manager/manager-main-view.fxml"));
+        Stage stage = HelperMethods.getStageFromEvent(event);
+        stage.setScene(new Scene(signUpScreenRoot));
+        stage.show();
+    }
 }

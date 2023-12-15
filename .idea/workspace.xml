@@ -5,45 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/uml-diagrams.mdj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/BouncyCastleEncrypter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/BouncyCastleEncrypter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CSVController/CSVAvailabilityImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CSVController/CSVAvailabilityImporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/Jackson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/Jackson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssigning/MinuteCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/MinuteCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssigning/ShiftAssigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/ShiftAssigner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssigning/WorkerAvailabilityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/WorkerAvailabilityManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/SessionTokenBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/SessionTokenBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/HelperMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/HelperMethods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/ManagerInputTimesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerInputTimesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/ManagerMainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerMainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/ManagerOptimizedScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerOptimizedScheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/StartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/WorkdayConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkdayConfigController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/WorkerInputTimesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerInputTimesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XMLControllers/WorkerMainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerMainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableDaySchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableDaySchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableShift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/ManagerSchedule/AvailableShift.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/OptimizedSchedule/OptimizedDaySchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/OptimizedSchedule/OptimizedDaySchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/OptimizedSchedule/OptimizedSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/OptimizedSchedule/OptimizedSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/DayWorkerSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/DayWorkerSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/TimeUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/TimeUnavailable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/WorkerSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/WorkerSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Staff/AdultWorker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Staff/StudentWorker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Time/Week.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Time/Week.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Time/WorkdayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Time/WorkdayConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/CLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/signIn-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/signIn-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/signUp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/signUp-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/start-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/start-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerInputTimesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerInputTimesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerMainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerMainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerOptimizedScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerOptimizedScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/StartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkdayConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkdayConfigController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerInputTimesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerInputTimesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerMainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerMainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/signIn-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/start/signIn-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/signUp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/start/signUp-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/start-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/start/start-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/manager/manager-input-times-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/manager/manager-input-times-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/manager/manager-main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/manager/manager-main-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/manager/optimized-schedule-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/manager/optimized-schedule-view.fxml" afterDir="false" />
@@ -109,11 +85,11 @@
       <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\java\Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\views\start" />
       <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\views\manager" />
       <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\views\worker" />
       <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\views" />
       <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\views\manager\worker" />
-      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\test" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Controller" />
