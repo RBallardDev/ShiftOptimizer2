@@ -2,7 +2,7 @@
   "workers" : [ {
     "username" : "a",
     "password" : "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
-    "status" : "a",
+    "status" : "ST",
     "schedules" : [ {
       "day-name" : "Sunday",
       "times-unavailable" : [ ]
@@ -25,6 +25,58 @@
       "day-name" : "Saturday",
       "times-unavailable" : [ ]
     } ]
+  }, {
+    "username" : "c",
+    "password" : "2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6",
+    "status" : "ST",
+    "schedules" : [ {
+      "day-name" : "Sunday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Monday",
+      "times-unavailable" : [ [ 8, 0, 9, 30 ], [ 10, 0, 12, 30 ], [ 14, 0, 16, 0 ] ]
+    }, {
+      "day-name" : "Tuesday",
+      "times-unavailable" : [ [ 11, 30, 14, 0 ] ]
+    }, {
+      "day-name" : "Wednesday",
+      "times-unavailable" : [ [ 8, 0, 10, 0 ], [ 14, 30, 17, 30 ], [ 18, 0, 19, 0 ] ]
+    }, {
+      "day-name" : "Thursday",
+      "times-unavailable" : [ [ 10, 0, 11, 30 ], [ 12, 30, 17, 0 ] ]
+    }, {
+      "day-name" : "Friday",
+      "times-unavailable" : [ [ 8, 30, 14, 30 ], [ 15, 30, 16, 30 ] ]
+    }, {
+      "day-name" : "Saturday",
+      "times-unavailable" : [ ]
+    } ]
+  }, {
+    "username" : "d",
+    "password" : "18ac3e7343f016890c510e93f935261169d9e3f565436429830faf0934f4f8e4",
+    "status" : "ST",
+    "schedules" : [ {
+      "day-name" : "Sunday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Monday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Tuesday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Wednesday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Thursday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Friday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Saturday",
+      "times-unavailable" : [ ]
+    } ]
   } ],
   "managers" : [ {
     "username" : "testman",
@@ -35,24 +87,30 @@
   } ],
   "available-schedule" : [ {
     "day-name" : "Sunday",
-    "shifts" : [ ]
+    "shifts" : [ [ 1, 30, 3, 30 ] ]
   }, {
     "day-name" : "Monday",
-    "shifts" : [ [ 9, 30, 10, 30 ], [ 11, 30, 12, 30 ], [ 16, 0, 17, 0 ] ]
+    "shifts" : [ [ 8, 0, 18, 0 ] ]
   }, {
     "day-name" : "Tuesday",
-    "shifts" : [ [ 13, 30, 15, 0 ] ]
+    "shifts" : [ [ 12, 0, 14, 0 ] ]
   }, {
     "day-name" : "Wednesday",
-    "shifts" : [ [ 9, 30, 10, 30 ], [ 11, 30, 12, 30 ], [ 16, 0, 17, 0 ] ]
+    "shifts" : [ [ 8, 0, 14, 0 ] ]
   }, {
     "day-name" : "Thursday",
-    "shifts" : [ [ 10, 0, 11, 30 ], [ 13, 30, 15, 0 ] ]
+    "shifts" : [ [ 10, 0, 18, 30 ] ]
   }, {
     "day-name" : "Friday",
-    "shifts" : [ [ 9, 30, 10, 30 ], [ 11, 30, 12, 30 ], [ 16, 0, 17, 0 ] ]
+    "shifts" : [ [ 9, 30, 18, 30 ] ]
   }, {
     "day-name" : "Saturday",
     "shifts" : [ ]
-  } ]
+  } ],
+  "workday-config": {
+    "workday-start-hour": 8,
+    "workday-start-minute": 0,
+    "workday-end-hour": 23,
+    "workday-end-minute": 0
+  }
 }

@@ -1,9 +1,10 @@
 package Controller.CSVController;
 
 import Controller.File.JacksonEditor;
+import Controller.File.JacksonGetter;
 import Model.Schedules.ManagerSchedule.AvailableShift;
 import Model.Schedules.WorkerSchedule.TimeUnavailable;
-import Model.Time.Week;
+import Controller.Time.Week;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -61,8 +62,14 @@ public class CSVAvailabilityImporter {
                         Week.DayNames day = Week.DayNames.valueOf(csvRecord.get("Day"));
                         LocalTime start = LocalTime.parse(csvRecord.get("Start"), timeFormatter);
                         LocalTime end = LocalTime.parse(csvRecord.get("End"), timeFormatter);
-                        AvailableShift availableShift = new AvailableShift(day, start, end);
-                        JacksonEditor.addAvailableShift(day, availableShift);
+                        if(JacksonGetter.getStatusByUsername(username) == null){
+                            AvailableShift availableShift = new AvailableShift(day, start, end);
+                            JacksonEditor.addAvailableShift(day, availableShift);
+
+                        }else {
+                            TimeUnavailable timeUnavailable= new TimeUnavailable(day, start, end);
+                                    JacksonEditor.addTimeUnavailable(username,day, timeUnavailable);
+                        }
 
                     }
                 }

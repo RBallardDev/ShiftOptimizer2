@@ -5,14 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/notes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CSVController/CSVAvailabilityImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CSVController/CSVAvailabilityImporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonGetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/SignInAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserAuth/SignInAuth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/CLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerInputTimesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerInputTimesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerMainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerMainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerOptimizedScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerOptimizedScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/StartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkdayConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkdayConfigController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerInputTimesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerInputTimesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerMainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerMainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/signIn-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/start/signIn-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/signUp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/start/signUp-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/start-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/start/start-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/manager/manager-input-times-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/manager/manager-input-times-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/manager/manager-main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/manager/manager-main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/manager/optimized-schedule-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/manager/optimized-schedule-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/manager/workday-config-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/manager/workday-config-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/worker/worker-input-times-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/worker/worker-input-times-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/worker/worker-main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/worker/worker-main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,36 +48,48 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/resources/test/testSchedule2.csv" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2Ysv9CXp75ctLQGaRDAfwaFPRn8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;delete-user&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jmsle/OneDrive/Oxy/COMP 181/ShiftOptimizer2/lib&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5091954&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "test-algorithm1",
+    "last_opened_file_path": "C:/Users/Jmsle/OneDrive/Oxy/COMP 181/ShiftOptimizer2/src/main/resources/test",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5091954",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\test" />
       <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\lib" />
       <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\java\View" />
       <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\java\Model" />
       <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\java\Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\views\start" />
+      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\views\manager" />
+      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\views\worker" />
+      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\views" />
+      <recent name="C:\Users\Jmsle\OneDrive\Oxy\COMP 181\ShiftOptimizer2\src\main\resources\views\manager\worker" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Controller" />
@@ -89,5 +114,17 @@
       <updated>1701326951195</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="OptimizedSchedule.optimizedDaySchedules[1].hours" language="JAVA" />
+        <watch expression="OptimizedSchedule.optimizedDaySchedules[1].hours[0].halfHours" />
+        <watch expression="timeUnavailable.getEndTime().isAfter(startTime)||startTime.isBefore(timeUnavailable.getEndTime())" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

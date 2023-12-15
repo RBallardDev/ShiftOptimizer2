@@ -2,16 +2,17 @@ package Controller.File;
 
 import Model.Schedules.ManagerSchedule.AvailableShift;
 import Model.Schedules.WorkerSchedule.TimeUnavailable;
-import Model.Time.Week;
+import Controller.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import java.io.IOException;
 import java.util.Iterator;
 
-import static Controller.BouncyCastleEncrypter.hashPassword;
+import static Controller.UserAuth.BouncyCastleEncrypter.hashPassword;
 
 
 public class JacksonEditor extends Jackson {
@@ -166,8 +167,8 @@ public class JacksonEditor extends Jackson {
                     if (dayFromJson.equals(day)) {
 
                         //get the shifts array and add an array of 4 times
-                            ArrayNode shiftsArray = (ArrayNode) scheduleNode.get("times-unavailable");
-                            shiftsArray.add(timeUnavailable.getTimesArrayAsJsonNode());
+                        ArrayNode shiftsArray = (ArrayNode) scheduleNode.get("times-unavailable");
+                        shiftsArray.add(timeUnavailable.getTimesArrayAsJsonNode());
                         try {
                             objectWriter.writeValue(getJsonFile(), rootNode);
                         } catch (Exception e) {
@@ -179,9 +180,64 @@ public class JacksonEditor extends Jackson {
         }
 
 
+    }
+
+    public static void removeTimeAvailable(String username, Week.DayNames day, TimeUnavailable timeUnavailable) throws IOException {
+        JsonNode rootNode = getRootNode();
+        ObjectMapper objectMapper = getObjectMapper();
+        ObjectWriter objectWriter = getObjectWriter();
+
+        JsonNode workersNode = rootNode.get("workers");
+
+        //Iterate through all the workers
+        Iterator<JsonNode> workersNodeIterator = workersNode.elements();
+
+        while (workersNodeIterator.hasNext()) {
+            JsonNode workerNode = workersNodeIterator.next();
+
+
+            //Found the worker
+            if (workerNode.get("username").asText().equals(username)) {
+                JsonNode schedules = workerNode.get("schedules");
+
+
+                //Iterate through all the days
+                Iterator<JsonNode> schedulesIterator = schedules.elements();
+                for (int i = 0; schedulesIterator.hasNext(); i++) {
+                    JsonNode scheduleNode = schedulesIterator.next();
+
+                    //Convert the day to enum and find the day
+                    Week.DayNames dayFromJson = Week.DayNames.valueOf(scheduleNode.get("day-name").asText());
+                    if (dayFromJson.equals(day)) {
+
+                        JsonNode timesUnavailableNode = scheduleNode.get("times-unavailable");
+
+                        Iterator<JsonNode> timesUnavailableIterator = timesUnavailableNode.elements();
+                        for (int j = 0; timesUnavailableIterator.hasNext(); j++) {
+                            JsonNode timeUnavailableNode = timesUnavailableIterator.next();
+
+                            int startHourIn = timeUnavailable.getStartTime().getHour();
+                            int startHourJson = timeUnavailableNode.get(0).asInt();
+                            int startMinuteIn = timeUnavailable.getStartTime().getMinute();
+                            int startMinuteJson = timeUnavailableNode.get(1).asInt();
+                            int endHourIn = timeUnavailable.getEndTime().getHour();
+                            int endHourJson = timeUnavailableNode.get(2).asInt();
+                            int endMinuteIn = timeUnavailable.getEndTime().getMinute();
+                            int endMinuteJson = timeUnavailableNode.get(3).asInt();
+//
+                            if (startHourIn == startHourJson && startMinuteIn == startMinuteJson && endHourIn == endHourJson && endMinuteIn == endMinuteJson) {
+                                timesUnavailableIterator.remove();
+                                objectWriter.writeValue(getJsonFile(), rootNode);                            }
+                        }
+                    }
+                }
+            }
+        }
+
 
     }
-    public static void addAvailableShift(Week.DayNames day, AvailableShift availableShift){
+
+    public static void addAvailableShift(Week.DayNames day, AvailableShift availableShift) {
         JsonNode rootNode = getRootNode();
         ObjectMapper objectMapper = getObjectMapper();
         ObjectWriter objectWriter = getObjectWriter();

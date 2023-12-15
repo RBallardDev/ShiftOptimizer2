@@ -3,9 +3,10 @@ package View;
 import Controller.CSVController.CSVAvailabilityImporter;
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
+import Controller.ShiftAssignment.ShiftAssigner;
 import Controller.UserAuth.SessionAuth;
 import Controller.UserAuth.SignInAuth;
-import Model.Schedules.ManagerSchedule.AvailableShift;
+import Model.Schedules.OptimizedSchedule.OptimizedSchedule;
 import Model.Staff.Worker;
 
 import Model.Token;
@@ -13,9 +14,7 @@ import Model.Token;
 import java.util.List;
 import java.util.Scanner;
 
-import Controller.XMLControllers.Session;
-
-import java.time.LocalTime;
+import Controller.UserAuth.Session;
 
 public class CLI {
 
@@ -93,7 +92,7 @@ public class CLI {
         if (loginToken != null) {
             System.out.println("Sign in successful!");
             Session.setToken(loginToken);
-            if (JacksonGetter.getStatusByUsername(SessionAuth.authenticateToken(Session.getToken())) == null ) {
+            if (JacksonGetter.getStatusByUsername(SessionAuth.authenticateToken(Session.getToken())) == null) {
                 managerMain(username);
             } else {
                 workerMain(username);
@@ -114,10 +113,10 @@ public class CLI {
             case 1:
 
                 displaySchedule(username);
-
+                break;
             case 2:
                 inputSchedule();
-
+                break;
             case 3:
                 //View all shifts
             default:
@@ -134,12 +133,13 @@ public class CLI {
         switch (action) {
             case 1:
                 displayAvailableSchedule(username);
-
+                break;
             case 2:
                 inputAvailableSchedule(username);
-
+                break;
             case 3:
-                //View all shifts
+                ShiftAssigner.optimizeWeek();
+                System.out.println(OptimizedSchedule.buildOptimizedScheduleString());
             default:
         }
     }
@@ -160,7 +160,6 @@ public class CLI {
         Worker worker = JacksonGetter.getWorkerByUsername(username);
         if (worker != null) {
             CSVAvailabilityImporter.importAvailability(filePath, username);
-
             System.out.println("Unavailable Times for " + worker.getUserName() + ":");
             //I'll fix that
 //            for (TimeUnavailable time : worker.getUnavailableTimes()) {
@@ -184,26 +183,26 @@ public class CLI {
         System.out.println(test.getSchedule().buildUnavailableTimesScheduleString());
     }
 
-    private static void displayAvailableSchedule(String username){
+    private static void displayAvailableSchedule(String username) {
 
     }
 
-    private static void inputAvailableSchedule(String username){
+    private static void inputAvailableSchedule(String username) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter path to CSV file: ");
         String filePath = scanner.next();
 
 
-            CSVAvailabilityImporter.importAvailability(filePath, username);
+        CSVAvailabilityImporter.importAvailability(filePath, username);
 
-            //I'll fix that
+        //I'll fix that
 //            for (TimeUnavailable time : worker.getUnavailableTimes()) {
 //                System.out.println(time.getDay() + ": " + time.getStartTime() + " to " + time.getEndTime());
 //            }
 
 
-            // Save the updated worker data back to jackson or JSON or whatever
+        // Save the updated worker data back to jackson or JSON or whatever
 
 
     }

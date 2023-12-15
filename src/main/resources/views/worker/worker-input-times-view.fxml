@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import java.lang.Integer?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="View.XMLControllers.WorkerInputTimesController">
+
+    <top>
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="Enter Unavailable Time"/>
+            <HBox spacing="10">
+                <ComboBox fx:id="dayComboBox" promptText="Day">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Sunday"/>
+                            <String fx:value="Monday"/>
+                            <String fx:value="Tuesday"/>
+                            <String fx:value="Wednesday"/>
+                            <String fx:value="Thursday"/>
+                            <String fx:value="Friday"/>
+                            <String fx:value="Saturday"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <ComboBox fx:id="startHourComboBox" promptText="Start Hour">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <Integer fx:value="00"/>
+                            <Integer  fx:value="01"/>
+                            <Integer  fx:value="02"/>
+                            <Integer  fx:value="03"/>
+                            <Integer  fx:value="04"/>
+                            <Integer  fx:value="05"/>
+                            <Integer  fx:value="06"/>
+                            <Integer  fx:value="07"/>
+                            <Integer  fx:value="08"/>
+                            <Integer  fx:value="09"/>
+                            <Integer  fx:value="10"/>
+                            <Integer  fx:value="11"/>
+                            <Integer  fx:value="12"/>
+                            <Integer  fx:value="13"/>
+                            <Integer  fx:value="14"/>
+                            <Integer  fx:value="15"/>
+                            <Integer  fx:value="16"/>
+                            <Integer  fx:value="17"/>
+                            <Integer  fx:value="18"/>
+                            <Integer  fx:value="19"/>
+                            <Integer  fx:value="20"/>
+                            <Integer  fx:value="21"/>
+                            <Integer  fx:value="22"/>
+                            <Integer  fx:value="23"/>
+                            <!-- Add other hours as needed -->
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <ComboBox fx:id="startMinuteComboBox" promptText="Start Minute">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <Integer fx:value="00"/>
+                            <Integer fx:value="30"/>
+                            <!-- Add other minutes as needed -->
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <ComboBox fx:id="endHourComboBox" promptText="End Hour">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <Integer fx:value="00"/>
+                            <Integer  fx:value="01"/>
+                            <Integer  fx:value="02"/>
+                            <Integer  fx:value="03"/>
+                            <Integer  fx:value="04"/>
+                            <Integer  fx:value="05"/>
+                            <Integer  fx:value="06"/>
+                            <Integer  fx:value="07"/>
+                            <Integer  fx:value="08"/>
+                            <Integer  fx:value="09"/>
+                            <Integer  fx:value="10"/>
+                            <Integer  fx:value="11"/>
+                            <Integer  fx:value="12"/>
+                            <Integer  fx:value="13"/>
+                            <Integer  fx:value="14"/>
+                            <Integer  fx:value="15"/>
+                            <Integer  fx:value="16"/>
+                            <Integer  fx:value="17"/>
+                            <Integer  fx:value="18"/>
+                            <Integer  fx:value="19"/>
+                            <Integer  fx:value="20"/>
+                            <Integer  fx:value="21"/>
+                            <Integer  fx:value="22"/>
+                            <Integer  fx:value="23"/>
+                            <Integer  fx:value="24"/>
+
+
+                            <!-- Add other hours as needed -->
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <ComboBox fx:id="endMinuteComboBox" promptText="End Minute">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <Integer fx:value="00"/>
+                            <Integer fx:value="30"/>
+                            <!-- Add other minutes as needed -->
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Button text="Submit" onAction="#submit"/>
+                <Button text="Back" onAction="#handleBack" />
+
+            </HBox>
+        </VBox>
+
+    </top>
+    <center>
+
+        <TabPane fx:id="dayTabPane" tabClosingPolicy="UNAVAILABLE">
+
+            <!-- Tab for Sunday -->
+            <Tab text="Sunday">
+                <content>
+                    <ListView fx:id="sundayListView"/>
+                </content>
+            </Tab>
+
+            <!-- Tab for Monday -->
+            <Tab text="Monday">
+                <content>
+                    <ListView fx:id="mondayListView"/>
+                </content>
+            </Tab>
+
+            <!-- Tab for Tuesday -->
+            <Tab text="Tuesday">
+                <content>
+                    <ListView fx:id="tuesdayListView"/>
+                </content>
+            </Tab>
+
+            <!-- Tab for Wednesday -->
+            <Tab text="Wednesday">
+                <content>
+                    <ListView fx:id="wednesdayListView"/>
+                </content>
+            </Tab>
+
+            <!-- Tab for Thursday -->
+            <Tab text="Thursday">
+                <content>
+                    <ListView fx:id="thursdayListView"/>
+                </content>
+            </Tab>
+
+            <!-- Tab for Friday -->
+            <Tab text="Friday">
+                <content>
+                    <ListView fx:id="fridayListView"/>
+                </content>
+            </Tab>
+
+            <!-- Tab for Saturday -->
+            <Tab text="Saturday">
+                <content>
+                    <ListView fx:id="saturdayListView"/>
+                </content>
+            </Tab>
+        </TabPane>
+
+    </center>
+
+    <bottom>
+        <Button text="Remove Selected" onAction="#removeSelected"/>
+
+
+    </bottom>
+
+</BorderPane>

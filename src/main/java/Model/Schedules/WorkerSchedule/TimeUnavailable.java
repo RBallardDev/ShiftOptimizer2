@@ -1,11 +1,10 @@
 package Model.Schedules.WorkerSchedule;
 
 import Controller.File.Jackson;
-import Model.Time.Week;
+import Controller.Time.Week;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
-import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 public class TimeUnavailable {

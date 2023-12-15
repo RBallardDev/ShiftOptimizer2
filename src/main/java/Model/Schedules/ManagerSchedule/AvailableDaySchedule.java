@@ -1,12 +1,12 @@
 package Model.Schedules.ManagerSchedule;
 
-import Model.Time.Week;
+import Controller.Time.Week;
 
 import java.util.ArrayList;
 
 public class AvailableDaySchedule {
-    private Week.DayNames name;
-    ArrayList<AvailableShift> availableShifts = new ArrayList<>();
+    public Week.DayNames name;
+    private ArrayList<AvailableShift> availableShifts = new ArrayList<>();
 
     public AvailableDaySchedule(Week.DayNames name){
         this.name = name;
@@ -14,5 +14,9 @@ public class AvailableDaySchedule {
 
     public void addShiftToDay(AvailableShift availableShift) {
         availableShifts.add(availableShift);
+    }
+
+    public ArrayList<AvailableShift> getAvailableShifts(){
+        return availableShifts;
     }
 }

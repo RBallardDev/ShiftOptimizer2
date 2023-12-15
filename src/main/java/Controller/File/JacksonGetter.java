@@ -8,7 +8,7 @@ import Model.Staff.Manager;
 import Model.Staff.Worker;
 import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
 import Model.Schedules.WorkerSchedule.TimeUnavailable;
-import Model.Time.Week;
+import Controller.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -141,9 +141,8 @@ public class JacksonGetter extends Jackson {
         return managers;
     }
 
-    public static AvailableSchedule getAvailableSchedule() {
+    public static void loadAvailableSchedule() {
         JsonNode availableScheduleNode = getRootNode().get("available-schedule");
-        AvailableSchedule newAvailableSchedule = new AvailableSchedule();
         ObjectMapper objectMapper = Jackson.getObjectMapper();
 
         //Iterate through all the schedule days
@@ -168,11 +167,10 @@ public class JacksonGetter extends Jackson {
                     newAvailableDaySchedule.addShiftToDay(availableShift);
 
                 }
-                newAvailableSchedule.setDay(newAvailableDaySchedule, i);
+                AvailableSchedule.setDay(newAvailableDaySchedule, i);
             }
         }
 
-        return newAvailableSchedule;
     }
     public static Worker getWorkerByUsername(String username) {
         List<Worker> workers = getAllWorkers();

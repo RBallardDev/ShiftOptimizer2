@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="View.XMLControllers.WorkerMainMenuController"
+          prefHeight="400.0" prefWidth="600.0">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="Infinity" minWidth="10" prefWidth="100"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="Infinity" minWidth="10" prefWidth="100"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="Infinity" minHeight="10" prefHeight="100.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="Infinity" minHeight="10" prefHeight="100.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <children>
+        <Button text="Input and Manage Available Times" onAction="#handleInputTimes" GridPane.rowIndex="0"/>
+    </children>
+    <Button text="Log Out" onAction="#handleLogOut" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+
+</GridPane>
