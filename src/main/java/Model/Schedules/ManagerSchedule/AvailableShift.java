@@ -1,9 +1,7 @@
 package Model.Schedules.ManagerSchedule;
 
 import Controller.File.Jackson;
-import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
-import Model.Staff.Worker;
-import Model.Time.Week;
+import Controller.Time.Week;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 

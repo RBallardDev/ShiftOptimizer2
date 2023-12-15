@@ -1,7 +1,7 @@
 package Model.Schedules.WorkerSchedule;
 
 import Model.Schedules.OptimizedSchedule.Hour;
-import Model.Time.Week;
+import Controller.Time.Week;
 
 import java.time.LocalTime;
 import java.util.ArrayList;

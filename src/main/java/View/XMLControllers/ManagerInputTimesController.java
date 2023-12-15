@@ -1,14 +1,11 @@
-package Controller.XMLControllers;
+package View.XMLControllers;
 
-import Controller.File.Jackson;
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
-import Controller.UserAuth.SessionAuth;
 import Model.Schedules.ManagerSchedule.AvailableDaySchedule;
 import Model.Schedules.ManagerSchedule.AvailableSchedule;
 import Model.Schedules.ManagerSchedule.AvailableShift;
-import Model.Schedules.WorkerSchedule.TimeUnavailable;
-import Model.Time.Week;
+import Controller.Time.Week;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;

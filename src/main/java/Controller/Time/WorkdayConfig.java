@@ -1,4 +1,4 @@
-package Model.Time;
+package Controller.Time;
 
 import Controller.File.Jackson;
 import com.fasterxml.jackson.databind.JsonNode;

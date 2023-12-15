@@ -1,4 +1,4 @@
-package Model.Time;
+package Controller.Time;
 
 public class Week {
 

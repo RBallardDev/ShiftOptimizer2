@@ -1,7 +1,6 @@
-package Controller.XMLControllers;
+package View.XMLControllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;

@@ -9,7 +9,7 @@
 <?import java.lang.Integer?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controller.XMLControllers.WorkerInputTimesController">
+            fx:controller="View.XMLControllers.WorkerInputTimesController">
 
     <top>
         <VBox spacing="10" alignment="CENTER">

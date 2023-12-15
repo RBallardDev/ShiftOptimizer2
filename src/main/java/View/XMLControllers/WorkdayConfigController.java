@@ -1,6 +1,6 @@
-package Controller.XMLControllers;
+package View.XMLControllers;
 
-import Model.Time.WorkdayConfig;
+import Controller.Time.WorkdayConfig;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;

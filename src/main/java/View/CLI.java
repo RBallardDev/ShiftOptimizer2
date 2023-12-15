@@ -3,10 +3,9 @@ package View;
 import Controller.CSVController.CSVAvailabilityImporter;
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
-import Controller.ShiftAssigning.ShiftAssigner;
+import Controller.ShiftAssignment.ShiftAssigner;
 import Controller.UserAuth.SessionAuth;
 import Controller.UserAuth.SignInAuth;
-import Model.Schedules.ManagerSchedule.AvailableShift;
 import Model.Schedules.OptimizedSchedule.OptimizedSchedule;
 import Model.Staff.Worker;
 
@@ -15,9 +14,7 @@ import Model.Token;
 import java.util.List;
 import java.util.Scanner;
 
-import Controller.XMLControllers.Session;
-
-import java.time.LocalTime;
+import Controller.UserAuth.Session;
 
 public class CLI {
 

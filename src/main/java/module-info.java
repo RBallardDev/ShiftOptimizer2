@@ -10,8 +10,10 @@ module com.example.shiftoptimizer2 {
 
     opens Controller to javafx.fxml;
     exports Controller;
-    exports Controller.XMLControllers;
-    opens Controller.XMLControllers to javafx.fxml;
-    exports Controller.ShiftAssigning;
-    opens Controller.ShiftAssigning to javafx.fxml;
+    exports View.XMLControllers;
+    opens View.XMLControllers to javafx.fxml;
+    exports Controller.ShiftAssignment;
+    opens Controller.ShiftAssignment to javafx.fxml;
+    exports Controller.UserAuth;
+    opens Controller.UserAuth to javafx.fxml;
 }

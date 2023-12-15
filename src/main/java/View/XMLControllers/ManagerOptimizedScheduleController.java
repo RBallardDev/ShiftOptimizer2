@@ -1,11 +1,10 @@
-package Controller.XMLControllers;
+package View.XMLControllers;
 
-import Controller.ShiftAssigning.ShiftAssigner;
+import Controller.ShiftAssignment.ShiftAssigner;
 import Model.Schedules.OptimizedSchedule.Hour;
 import Model.Schedules.OptimizedSchedule.OptimizedDaySchedule;
 import Model.Schedules.OptimizedSchedule.OptimizedSchedule;
-import Model.Time.Week;
-import javafx.beans.Observable;
+import Controller.Time.Week;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;

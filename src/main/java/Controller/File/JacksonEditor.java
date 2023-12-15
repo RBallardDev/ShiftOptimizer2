@@ -2,8 +2,7 @@ package Controller.File;
 
 import Model.Schedules.ManagerSchedule.AvailableShift;
 import Model.Schedules.WorkerSchedule.TimeUnavailable;
-import Model.Time.Week;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import Controller.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -13,7 +12,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.io.IOException;
 import java.util.Iterator;
 
-import static Controller.BouncyCastleEncrypter.hashPassword;
+import static Controller.UserAuth.BouncyCastleEncrypter.hashPassword;
 
 
 public class JacksonEditor extends Jackson {

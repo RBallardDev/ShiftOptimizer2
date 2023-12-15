@@ -1,6 +1,6 @@
 package Model.Schedules.ManagerSchedule;
 
-import Model.Time.Week;
+import Controller.Time.Week;
 
 import java.util.ArrayList;
 

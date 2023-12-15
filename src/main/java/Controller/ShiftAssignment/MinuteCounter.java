@@ -1,4 +1,4 @@
-package Controller.ShiftAssigning;
+package Controller.ShiftAssignment;
 
 import Controller.File.JacksonGetter;
 import Model.Staff.Worker;

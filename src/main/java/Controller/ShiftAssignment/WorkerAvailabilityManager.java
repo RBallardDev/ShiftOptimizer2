@@ -1,4 +1,4 @@
-package Controller.ShiftAssigning;
+package Controller.ShiftAssignment;
 
 
 import Controller.File.JacksonGetter;
@@ -6,9 +6,8 @@ import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
 import Model.Schedules.WorkerSchedule.TimeUnavailable;
 import Model.Schedules.WorkerSchedule.WorkerSchedule;
 import Model.Staff.Worker;
-import Model.Time.Week;
+import Controller.Time.Week;
 
-import java.lang.reflect.Array;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;

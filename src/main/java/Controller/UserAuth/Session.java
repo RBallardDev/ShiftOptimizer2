@@ -1,4 +1,4 @@
-package Controller.XMLControllers;
+package Controller.UserAuth;
 import Model.Token;
 public class Session {
     protected static Token token;

@@ -1,19 +1,14 @@
-package Controller.XMLControllers;
+package View.XMLControllers;
 
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
+import Controller.UserAuth.Session;
 import Controller.UserAuth.SessionAuth;
-import Model.Schedules.ManagerSchedule.AvailableDaySchedule;
-import Model.Schedules.ManagerSchedule.AvailableSchedule;
-import Model.Schedules.ManagerSchedule.AvailableShift;
 import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
 import Model.Schedules.WorkerSchedule.TimeUnavailable;
 import Model.Schedules.WorkerSchedule.WorkerSchedule;
 import Model.Staff.Worker;
-import Model.Time.Week;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import Controller.Time.Week;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

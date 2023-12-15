@@ -1,4 +1,4 @@
-package Controller.XMLControllers;
+package View.XMLControllers;
 
 import Controller.File.JacksonEditor;
 import javafx.event.ActionEvent;

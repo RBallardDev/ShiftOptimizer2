@@ -5,7 +5,7 @@
 
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
-          fx:controller="Controller.XMLControllers.WorkerMainMenuController"
+          fx:controller="View.XMLControllers.WorkerMainMenuController"
           prefHeight="400.0" prefWidth="600.0">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="Infinity" minWidth="10" prefWidth="100"/>

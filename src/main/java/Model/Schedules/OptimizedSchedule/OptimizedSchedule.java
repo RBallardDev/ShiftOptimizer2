@@ -1,6 +1,6 @@
 package Model.Schedules.OptimizedSchedule;
 
-import Model.Time.Week;
+import Controller.Time.Week;
 
 import java.time.LocalTime;
 

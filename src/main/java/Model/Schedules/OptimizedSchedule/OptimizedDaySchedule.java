@@ -1,6 +1,6 @@
 package Model.Schedules.OptimizedSchedule;
 
-import Model.Time.Week;
+import Controller.Time.Week;
 
 public class OptimizedDaySchedule {
     public Week.DayNames name;

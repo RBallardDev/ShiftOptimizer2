@@ -1,5 +1,6 @@
-package Controller.XMLControllers;
+package View.XMLControllers;
 import Controller.File.JacksonGetter;
+import Controller.UserAuth.Session;
 import Controller.UserAuth.SessionAuth;
 import Controller.UserAuth.SignInAuth;
 import Model.Token;

@@ -1,6 +1,5 @@
 package Controller.UserAuth;
 
-import Controller.BouncyCastleEncrypter;
 import Model.Token;
 
 import java.util.UUID;

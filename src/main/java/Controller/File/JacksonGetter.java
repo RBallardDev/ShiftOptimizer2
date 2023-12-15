@@ -8,7 +8,7 @@ import Model.Staff.Manager;
 import Model.Staff.Worker;
 import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
 import Model.Schedules.WorkerSchedule.TimeUnavailable;
-import Model.Time.Week;
+import Controller.Time.Week;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

@@ -1,4 +1,4 @@
-package Controller.ShiftAssigning;
+package Controller.ShiftAssignment;
 
 import Controller.File.JacksonGetter;
 import Model.Schedules.ManagerSchedule.AvailableDaySchedule;
@@ -6,8 +6,8 @@ import Model.Schedules.ManagerSchedule.AvailableSchedule;
 import Model.Schedules.ManagerSchedule.AvailableShift;
 import Model.Schedules.OptimizedSchedule.OptimizedSchedule;
 import Model.Staff.Worker;
-import Model.Time.Week;
-import Model.Time.WorkdayConfig;
+import Controller.Time.Week;
+import Controller.Time.WorkdayConfig;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
