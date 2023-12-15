@@ -25,6 +25,58 @@
       "day-name" : "Saturday",
       "times-unavailable" : [ ]
     } ]
+  }, {
+    "username" : "test2",
+    "password" : "d74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1",
+    "status" : "ST",
+    "schedules" : [ {
+      "day-name" : "Sunday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Monday",
+      "times-unavailable" : [ [ 8, 0, 9, 30 ], [ 10, 0, 12, 30 ], [ 14, 0, 16, 0 ] ]
+    }, {
+      "day-name" : "Tuesday",
+      "times-unavailable" : [ [ 11, 30, 14, 0 ] ]
+    }, {
+      "day-name" : "Wednesday",
+      "times-unavailable" : [ [ 8, 0, 10, 0 ], [ 14, 30, 17, 30 ], [ 18, 0, 19, 0 ] ]
+    }, {
+      "day-name" : "Thursday",
+      "times-unavailable" : [ [ 10, 0, 11, 30 ], [ 12, 30, 17, 0 ] ]
+    }, {
+      "day-name" : "Friday",
+      "times-unavailable" : [ [ 8, 30, 14, 30 ], [ 15, 30, 16, 30 ] ]
+    }, {
+      "day-name" : "Saturday",
+      "times-unavailable" : [ ]
+    } ]
+  }, {
+    "username" : "test3",
+    "password" : "d74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1",
+    "status" : "ST",
+    "schedules" : [ {
+      "day-name" : "Sunday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Monday",
+      "times-unavailable" : [ [ 9, 0, 9, 30 ], [ 14, 0, 16, 30 ] ]
+    }, {
+      "day-name" : "Tuesday",
+      "times-unavailable" : [ [ 9, 0, 12, 0 ] ]
+    }, {
+      "day-name" : "Wednesday",
+      "times-unavailable" : [ [ 8, 0, 10, 0 ] ]
+    }, {
+      "day-name" : "Thursday",
+      "times-unavailable" : [ [ 8, 0, 11, 30 ], [ 12, 30, 17, 0 ] ]
+    }, {
+      "day-name" : "Friday",
+      "times-unavailable" : [ [ 8, 30, 14, 30 ], [ 16, 30, 18, 0 ] ]
+    }, {
+      "day-name" : "Saturday",
+      "times-unavailable" : [ ]
+    } ]
   } ],
   "managers" : [ {
     "username" : "man",
@@ -35,19 +87,19 @@
     "shifts" : [ ]
   }, {
     "day-name" : "Monday",
-    "shifts" : [ [ 8, 0, 18, 0 ] ]
+    "shifts" : [ [ 8, 0, 18, 0 ], [ 8, 0, 9, 30 ], [ 10, 0, 12, 30 ], [ 14, 0, 16, 0 ], [ 9, 0, 9, 30 ], [ 14, 0, 16, 30 ] ]
   }, {
     "day-name" : "Tuesday",
-    "shifts" : [ [ 8, 0, 18, 30 ] ]
+    "shifts" : [ [ 8, 0, 18, 30 ], [ 11, 30, 14, 0 ], [ 9, 0, 12, 0 ] ]
   }, {
     "day-name" : "Wednesday",
-    "shifts" : [ [ 8, 0, 14, 0 ] ]
+    "shifts" : [ [ 8, 0, 14, 0 ], [ 8, 0, 10, 0 ], [ 14, 30, 17, 30 ], [ 18, 0, 19, 0 ], [ 8, 0, 10, 0 ] ]
   }, {
     "day-name" : "Thursday",
-    "shifts" : [ [ 10, 0, 18, 30 ] ]
+    "shifts" : [ [ 10, 0, 18, 30 ], [ 10, 0, 11, 30 ], [ 12, 30, 17, 0 ], [ 8, 0, 11, 30 ], [ 12, 30, 17, 0 ] ]
   }, {
     "day-name" : "Friday",
-    "shifts" : [ [ 9, 30, 18, 30 ] ]
+    "shifts" : [ [ 9, 30, 18, 30 ], [ 8, 30, 14, 30 ], [ 15, 30, 16, 30 ], [ 8, 30, 14, 30 ], [ 16, 30, 18, 0 ] ]
   }, {
     "day-name" : "Saturday",
     "shifts" : [ ]
