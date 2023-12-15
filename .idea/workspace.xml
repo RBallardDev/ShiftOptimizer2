@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/template-data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/File/JacksonEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerInputTimesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/ManagerInputTimesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerInputTimesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerInputTimesController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="try-to-merge-user" />
+        <entry key="$PROJECT_DIR$" value="test-algorithm1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -101,14 +102,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="OptimizedSchedule.optimizedDaySchedules[1].hours" language="JAVA" />
-        <watch expression="OptimizedSchedule.optimizedDaySchedules[1].hours[0].halfHours" />
-        <watch expression="timeUnavailable.getEndTime().isAfter(startTime)||startTime.isBefore(timeUnavailable.getEndTime())" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

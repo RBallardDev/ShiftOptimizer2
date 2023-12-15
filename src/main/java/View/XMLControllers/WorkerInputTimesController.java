@@ -179,7 +179,7 @@ public class WorkerInputTimesController {
 
                 // Remove the selected item from the ListView
                 selectedDayListView.getItems().remove(selectedItem);
-                JacksonEditor.removeTimeAvailable(SessionAuth.authenticateToken(Session.getToken()),selectedDay, new TimeUnavailable(selectedDay, startTime,endTime));
+                JacksonEditor.removeTimeUnavailable(SessionAuth.authenticateToken(Session.getToken()),selectedDay, new TimeUnavailable(selectedDay, startTime,endTime));
             }        }
 
     }

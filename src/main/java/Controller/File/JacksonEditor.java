@@ -225,7 +225,7 @@ public class JacksonEditor extends Jackson {
 
     }
 
-    public static void removeTimeAvailable(String username, Week.DayNames day, TimeUnavailable timeUnavailable) throws IOException {
+    public static void removeTimeUnavailable(String username, Week.DayNames day, TimeUnavailable timeUnavailable) throws IOException {
         JsonNode rootNode = getRootNode();
         ObjectMapper objectMapper = getObjectMapper();
         ObjectWriter objectWriter = getObjectWriter();
@@ -281,6 +281,29 @@ public class JacksonEditor extends Jackson {
     }
 
     public static void addAvailableShift(Week.DayNames day, AvailableShift availableShift) {
+        JsonNode rootNode = getRootNode();
+        ObjectMapper objectMapper = getObjectMapper();
+        ObjectWriter objectWriter = getObjectWriter();
+
+        JsonNode availableShiftsNode = rootNode.get("available-schedule");
+
+        Iterator<JsonNode> availableScheduleIterator = availableShiftsNode.elements();
+        for (int i = 0; availableScheduleIterator.hasNext(); i++) {
+            JsonNode scheduleNode = availableScheduleIterator.next();
+
+            //Convert the day to enum and find the day
+            Week.DayNames dayFromJson = Week.DayNames.valueOf(scheduleNode.get("day-name").asText());
+            if (dayFromJson.equals(day)) {
+
+                Iterator<JsonNode> availableShiftIterator = scheduleNode.elements();
+                for(int j = 0; availableShiftIterator.hasNext();j++){
+                    JsonNode availableShift.has
+                }
+            }
+        }
+    }
+
+    public static void removeAvailableShift(){
         JsonNode rootNode = getRootNode();
         ObjectMapper objectMapper = getObjectMapper();
         ObjectWriter objectWriter = getObjectWriter();

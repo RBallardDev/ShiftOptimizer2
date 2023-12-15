@@ -1,0 +1,32 @@
+{
+  "workers" : [ ],
+  "managers" : [ ],
+  "available-schedule" : [ {
+    "day-name" : "Sunday",
+    "shifts" : [ ]
+  }, {
+    "day-name" : "Monday",
+    "shifts" : [ ]
+  }, {
+    "day-name" : "Tuesday",
+    "shifts" : [  ]
+  }, {
+    "day-name" : "Wednesday",
+    "shifts" : [  ]
+  }, {
+    "day-name" : "Thursday",
+    "shifts" : [  ]
+  }, {
+    "day-name" : "Friday",
+    "shifts" : [ ]
+  }, {
+    "day-name" : "Saturday",
+    "shifts" : [ ]
+  } ],
+  "workday-config" : {
+    "workday-start-hour" : 8,
+    "workday-start-minute" : 0,
+    "workday-end-hour" : 23,
+    "workday-end-minute" : 0
+  }
+}

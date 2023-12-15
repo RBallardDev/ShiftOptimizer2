@@ -2,10 +2,13 @@ package View.XMLControllers;
 
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
+import Controller.UserAuth.Session;
+import Controller.UserAuth.SessionAuth;
 import Model.Schedules.ManagerSchedule.AvailableDaySchedule;
 import Model.Schedules.ManagerSchedule.AvailableSchedule;
 import Model.Schedules.ManagerSchedule.AvailableShift;
 import Controller.Time.Week;
+import Model.Schedules.WorkerSchedule.TimeUnavailable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +16,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -56,6 +61,8 @@ public class ManagerInputTimesController {
 
     @FXML
     private ListView<String> saturdayListView;
+    @FXML
+    TabPane dayTabPane;
 
     @FXML
     private void initialize() {
@@ -130,6 +137,32 @@ public class ManagerInputTimesController {
     }
 
     public void removeSelected(ActionEvent event) {
+        Tab selectedTab = dayTabPane.getSelectionModel().getSelectedItem();
+
+
+
+        // Remove the selected item from the currently selected day's ListView
+        Week.DayNames selectedDay = Week.DayNames.valueOf(selectedTab.getText());
+        ListView<String> selectedDayListView = getDayListView(selectedDay);
+        String selectedItem = selectedDayListView.getSelectionModel().getSelectedItem();
+
+        if (selectedItem != null) {
+            String[] timeComponents = selectedItem.split(" - ");
+            if (timeComponents.length == 2) {
+                String startTimeStr = timeComponents[0];
+                String endTimeStr = timeComponents[1];
+
+                // Parse start and end times
+                LocalTime startTime = LocalTime.parse(startTimeStr);
+                LocalTime endTime = LocalTime.parse(endTimeStr);
+
+                // Now you have startTime and endTime as LocalTime objects
+                // You can use them as needed
+
+                // Remove the selected item from the ListView
+                selectedDayListView.getItems().remove(selectedItem);
+                JacksonEditor.(SessionAuth.authenticateToken(Session.getToken()),selectedDay, new TimeUnavailable(selectedDay, startTime,endTime));
+            }        }
     }
 
     private boolean hasNullInputs() {
