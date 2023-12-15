@@ -115,9 +115,9 @@ public class WorkerScheduleViewController {
     }
 
     public void handleBack(ActionEvent event) throws IOException {
-        Parent mainMenuRoot = FXMLLoader.load(getClass().getResource("/views/worker/worker-main-menu.fxml"));
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(mainMenuRoot));
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/worker/worker-main-view.fxml"));
+        Stage stage = HelperMethods.getStageFromEvent(event);
+        stage.setScene(new Scene(signUpScreenRoot));
         stage.show();
     }
 }

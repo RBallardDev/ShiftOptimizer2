@@ -1,9 +1,14 @@
 package View.XMLControllers;
 
+import Controller.CSVController.CSVAvailabilityImporter;
+import Controller.ShiftAssignment.ShiftAssigner;
 import Controller.File.JacksonEditor;
 import Controller.File.JacksonGetter;
 import Controller.UserAuth.Session;
 import Controller.UserAuth.SessionAuth;
+import Model.Schedules.OptimizedSchedule.Hour;
+import Model.Schedules.OptimizedSchedule.OptimizedDaySchedule;
+import Model.Schedules.OptimizedSchedule.OptimizedSchedule;
 import Model.Schedules.WorkerSchedule.DayWorkerSchedule;
 import Model.Schedules.WorkerSchedule.TimeUnavailable;
 import Model.Schedules.WorkerSchedule.WorkerSchedule;
@@ -19,6 +24,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalTime;
+import java.util.List;
+
+import static View.XMLControllers.HelperMethods.showAlert;
 
 public class WorkerInputTimesController {
 
@@ -56,6 +64,9 @@ public class WorkerInputTimesController {
 
     @FXML
     private ListView<String> saturdayListView;
+
+    @FXML
+    private TextField csvFilePathField;
 
     @FXML TabPane dayTabPane;
 
@@ -119,13 +130,13 @@ public class WorkerInputTimesController {
 
 
         if (hasNullInputs()) {
-            HelperMethods.showAlert("Invalid Input", "Must fill out all fields of the input");
+            showAlert("Invalid Input", "Must fill out all fields of the input");
 
         } else if(invalidInput()){
-            HelperMethods.showAlert("Invalid Input", "End of shift must be in the future of the start of shift");
+            showAlert("Invalid Input", "End of shift must be in the future of the start of shift");
 
         }else if((timesOverlap())){
-            HelperMethods.showAlert("Invalid Input", "Unavailable times cannot overlap");
+            showAlert("Invalid Input", "Unavailable times cannot overlap");
 
         }else{
             TimeUnavailable timeUnavailable = new TimeUnavailable(Week.DayNames.valueOf(dayComboBox.getValue()),
@@ -209,6 +220,81 @@ public class WorkerInputTimesController {
         }
         return false;
     }
+
+
+    public void handleImportFromCSV(ActionEvent event) {
+        String csvFilePath = csvFilePathField.getText();
+        Worker currentWorkerUsername = JacksonGetter.getWorkerByUsername(SessionAuth.authenticateToken(Session.getToken()));
+
+        if (!csvFilePath.isEmpty()) {
+            try {
+                // Call your method to import the schedule from CSV
+                CSVAvailabilityImporter.importAvailability(csvFilePath , String.valueOf(currentWorkerUsername));
+                importScheduleFromCSV(csvFilePath);
+            } catch (IOException e) {
+                // Handle exceptions (e.g., file not found, format issues)
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void importScheduleFromCSV(String filePath) throws IOException {
+        Worker currentWorker = JacksonGetter.getWorkerByUsername(SessionAuth.authenticateToken(Session.getToken()));
+
+        try {
+            // Import availability from CSV
+            CSVAvailabilityImporter.importAvailability(filePath, currentWorker.getUserName());
+
+            // Trigger the optimization process
+            ShiftAssigner.optimizeWeek();
+
+            // Update the worker's schedule in the GUI
+            updateWorkerScheduleInView(currentWorker);
+
+            showAlert("Import Successful", "Schedule imported and optimized successfully.");
+        } catch (Exception e) {
+            showAlert("Import Failed", "Failed to import and optimize schedule: " + e.getMessage());
+            throw e;
+        }
+    }
+
+
+    private void updateWorkerScheduleInView(Worker worker) {
+        // Clear existing items in the ListViews
+        clearListViews();
+
+        // Iterate through each day in the optimized schedule
+        for (OptimizedDaySchedule daySchedule : OptimizedSchedule.optimizedDaySchedules) {
+            ListView<String> dayListView = getDayListView(daySchedule.name);
+            if (dayListView != null) {
+                // Iterate through each hour in the day
+                for (Hour hour : daySchedule.getHours()) {
+                    // Check each half-hour segment
+                    for (int halfHour = 0; halfHour < 2; halfHour++) {
+                        String assignedWorkerUsername = hour.halfHours[halfHour];
+                        if (worker.getUserName().equals(assignedWorkerUsername)) {
+                            // If the current worker is assigned to this segment, add it to the ListView
+                            String timeString = String.format("%02d:%02d", hour.hourOfDay, halfHour * 30);
+                            dayListView.getItems().add(timeString);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void clearListViews() {
+        sundayListView.getItems().clear();
+        mondayListView.getItems().clear();
+        tuesdayListView.getItems().clear();
+        wednesdayListView.getItems().clear();
+        thursdayListView.getItems().clear();
+        fridayListView.getItems().clear();
+        saturdayListView.getItems().clear();
+        // ... clear other ListViews
+    }
+
+
 
     public void handleBack(ActionEvent event) throws IOException {
         Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/worker/worker-main-view.fxml"));
