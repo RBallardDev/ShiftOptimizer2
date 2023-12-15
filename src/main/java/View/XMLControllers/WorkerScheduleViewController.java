@@ -51,7 +51,8 @@ public class WorkerScheduleViewController {
     @FXML
     private void initialize() {
         ShiftAssigner.optimizeWeek();
-        Worker currentWorkerUsername = JacksonGetter.getWorkerByUsername(SessionAuth.authenticateToken(Session.getToken()));
+        Worker currentWorker = JacksonGetter.getWorkerByUsername(SessionAuth.authenticateToken(Session.getToken()));
+
         for (int i = 0; i < 7; i++) {
             OptimizedDaySchedule optimizedDaySchedule = OptimizedSchedule.optimizedDaySchedules[i];
 
@@ -64,8 +65,7 @@ public class WorkerScheduleViewController {
                     String currentUsername = hour.halfHours[halfHour];
                     LocalTime currentTime = LocalTime.of(hour.hourOfDay, halfHour * 30);
 
-                    // Check if the current shift belongs to the signed-in worker
-                    if (currentUsername != null && currentUsername.equals(currentWorkerUsername)) {
+                    if (currentUsername != null && currentUsername.equals(currentWorker.getUserName())) {
                         if (username == null) {
                             // Start of a new shift
                             startTime = currentTime;
@@ -73,9 +73,15 @@ public class WorkerScheduleViewController {
                         } else if (!currentUsername.equals(username)) {
                             // End of the current shift
                             endTime = currentTime;
-                            addShiftToDayListView(optimizedDaySchedule.name, username, startTime, endTime);
-                            startTime = currentTime; // Start of a new shift
+                            addShiftToDayListView(optimizedDaySchedule.name, startTime, endTime);
+                            startTime = null; // Reset for the next shift
                         }
+                    } else if (username != null) {
+                        // End of the current shift
+                        endTime = currentTime;
+                        addShiftToDayListView(optimizedDaySchedule.name, startTime, endTime);
+                        startTime = null; // Reset for the next shift
+                        username = null;
                     }
                 }
             }
@@ -83,15 +89,16 @@ public class WorkerScheduleViewController {
             // Add the last shift if it hasn't been added
             if (username != null) {
                 endTime = LocalTime.of(23, 59); // Assuming the last possible time for a shift
-                addShiftToDayListView(optimizedDaySchedule.name, username, startTime, endTime);
+                addShiftToDayListView(optimizedDaySchedule.name, startTime, endTime);
             }
         }
     }
 
-    private void addShiftToDayListView(Week.DayNames dayName, String username, LocalTime startTime, LocalTime endTime) {
+    private void addShiftToDayListView(Week.DayNames dayName, LocalTime startTime, LocalTime endTime) {
         ObservableList<String> items = getDayListView(dayName).getItems();
-        items.add(username + ": " + startTime + " - " + endTime);
+        items.add(startTime + " - " + endTime);
     }
+
 
     private ListView<String> getDayListView(Week.DayNames dayName) {
         switch (dayName) {
@@ -115,9 +122,9 @@ public class WorkerScheduleViewController {
     }
 
     public void handleBack(ActionEvent event) throws IOException {
-        Parent mainMenuRoot = FXMLLoader.load(getClass().getResource("/views/worker/worker-main-menu.fxml"));
-        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(mainMenuRoot));
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/worker/worker-main-view.fxml"));
+        Stage stage = HelperMethods.getStageFromEvent(event);
+        stage.setScene(new Scene(signUpScreenRoot));
         stage.show();
     }
 }
