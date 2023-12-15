@@ -29,7 +29,7 @@ public class SignInController {
         if (token != null) {
             //Sign-in successful
             Session.setToken(token);
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle(" Successful");
             alert.setHeaderText(null);
             alert.setContentText("You are now logged in");

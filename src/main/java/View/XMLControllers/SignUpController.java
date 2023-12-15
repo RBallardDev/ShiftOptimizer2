@@ -38,8 +38,11 @@ public class SignUpController {
             }else{
             JacksonEditor.addWorker(username, password, status);
             }
-            HelperMethods.showAlert("Sign-Up Successful", "Your credentials have been saved. You can now login.");
-        } catch (IllegalArgumentException e) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Sign Up Successful");
+            alert.setHeaderText(null);
+            alert.setContentText("Your credentials have been saved");
+            alert.showAndWait();        } catch (IllegalArgumentException e) {
             // This block will execute if the username is already taken
             HelperMethods.showAlert("Sign-Up Failed", "This username has already been taken. Please choose another username.");
         } catch (Exception e) {

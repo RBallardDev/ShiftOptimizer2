@@ -36,7 +36,7 @@ public class WorkdayConfigController {
         endMinuteComboBox.setValue(endTime.getMinute());
 
     }
-    public void submitChanges(ActionEvent event) {
+    public void submitChanges(ActionEvent event) throws IOException {
         if (hasNullInputs()) {
             HelperMethods.showAlert("Invalid Input", "Must fill out all fields of the input");
 

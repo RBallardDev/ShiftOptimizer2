@@ -8,7 +8,7 @@ import java.io.File;
 
 public class Jackson {
 
-    protected static File getJsonFile() {
+    public static File getJsonFile() {
         File jsonFile = new File(System.getProperty("user.dir") + "/src/main/resources/data.json");
 
         return jsonFile;
@@ -36,7 +36,7 @@ public class Jackson {
         return objectMapper;
     }
 
-    protected static ObjectWriter getObjectWriter() {
+    public static ObjectWriter getObjectWriter() {
         ObjectWriter objectWriter = getObjectMapper().writerWithDefaultPrettyPrinter();
         return objectWriter;
     }
