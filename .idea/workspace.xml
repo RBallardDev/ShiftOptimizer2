@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerScheduleViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/views/worker/worker-schedule-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerMainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerMainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/worker/worker-main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/worker/worker-main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerScheduleViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerScheduleViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
