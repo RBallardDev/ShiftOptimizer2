@@ -77,6 +77,32 @@
       "day-name" : "Saturday",
       "times-unavailable" : [ ]
     } ]
+  }, {
+    "username" : "b",
+    "password" : "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
+    "status" : "MN",
+    "schedules" : [ {
+      "day-name" : "Sunday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Monday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Tuesday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Wednesday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Thursday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Friday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Saturday",
+      "times-unavailable" : [ ]
+    } ]
   } ],
   "managers" : [ {
     "username" : "testman",
@@ -107,10 +133,10 @@
     "day-name" : "Saturday",
     "shifts" : [ ]
   } ],
-  "workday-config": {
-    "workday-start-hour": 8,
-    "workday-start-minute": 0,
-    "workday-end-hour": 23,
-    "workday-end-minute": 0
+  "workday-config" : {
+    "workday-start-hour" : 8,
+    "workday-start-minute" : 0,
+    "workday-end-hour" : 23,
+    "workday-end-minute" : 0
   }
 }

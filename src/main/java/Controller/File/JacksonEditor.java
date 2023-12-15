@@ -26,18 +26,45 @@ public class JacksonEditor extends Jackson {
         ObjectWriter objectWriter = getObjectWriter();
 
         // Check if username already exists
-        boolean usernameExists = false;
+
         JsonNode workersNode = rootNode.path("workers");
-        for (JsonNode workerNode : workersNode) {
-            if (workerNode.path("username").asText().equals(username)) {
-                usernameExists = true;
-                break;
+
+        if (!isUsernameAvailable(username)) {
+            throw new IllegalArgumentException("Username already taken.");
+        } else {
+            String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+            ArrayNode newSchedule = objectMapper.createArrayNode();
+
+            for (String day : daysOfWeek) {
+                JsonNode newDaySchedule = objectMapper.createObjectNode().put("day-name", day)
+                        .set("times-unavailable", objectMapper.createArrayNode());
+                newSchedule.add(newDaySchedule);
+            }
+
+
+            JsonNode newWorker = objectMapper.createObjectNode()
+                    .put("username", username)
+                    .put("password", hashPassword(password))
+                    .put("status", status)
+                    .set("schedules", newSchedule);
+
+
+            ((com.fasterxml.jackson.databind.node.ArrayNode) workersNode).add(newWorker);
+
+            try {
+                objectWriter.writeValue(getJsonFile(), rootNode);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
+    }
+
+
 
 
         // Add new worker only if username is unique
-        if (!usernameExists) {
+        /*if (!usernameExists) {
             String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
             ArrayNode newSchedule = objectMapper.createArrayNode();
@@ -67,7 +94,20 @@ public class JacksonEditor extends Jackson {
             throw new IllegalArgumentException("Could not add worker");
         }
 
+    }*/
+
+    private static boolean isUsernameAvailable(String username) {
+        JsonNode rootNode = getRootNode();
+        if (rootNode != null && rootNode.has("workers")) {
+            for (JsonNode workerNode : rootNode.get("workers")) {
+                if (workerNode.get("username").asText().equals(username)) {
+                    return false; // Username already exists
+                }
+            }
+        }
+        return true; // Username is available
     }
+
 
 
     public static void removeWorker(String username) {
@@ -88,6 +128,7 @@ public class JacksonEditor extends Jackson {
         }
 
     }
+
 
     public static void clearJsonFile() {
         ObjectMapper objectMapper = getObjectMapper();

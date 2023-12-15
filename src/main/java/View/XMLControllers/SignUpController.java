@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public class SignUpController {
 
     @FXML
@@ -36,6 +37,8 @@ public class SignUpController {
             HelperMethods.showAlert("Sign-Up Successful", "Your credentials have been saved. You can now login.");
 
         }catch(Exception e){
+
+
             HelperMethods.showAlert("Sign-Up failed", "Your credentials are invalid.");
 
         }
