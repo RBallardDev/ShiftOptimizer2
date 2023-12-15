@@ -104,7 +104,15 @@ public class JacksonEditor extends Jackson {
                     return false; // Username already exists
                 }
             }
+
+            for(JsonNode managerNode : rootNode.get("managers")){
+                if(managerNode.get("username").asText().equals(username)){
+                    return false;//Username already exists
+                }
+            }
         }
+
+
         return true; // Username is available
     }
 
@@ -154,14 +162,10 @@ public class JacksonEditor extends Jackson {
         // Check if username already exists
         boolean usernameExists = false;
         JsonNode managersNode = rootNode.path("managers");
-        for (JsonNode workerNode : managersNode) {
-            if (workerNode.path("username").asText().equals(username)) {
-                usernameExists = true;
-                break;
-            }
-        }
 
-        if (!usernameExists) {
+        if (!isUsernameAvailable(username)) {
+            throw new IllegalArgumentException("Username already taken.");
+        } else {
             JsonNode newManager = objectMapper.createObjectNode()
                     .put("username", username)
                     .put("password", hashPassword(password));
@@ -174,8 +178,6 @@ public class JacksonEditor extends Jackson {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else {
-            throw new IllegalArgumentException("Could not add manager");
         }
     }
 

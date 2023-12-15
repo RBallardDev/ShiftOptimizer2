@@ -35,7 +35,7 @@ public class SignInController {
             alert.setContentText("You are now logged in");
             alert.showAndWait();
             String status = JacksonGetter.getStatusByUsername(SessionAuth.authenticateToken(Session.getToken()));
-
+            System.out.println(status);
             //Next page with all the options
             if(status == null){
                 Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/manager/manager-main-view.fxml"));

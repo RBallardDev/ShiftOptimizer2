@@ -33,7 +33,11 @@ public class SignUpController {
 
         // Implement the logic to add a new user
         try {
+            if(status.equals("MN")){
+                JacksonEditor.addManager(username, password);
+            }else{
             JacksonEditor.addWorker(username, password, status);
+            }
             HelperMethods.showAlert("Sign-Up Successful", "Your credentials have been saved. You can now login.");
         } catch (IllegalArgumentException e) {
             // This block will execute if the username is already taken
