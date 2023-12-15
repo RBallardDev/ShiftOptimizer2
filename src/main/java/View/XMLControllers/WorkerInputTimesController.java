@@ -253,8 +253,7 @@ public class WorkerInputTimesController {
 
             showAlert("Import Successful", "Schedule imported and optimized successfully.");
         } catch (Exception e) {
-            showAlert("Import Failed", "Failed to import and optimize schedule: " + e.getMessage());
-            throw e;
+            HelperMethods.showAlert("CSV File not found", "Please enter a valid file path");
         }
     }
 
