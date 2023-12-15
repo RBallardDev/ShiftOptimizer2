@@ -17,6 +17,8 @@
     </rowConstraints>
     <children>
         <Button text="Input and Manage Available Times" onAction="#handleInputTimes" GridPane.rowIndex="0"/>
+        <Button text="View Schedule" onAction="#handleViewSchedule" GridPane.rowIndex="1"/>
+
     </children>
     <Button text="Log Out" onAction="#handleLogOut" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
 

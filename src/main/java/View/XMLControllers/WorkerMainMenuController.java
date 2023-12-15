@@ -20,6 +20,13 @@ public class WorkerMainMenuController {
     public void handleViewShifts(ActionEvent event) {
     }
 
+    public void handleViewSchedule(ActionEvent event) throws IOException {
+        Parent scheduleScreenRoot = FXMLLoader.load(getClass().getResource("/views/worker/worker-schedule-view.fxml"));
+        Stage stage = HelperMethods.getStageFromEvent(event);
+        stage.setScene(new Scene(scheduleScreenRoot));
+        stage.show();
+    }
+
     public void handleLogOut(ActionEvent event) throws IOException {
         Session.setToken(null);
         Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/start/start-view.fxml"));
