@@ -270,7 +270,8 @@ public class JacksonEditor extends Jackson {
 //
                             if (startHourIn == startHourJson && startMinuteIn == startMinuteJson && endHourIn == endHourJson && endMinuteIn == endMinuteJson) {
                                 timesUnavailableIterator.remove();
-                                objectWriter.writeValue(getJsonFile(), rootNode);                            }
+                                objectWriter.writeValue(getJsonFile(), rootNode);
+                            }
                         }
                     }
                 }
@@ -295,15 +296,19 @@ public class JacksonEditor extends Jackson {
             Week.DayNames dayFromJson = Week.DayNames.valueOf(scheduleNode.get("day-name").asText());
             if (dayFromJson.equals(day)) {
 
-                Iterator<JsonNode> availableShiftIterator = scheduleNode.elements();
-                for(int j = 0; availableShiftIterator.hasNext();j++){
-                    JsonNode availableShift.has
+                //get the shifts array and add an array of 4 times
+                ArrayNode shiftsArray = (ArrayNode) scheduleNode.get("shifts");
+                shiftsArray.add(availableShift.getTimesArrayAsJsonNode());
+                try {
+                    objectWriter.writeValue(getJsonFile(), rootNode);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    public static void removeAvailableShift(){
+    public static void removeAvailableShift(Week.DayNames day, AvailableShift availableShift) throws IOException {
         JsonNode rootNode = getRootNode();
         ObjectMapper objectMapper = getObjectMapper();
         ObjectWriter objectWriter = getObjectWriter();
@@ -318,14 +323,28 @@ public class JacksonEditor extends Jackson {
             Week.DayNames dayFromJson = Week.DayNames.valueOf(scheduleNode.get("day-name").asText());
             if (dayFromJson.equals(day)) {
 
-                //get the shifts array and add an array of 4 times
-                ArrayNode shiftsArray = (ArrayNode) scheduleNode.get("shifts");
-                shiftsArray.add(availableShift.getTimesArrayAsJsonNode());
-                try {
-                    objectWriter.writeValue(getJsonFile(), rootNode);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                Iterator<JsonNode> availableShiftsIterator = scheduleNode.get("shifts").elements();
+
+                for(int j = 0;availableShiftsIterator.hasNext();j++){
+                    JsonNode availableShiftNode = availableShiftsIterator.next();
+
+                    //Checking if the times are the same
+                    int startHourIn = availableShift.getStartTime().getHour();
+                    int startHourJson = availableShiftNode.get(0).asInt();
+                    int startMinuteIn = availableShift.getStartTime().getMinute();
+                    int startMinuteJson = availableShiftNode.get(1).asInt();
+                    int endHourIn = availableShift.getEndTime().getHour();
+                    int endHourJson = availableShiftNode.get(2).asInt();
+                    int endMinuteIn = availableShift.getEndTime().getMinute();
+                    int endMinuteJson = availableShiftNode.get(3).asInt();
+
+                    if (startHourIn == startHourJson && startMinuteIn == startMinuteJson && endHourIn == endHourJson && endMinuteIn == endMinuteJson) {
+                        availableShiftsIterator.remove();
+                        objectWriter.writeValue(getJsonFile(), rootNode);
+                    }
+
                 }
+
             }
         }
     }

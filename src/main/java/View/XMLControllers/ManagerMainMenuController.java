@@ -36,7 +36,7 @@ public class ManagerMainMenuController {
 
     public void handleLogOut(ActionEvent event) throws IOException {
         Session.setToken(null);
-        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/start-view.fxml"));
+        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/start/start-view.fxml"));
         Stage stage = HelperMethods.getStageFromEvent(event);
         stage.setScene(new Scene(signUpScreenRoot));
         stage.show();

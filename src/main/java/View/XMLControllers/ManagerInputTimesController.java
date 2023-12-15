@@ -136,7 +136,7 @@ public class ManagerInputTimesController {
         endMinuteComboBox.getSelectionModel().clearSelection();
     }
 
-    public void removeSelected(ActionEvent event) {
+    public void removeSelected(ActionEvent event) throws IOException {
         Tab selectedTab = dayTabPane.getSelectionModel().getSelectedItem();
 
 
@@ -161,7 +161,7 @@ public class ManagerInputTimesController {
 
                 // Remove the selected item from the ListView
                 selectedDayListView.getItems().remove(selectedItem);
-                JacksonEditor.(SessionAuth.authenticateToken(Session.getToken()),selectedDay, new TimeUnavailable(selectedDay, startTime,endTime));
+                JacksonEditor.removeAvailableShift(selectedDay, new AvailableShift(selectedDay, startTime,endTime));
             }        }
     }
 
