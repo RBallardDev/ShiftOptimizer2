@@ -35,12 +35,12 @@ public class SignUpController {
         try {
             JacksonEditor.addWorker(username, password, status);
             HelperMethods.showAlert("Sign-Up Successful", "Your credentials have been saved. You can now login.");
-
-        }catch(Exception e){
-
-
-            HelperMethods.showAlert("Sign-Up failed", "Your credentials are invalid.");
-
+        } catch (IllegalArgumentException e) {
+            // This block will execute if the username is already taken
+            HelperMethods.showAlert("Sign-Up Failed", "This username has already been taken. Please choose another username.");
+        } catch (Exception e) {
+            // This block will execute for other types of exceptions
+            HelperMethods.showAlert("Sign-Up Failed", "An error occurred. Please try again.");
         }
     }
 
