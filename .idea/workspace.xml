@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ShiftOptimizer2:jar2" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ShiftOptimizer2_jar2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerInputTimesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/WorkerInputTimesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/MinuteCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/MinuteCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/ShiftAssigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/ShiftAssigner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/WorkerAvailabilityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/WorkerAvailabilityManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/DayWorkerSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/DayWorkerSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/TimeUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/TimeUnavailable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/WorkerSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/WorkerSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Staff/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Staff/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +64,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Jmsle/OneDrive/Oxy/COMP 181/ShiftOptimizer2/src/main/resources/test&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.5091954&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;

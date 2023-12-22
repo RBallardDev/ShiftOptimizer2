@@ -26,27 +26,33 @@ public class WorkerAvailabilityManager {
 
     public static boolean workerAvailable(Worker worker, LocalTime startTime, Week.DayNames day) {
         WorkerSchedule workerSchedule = worker.getSchedule();
-
-        //Here is where you can change the time increments
         LocalTime endTime = startTime.plusMinutes(30);
         DayWorkerSchedule daySchedule = workerSchedule.getDaySchedule(day);
         ArrayList<TimeUnavailable> timesUnavailable = daySchedule.getTimesUnavailable();
 
-        //Going through all the unavailabletimes and checking if they overlap
-        for (TimeUnavailable timeUnavailable : timesUnavailable) {
-            if(timesOverlap(timeUnavailable,startTime,endTime)){
-                return false;
-            }
+        // Check if the worker is already scheduled for the time and if adding more time exceeds the limit
+        if (isTimeUnavailable(timesUnavailable, startTime, endTime) || !MinuteCounter.canAssignMoreMinutes(worker.getUserName(), 30)) {
+            return false;
         }
         return true;
     }
 
-    public static boolean timesOverlap(TimeUnavailable timeUnavailable, LocalTime startTime, LocalTime endTime){
+    private static boolean isTimeUnavailable(ArrayList<TimeUnavailable> timesUnavailable, LocalTime startTime, LocalTime endTime) {
+        for (TimeUnavailable timeUnavailable : timesUnavailable) {
+            if (timesOverlap(timeUnavailable, startTime, endTime)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-        boolean touching = timeUnavailable.getStartTime().equals(startTime)||timeUnavailable.getEndTime().equals(endTime);
-        boolean inside = timeUnavailable.getStartTime().isBefore(startTime)&&timeUnavailable.getEndTime().isAfter(endTime);
 
-        return touching||inside;
+    public static boolean timesOverlap(TimeUnavailable timeUnavailable, LocalTime startTime, LocalTime endTime) {
+
+        boolean touching = timeUnavailable.getStartTime().equals(startTime) || timeUnavailable.getEndTime().equals(endTime);
+        boolean inside = timeUnavailable.getStartTime().isBefore(startTime) && timeUnavailable.getEndTime().isAfter(endTime);
+
+        return touching || inside;
     }
 }
 

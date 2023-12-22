@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import java.time.LocalTime;
+import java.time.Duration;
+
 
 public class TimeUnavailable {
     private Week.DayNames day;
@@ -29,6 +31,11 @@ public class TimeUnavailable {
     }
 
     // Getters and Setters
+
+    public int getDurationInMinutes() {
+        return (int) Duration.between(startTime, endTime).toMinutes();
+    }
+
     public Week.DayNames getDay() {
         return day;
     }

@@ -64,5 +64,9 @@ public class Worker {
         return workerSchedule;
     }
 
+    public int getTotalScheduledMinutes() {
+        return workerSchedule.getTotalScheduledMinutes();
+    }
+
 
 }

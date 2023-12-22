@@ -52,6 +52,14 @@ public class DayWorkerSchedule {
 
     }
 
+    public int getTotalScheduledMinutes() {
+        int totalMinutes = 0;
+        for (TimeUnavailable timeUnavailable : timesUnavailable) {
+            totalMinutes += timeUnavailable.getDurationInMinutes();
+        }
+        return totalMinutes;
+    }
+
     public void removeTimeUnavailableFromDay(TimeUnavailable timeUnavailable) {
         LocalTime startTime = timeUnavailable.getStartTime();
         LocalTime endTime = timeUnavailable.getEndTime();

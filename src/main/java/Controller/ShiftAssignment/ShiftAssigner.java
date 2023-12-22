@@ -118,32 +118,33 @@ public class ShiftAssigner {
 
     public static Worker findWorkerToShift(LocalTime currentWorkTimeSegment, Week.DayNames day) {
         ArrayList<Worker> availableWorkers = WorkerAvailabilityManager.avalilableWorkers(currentWorkTimeSegment, day);
-        if (availableWorkers.size() != 0) {
-            String minUsername = availableWorkers.get(0).getUserName();
-            int minMinutes = MinuteCounter.getMinuteCount(availableWorkers.get(0).getUserName());
-            Worker minWorker = availableWorkers.get(0);
+        Worker minWorker = null;
+        int minMinutes = Integer.MAX_VALUE;
 
-            for (Worker worker : availableWorkers) {
-                if (MinuteCounter.getMinuteCount(worker.getUserName()) < minMinutes) {
-                    minMinutes = MinuteCounter.getMinuteCount(worker.getUserName());
-                    minUsername = worker.getUserName();
-                    minWorker = worker;
-                }
+        for (Worker worker : availableWorkers) {
+            int workerMinutes = MinuteCounter.getMinuteCount(worker.getUserName());
+            if (workerMinutes < minMinutes && MinuteCounter.canAssignMoreMinutes(worker.getUserName(), 30)) {
+                minMinutes = workerMinutes;
+                minWorker = worker;
             }
-
-            return minWorker;
         }
-        return null;
+
+        return minWorker;
     }
 
     public static void setWorkerToShift(Worker minWorker, Week.DayNames day, LocalTime currentWorkTimeSegment) {
         if (minWorker != null) {
 
+            if (MinuteCounter.addMinutes(minWorker.getUserName(), 30)) {
+                OptimizedSchedule.setNameToShift(minWorker.getUserName(), day, currentWorkTimeSegment);
+            }
 
-            OptimizedSchedule.setNameToShift(minWorker.getUserName(), day, currentWorkTimeSegment);
-            MinuteCounter.addMinutes(minWorker.getUserName(), 30);
+            //OptimizedSchedule.setNameToShift(minWorker.getUserName(), day, currentWorkTimeSegment);
+            //MinuteCounter.addMinutes(minWorker.getUserName(), 30);
         }
     }
+
+
 
     public static boolean timeSegmentIsAShift(Week.DayNames day, LocalTime startTime) {
         AvailableDaySchedule availableDaySchedule = AvailableSchedule.getAvailableDaySchedule(day);
