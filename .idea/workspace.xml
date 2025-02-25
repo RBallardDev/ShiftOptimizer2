@@ -10,16 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75602ad1-0071-4f43-aa0d-42f6d955ae98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ShiftOptimizer2_jar2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/views/styles/start-screen.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/MinuteCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/MinuteCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/ShiftAssigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/ShiftAssigner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/WorkerAvailabilityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShiftAssignment/WorkerAvailabilityManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/DayWorkerSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/DayWorkerSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/TimeUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/TimeUnavailable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/WorkerSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Schedules/WorkerSchedule/WorkerSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Staff/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Staff/Worker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/XMLControllers/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/XMLControllers/StartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/start/start-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/start/start-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

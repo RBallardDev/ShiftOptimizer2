@@ -77,6 +77,58 @@
       "day-name" : "Saturday",
       "times-unavailable" : [ ]
     } ]
+  }, {
+    "username" : "Reece",
+    "password" : "932f3c1b56257ce8539ac269d7aab42550dacf8818d075f0bdf1990562aae3ef",
+    "status" : "ST",
+    "schedules" : [ {
+      "day-name" : "Sunday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Monday",
+      "times-unavailable" : [ [ 6, 30, 8, 30 ] ]
+    }, {
+      "day-name" : "Tuesday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Wednesday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Thursday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Friday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Saturday",
+      "times-unavailable" : [ ]
+    } ]
+  }, {
+    "username" : "Man",
+    "password" : "932f3c1b56257ce8539ac269d7aab42550dacf8818d075f0bdf1990562aae3ef",
+    "status" : "AD",
+    "schedules" : [ {
+      "day-name" : "Sunday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Monday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Tuesday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Wednesday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Thursday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Friday",
+      "times-unavailable" : [ ]
+    }, {
+      "day-name" : "Saturday",
+      "times-unavailable" : [ ]
+    } ]
   } ],
   "managers" : [ {
     "username" : "man",

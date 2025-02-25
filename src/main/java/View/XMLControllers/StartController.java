@@ -1,45 +1,42 @@
 package View.XMLControllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class StartController {
 
     @FXML
-    private Button signUpButton;
-
-    @FXML
-    private Button signInButton;
-
-    @FXML
     private void handleSignUp(ActionEvent event) {
-        try {
-            // Load the sign-up screen FXML file
-            Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/start/signUp-view.fxml"));
-
-            // Get the current stage using the button from the current scene
-            Stage stage = HelperMethods.getStageFromEvent(event);
-            // Set the sign-up screen scene to the stage
-            stage.setScene(new Scene(signUpScreenRoot));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        loadScene("/views/signUp/signUp-view.fxml", event);
     }
 
     @FXML
-    private void handleSignIn(ActionEvent event) throws IOException {
-        Parent signUpScreenRoot = FXMLLoader.load(getClass().getResource("/views/start/signIn-view.fxml"));
-        Stage stage = HelperMethods.getStageFromEvent(event);
-        stage.setScene(new Scene(signUpScreenRoot));
-        stage.show();
+    private void handleSignIn(ActionEvent event) {
+        loadScene("/views/signIn/signIn-view.fxml", event);
+    }
 
+    /**
+     * Loads the given FXML scene and sets it on the current stage.
+     *
+     * @param fxmlPath the path to the FXML file
+     * @param event the action event triggering the scene change
+     */
+    private void loadScene(String fxmlPath, ActionEvent event) {
+        try {
+            Parent sceneRoot = FXMLLoader.load(getClass().getResource(fxmlPath));
+            Stage stage = HelperMethods.getStageFromEvent(event);
+            stage.setScene(new Scene(sceneRoot));
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("Error loading scene: " + fxmlPath);
+            e.printStackTrace();
+            // Optionally, display an alert to the user if needed.
+        }
     }
 }
